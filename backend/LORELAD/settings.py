@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'LORELAD.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'loreladadmin2020',
+        'HOST': 'lorelad-pgdb1.cvgkvlbpwt0d.us-east-2.rds.amazonaws.com',
+        'PORT': '5432'
     }
 }
 
