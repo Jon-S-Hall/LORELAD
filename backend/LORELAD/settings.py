@@ -37,10 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    'languages',  #for languages app
-    'storages', #for s3
-    'rest_framework',  #for Django rest framekwrok
+    'languages',
+    'Recordings',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +137,5 @@ AWS_STORAGE_BUCKET_NAME = 'loreladbucket1'
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
