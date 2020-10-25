@@ -15,6 +15,7 @@ $font-md-sm: Hind;
 html {
   scroll-behavior: smooth;
 }
+
 // NAVBAR
 header {
   background-color: $color-neutral;
@@ -22,101 +23,115 @@ header {
   position: sticky;
   top: 0;
   right: 0;
-}
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 75%;
-  margin: 0 auto;
+  z-index: 10;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0 auto;
+    h1 {
+      display: inline;
+      a {
+        color: $color-dark-green;
+        font-family: $font-logo;
+        font-weight: 900;
+        font-size: 3rem;
+        &:hover {
+          color: $color-dark-green;
+        }
+      }
+      padding: 1.8rem 0;
+    }
+    a {
+      color: $color-light-orange;
+      font-family: $font-md-sm;
+      font-weight: bold;
+      font-size: 1.1rem;
+      &:hover {
+        color: $color-hover-green;
+      }
+    }
+    .coming-soon {
+      visibility: hidden;
+    }
+  }
 }
 
-h1 {
-  display: inline;
-  color: $color-dark-green;
-  font-family: $font-logo;
-  font-weight: 900;
-  font-size: 3rem;
-  padding: 0.8em 0;
-}
-
-nav a {
-  color: $color-light-orange;
-  font-family: $font-md-sm;
-  font-weight: bold;
-  font-size: 1.1rem;
-  text-decoration: none;
-}
-nav a:hover {
-  color: $color-hover-green;
-}
-
-.coming-soon {
-  visibility: hidden;
-}
-
-// TOP SECTION
+// LANDING PAGE
+//TOP SECTION
 #top {
   min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  background: url("../images/map.png") center / cover no-repeat;
+  .top-content {
+    padding: 7% 12.5% 2%;
+    display: flex;
+    flex-direction: column;
+    .top-text {
+      display: flex;
+      justify-content: space-between;
+      .left,
+      .right {
+        display: flex;
+        flex-direction: column;
+        color: $color-dark-green;
+        width: 40%;
+      }
+    }
+  }
 }
-.top-content {
-  padding: 7% 12.5% 1.5%;
-  display: flex;
-  flex-direction: column;
-}
-.top-text {
-  display: flex;
-  justify-content: space-between;
-}
-.left,
-.right {
-  display: flex;
-  flex-direction: column;
-  width: 35%;
-  color: $color-dark-green;
-}
+//TOP SECTION -LEFT
 .left {
-  width: 40%;
+  h2 {
+    font-family: $font-lg;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
+  }
+  p {
+    font-family: $font-md-sm;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    line-height: 2rem;
+    span {
+      font-weight: bold;
+    }
+  }
 }
-h2 {
-  font-family: $font-lg;
-  font-size: 2.5rem;
-  font-weight: bold;
-  padding-bottom: 2rem;
-}
-.name-emphasis {
-  font-weight: bold;
-  display: inline;
-}
-.left p {
-  font-family: $font-md-sm;
-  font-size: 1.1rem;
+//TOP SECTION - RIGHT
+.right {
   padding-top: 1rem;
-  line-height: 2rem;
+  h3 {
+    font-family: $font-lg;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 3rem;
+  }
+  .right-content {
+    display: flex;
+    .svgs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.15rem 1.5rem 0 0;
+      svg {
+        margin-bottom: 2.8rem;
+      }
+    }
+    p {
+      font-family: $font-md-sm;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.8rem;
+      padding-bottom: 2.5rem;
+    }
+  }
 }
-h3 {
-  font-family: $font-lg;
-  font-size: 2rem;
-  font-weight: bold;
-  padding-bottom: 3rem;
-}
-.right p {
-  font-family: $font-md-sm;
-  font-size: 0.9rem;
-  line-height: 1.8rem;
-}
-.step {
-  display: flex;
-  align-items: center;
-  padding-bottom: 2.5rem;
-}
-.right i {
-  font-size: 2.5rem;
-  width: 8rem;
-}
+
+//TOP SECTION - CTA BUTTON
 .top-cta-button {
   display: flex;
   flex-direction: column;
@@ -124,48 +139,103 @@ h3 {
   align-items: center;
   font-family: $font-lg;
   color: $color-dark-orange;
+  p {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  a {
+    font-size: 4.5rem;
+    color: $color-dark-orange;
+  }
 }
-.top-cta-button p {
-  font-size: 2rem;
-  font-weight: bold;
-}
-.top-cta-button a {
-  font-size: 4.5rem;
-  color: $color-dark-orange;
-}
-
 // CTA SECTION
 #cta {
   display: flex;
   background-color: $color-neutral;
   justify-content: space-between;
   align-items: center;
-  padding: 5% 18%;
+  padding: 5% 18% 10%;
+  .speaker,
+  .researcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    color: $color-light-green;
+    font-family: $font-md-sm;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+    text-align: center;
+    min-height: 8rem;
+    width: 35%;
+    button {
+      background-color: $color-light-green;
+      padding: 0.5rem 1.1rem;
+      margin-top: 1.1rem;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      min-height: 4rem;
+      width: 100%;
+    }
+    a {
+      color: $color-neutral;
+      font-size: 1.1rem;
+      line-height: 1.7rem;
+    }
+  }
 }
-.speaker,
-.researcher {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  color: $color-light-green;
-  font-family: $font-md-sm;
-  font-weight: 700;
-  font-size: 1.1rem;
+
+//ABOUT PAGE
+#about-us,
+#what-we-do {
+  color: $color-dark-green;
+  background-color: $color-neutral;
+  svg {
+    position: absolute;
+  }
+}
+#what-we-do {
+  padding-bottom: 4rem;
+}
+.content-wrapper {
   text-align: center;
-  height: 7rem;
-  width: 35%;
+  width: 50%;
+  padding: 4rem 0 0;
+  margin: 0 auto;
+  h1 {
+    font-size: 2.5rem;
+    font-family: $font-lg;
+    font-weight: 600;
+    padding-bottom: 3rem;
+  }
+  p {
+    font-size: 1.25rem;
+    font-family: $font-md-sm;
+    line-height: 2rem;
+    font-weight: 400;
+  }
+  h1 + p {
+    font-weight: 700;
+  }
+  .stats {
+    padding: 1.8rem 0 2.5rem;
+    p {
+      font-size: 2rem;
+      font-family: $font-lg;
+      line-height: 2.5rem;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
 }
-button {
-  color: $color-neutral;
-  background-color: $color-light-green;
-  font-size: 1.1rem;
-  line-height: 1.7rem;
-  //   padding: 0 1.1rem;
-  margin-top: 1.1rem;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  height: 8rem;
-  width: 85%;
+.globe {
+  top: 15rem;
+  left: 13em;
+}
+.translate {
+  top: 45rem;
+  right: 11em;
 }
