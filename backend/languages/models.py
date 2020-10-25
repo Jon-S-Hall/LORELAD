@@ -15,5 +15,6 @@ class Record(models.Model):
     languageID = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     speakerID = models.ForeignKey(Speaker, null=True, on_delete=models.SET_NULL)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
+    date_recorded = models.DateTimeField(null=True)
 
 

@@ -4,8 +4,10 @@ from django.contrib import admin
 
 from .models import Language
 from .models import Speaker
+from .models import Record
 
 
 
 admin.site.register(Language)
 admin.site.register(Speaker)
+admin.site.register(Record)

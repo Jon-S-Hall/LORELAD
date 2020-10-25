@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'languages',
+
+    'languages',  #for languages app
+    'storages', #for s3
+    'rest_framework',  #for Django rest framekwrok
 ]
 
 MIDDLEWARE = [
@@ -124,3 +127,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+#S3 BUCKETS CONFIGURATION
+
+AWS_ACCESS_KEY_ID = 'AKIAZTKFQ5ZUUGF74JHQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'loreladbucket1'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
