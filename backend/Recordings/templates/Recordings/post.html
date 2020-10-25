@@ -1,0 +1,25 @@
+<html>
+    <title>Post your videos</title>
+    <head> 
+        <script>
+            function setup() {
+                document.getElementById('buttonid').addEventListener('click', openDialog);
+                function openDialog() {
+                    document.getElementById('fileid').click();
+                }
+                document.getElementById('fileid').addEventListener('change', submitForm);
+                function submitForm() {
+                    document.getElementById('formid').submit();
+                }
+            }
+        </script> 
+    </head>
+    <body onload="setup()">
+        <form method="POST" enctype="multipart/form-data"> 
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input id='fileid' type='file' name='filename' hidden/> 
+            <input type='submit' value='Submit' /> 
+        </form> 
+    </body> 
+</html>
