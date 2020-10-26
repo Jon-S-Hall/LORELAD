@@ -57,8 +57,8 @@ ROOT_URLCONF = 'LORELAD.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'reactapp/build')]
-        ,
+        'DIRS': [],
+        #'DIRS': [os.path.join(BASE_DIR, 'reactapp/build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,7 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIR = [os.path.join(BASE_DIR, 'reactapp/build/static')]
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static')
+]
+#STATICFILES_DIR = [os.path.join(BASE_DIR, 'reactapp/build/static')]
 
 #S3 BUCKETS CONFIGURATION
 
