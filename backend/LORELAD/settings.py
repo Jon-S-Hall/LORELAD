@@ -53,12 +53,15 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'LORELAD.urls'
-
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
         #'DIRS': [os.path.join(BASE_DIR, 'reactapp/build')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(SETTINGS_PATH ,'Recordings', 'template','Recordings')
+                 ]
+        ,
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
