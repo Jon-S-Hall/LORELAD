@@ -3,5 +3,5 @@ from . import views
 
 urlpatterns = [
     path('Video_upload/', views.post_new),
-    path('recordings/', views.showvideo),
+    path('Video_upload/recordings/', views.showvideo),
 ]

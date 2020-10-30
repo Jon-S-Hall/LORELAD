@@ -9,12 +9,18 @@ class Language(models.Model):
     family = models.CharField(max_length=200, null=True)
     continent = models.CharField(max_length=200, null=True)
 
+    def __str__(self):
+        return self.name 
+
 class Speaker(models.Model):
     name = models.CharField(max_length=200, null=True)
     email = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=200, null=True)
     country = models.CharField(max_length=200, null=True) #later use django_countries
     languages = models.ManyToManyField(Language)
+
+    def __str__(self):
+        return self.name
 
 class Record(models.Model):
     SOURCES = (
