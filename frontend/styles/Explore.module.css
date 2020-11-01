@@ -1,0 +1,66 @@
+.main {
+  padding: 2rem 0 4rem;
+}
+.main h1 {
+  text-align: center;
+  font-size: 2rem;
+  font-family: Montserrat;
+  font-weight: 600;
+  padding-bottom: 3rem;
+}
+.main form {
+  text-align: center;
+}
+
+.main label {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.main form div {
+  width: 60%;
+  padding: 0.75rem 0.5rem;
+  margin: 0 auto 3rem;
+  border-radius: 50px;
+  border: 1px solid black;
+}
+
+.main input {
+  width: 90%;
+  border: none;
+  border-right: 1px solid black;
+  margin-right: 1rem;
+  font-size: 1rem;
+  padding-right: 1rem;
+}
+
+.main input:focus {
+  outline: none;
+}
+
+.main button {
+  border: none;
+  outline: none;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.main button:focus {
+  border: none;
+  outline: none;
+}
+
+.results {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.results div {
+  display: flex;
+}

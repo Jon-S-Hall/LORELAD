@@ -1,0 +1,64 @@
+.about_us,
+.what_we_do {
+  color: #283618;
+  background-color: #fefae0;
+  position: relative;
+}
+
+.about_us svg,
+.what_we_do svg {
+  position: absolute;
+}
+
+.what_we_do {
+  padding-bottom: 4rem;
+}
+
+.content_wrapper {
+  text-align: center;
+  width: 50%;
+  padding: 4rem 0 0;
+  margin: 0 auto;
+}
+
+.content_wrapper h1 {
+  font-size: 2.5rem;
+  font-family: Montserrat;
+  font-weight: 600;
+  padding-bottom: 3rem;
+}
+
+.content_wrapper p {
+  font-size: 1.25rem;
+  font-family: Hind;
+  line-height: 2rem;
+  font-weight: 400;
+}
+
+.content_wrapper h1 + p {
+  font-weight: 700;
+}
+
+.stats {
+  padding: 1.8rem 0 2.5rem;
+}
+
+.stats p {
+  font-size: 2rem;
+  font-family: Montserrat;
+  line-height: 2.5rem;
+}
+
+.stats p span {
+  font-weight: 700;
+}
+
+.globe {
+  top: 8rem;
+  left: 13em;
+}
+
+.translate {
+  top: 11rem;
+  right: 11em;
+}

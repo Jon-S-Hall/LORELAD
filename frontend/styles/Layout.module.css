@@ -1,0 +1,53 @@
+.header {
+  background-color: #fefae0;
+  border-bottom: 4px solid rgba(0, 0, 0, 0.25);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.nav a {
+  color: #dda15e;
+  font-family: Hind;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.nav a:hover {
+  color: #8ea934;
+}
+
+.coming_soon {
+  visibility: hidden;
+}
+
+.h1 {
+  display: inline;
+  padding: 1.8rem 0;
+}
+
+.h1 a {
+  color: #283618;
+  font-family: MuseoModerno;
+  font-weight: 900;
+  font-size: 3rem;
+}
+
+.h1 a:hover {
+  color: #283618;
+}
