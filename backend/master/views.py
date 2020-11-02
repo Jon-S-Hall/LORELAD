@@ -5,7 +5,8 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return render(request, 'languages/index.html')
+    return render(request, 'master/index.html')
 
 def about(request):
-    return render(request, 'languages/about.html')
+    return render(request, 'master/about.html')
+

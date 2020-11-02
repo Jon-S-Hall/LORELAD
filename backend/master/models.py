@@ -10,7 +10,7 @@ class Language(models.Model):
     continent = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.name 
+        return self.name
 
 class Speaker(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -34,5 +34,4 @@ class Record(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     quality = models.IntegerField(null=True) #how can we find the quality of a recording?
     date_recorded = models.DateTimeField(null=True)
-
 

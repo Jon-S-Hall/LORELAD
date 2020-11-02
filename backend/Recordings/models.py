@@ -1,5 +1,5 @@
 from django.db import models
-from languages.models import Speaker, Language
+from master.models import Speaker, Language
 # Create your models here.
 
 def content_file_name(instance, filename):
