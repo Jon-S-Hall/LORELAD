@@ -10,7 +10,10 @@ class Language(models.Model):
     continent = models.CharField(max_length=200, null=True)
 
     def __str__(self):
-        return self.name 
+        return self.name
+
+    class Meta:
+        ordering = ['name']
 
 class Speaker(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -18,6 +21,9 @@ class Speaker(models.Model):
     phone = models.CharField(max_length=200, null=True)
     country = models.CharField(max_length=200, null=True) #later use django_countries
     languages = models.ManyToManyField(Language)
+
+    class Meta:
+        ordering = ['name']
 
     def __str__(self):
         return self.name
@@ -35,4 +41,5 @@ class Record(models.Model):
     quality = models.IntegerField(null=True) #how can we find the quality of a recording?
     date_recorded = models.DateTimeField(null=True)
 
-
+    class Meta:
+        ordering = ['date_recorded']
