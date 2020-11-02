@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'languages',
     'Recordings',
     'storages',
+    'rest_framework',
+    'loreladAPI.apps.LoreladapiConfig'
+    
 ]
 
 MIDDLEWARE = [
