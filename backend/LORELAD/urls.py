@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import TemplateView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from rest_framework import routers
+
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('master.urls')),
     path('', include('Recordings.urls')),
+    path('', include('loreladAPI.urls')),
     #path('', TemplateView.as_view(template_name='index.html')),
 
 ]

@@ -1,0 +1,241 @@
+$color-neutral: #fefae0;
+$color-dark-green: #283618;
+$color-light-green: #606c38;
+$color-dark-orange: #bc6c25;
+$color-light-orange: #dda15e;
+$color-hover-green: #8ea934;
+
+$font-logo: MuseoModerno;
+$font-lg: Montserrat;
+$font-md-sm: Hind;
+
+* {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+// NAVBAR
+header {
+  background-color: $color-neutral;
+  border-bottom: 4px solid rgba($color: #000000, $alpha: 0.25);
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 75%;
+    margin: 0 auto;
+    h1 {
+      display: inline;
+      a {
+        color: $color-dark-green;
+        font-family: $font-logo;
+        font-weight: 900;
+        font-size: 3rem;
+        &:hover {
+          color: $color-dark-green;
+        }
+      }
+      padding: 1.8rem 0;
+    }
+    a {
+      color: $color-light-orange;
+      font-family: $font-md-sm;
+      font-weight: bold;
+      font-size: 1.1rem;
+      &:hover {
+        color: $color-hover-green;
+      }
+    }
+    .coming-soon {
+      visibility: hidden;
+    }
+  }
+}
+
+// LANDING PAGE
+//TOP SECTION
+#top {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url("../images/map.png") center / cover no-repeat;
+  .top-content {
+    padding: 7% 12.5% 2%;
+    display: flex;
+    flex-direction: column;
+    .top-text {
+      display: flex;
+      justify-content: space-between;
+      .left,
+      .right {
+        display: flex;
+        flex-direction: column;
+        color: $color-dark-green;
+        width: 40%;
+      }
+    }
+  }
+}
+//TOP SECTION -LEFT
+.left {
+  h2 {
+    font-family: $font-lg;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding-bottom: 2rem;
+  }
+  p {
+    font-family: $font-md-sm;
+    font-size: 1.2rem;
+    padding-top: 1rem;
+    line-height: 2rem;
+    span {
+      font-weight: bold;
+    }
+  }
+}
+//TOP SECTION - RIGHT
+.right {
+  padding-top: 1rem;
+  h3 {
+    font-family: $font-lg;
+    font-size: 2rem;
+    font-weight: bold;
+    padding-bottom: 3rem;
+  }
+  .right-content {
+    display: flex;
+    .svgs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.15rem 1.5rem 0 0;
+      svg {
+        margin-bottom: 2.8rem;
+      }
+    }
+    p {
+      font-family: $font-md-sm;
+      font-size: 1rem;
+      font-weight: 600;
+      line-height: 1.8rem;
+      padding-bottom: 2.5rem;
+    }
+  }
+}
+
+//TOP SECTION - CTA BUTTON
+.top-cta-button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-lg;
+  color: $color-dark-orange;
+  p {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  a {
+    font-size: 4.5rem;
+    color: $color-dark-orange;
+  }
+}
+// CTA SECTION
+#cta {
+  display: flex;
+  background-color: $color-neutral;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5% 18% 10%;
+  .speaker,
+  .researcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    color: $color-light-green;
+    font-family: $font-md-sm;
+    font-weight: 700;
+    font-size: 1.1rem;
+    line-height: 1.75rem;
+    text-align: center;
+    min-height: 8rem;
+    width: 35%;
+    button {
+      background-color: $color-light-green;
+      padding: 0.5rem 1.1rem;
+      margin-top: 1.1rem;
+      border-radius: 20px;
+      outline: none;
+      border: none;
+      min-height: 4rem;
+      width: 100%;
+    }
+    a {
+      color: $color-neutral;
+      font-size: 1.1rem;
+      line-height: 1.7rem;
+    }
+  }
+}
+
+//ABOUT PAGE
+#about-us,
+#what-we-do {
+  color: $color-dark-green;
+  background-color: $color-neutral;
+  svg {
+    position: absolute;
+  }
+}
+#what-we-do {
+  padding-bottom: 4rem;
+}
+.content-wrapper {
+  text-align: center;
+  width: 50%;
+  padding: 4rem 0 0;
+  margin: 0 auto;
+  h1 {
+    font-size: 2.5rem;
+    font-family: $font-lg;
+    font-weight: 600;
+    padding-bottom: 3rem;
+  }
+  p {
+    font-size: 1.25rem;
+    font-family: $font-md-sm;
+    line-height: 2rem;
+    font-weight: 400;
+  }
+  h1 + p {
+    font-weight: 700;
+  }
+  .stats {
+    padding: 1.8rem 0 2.5rem;
+    p {
+      font-size: 2rem;
+      font-family: $font-lg;
+      line-height: 2.5rem;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+.globe {
+  top: 15rem;
+  left: 13em;
+}
+.translate {
+  top: 45rem;
+  right: 11em;
+}
