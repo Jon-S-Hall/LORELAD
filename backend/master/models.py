@@ -1,16 +1,22 @@
 from django.db import models
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
+CONTINENT_CHOICES = ['Asia', 'Africa', 'Australia',
+                    'Europe', 'North America', 'South America',
+                    # 'Antarctica'
+                    ]
 
 def content_file_name(instance, filename):
     return '/'.join(['recordings', instance.language.name, filename]) #the recording folder is known to be in s3
+
+
 
 
 class Language(models.Model):
     name = models.CharField(max_length=200, null=True)
     #nearestLanguage = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     family = models.CharField(max_length=200, null=True)
-    continent = models.CharField(max_length=200, null=True)
+    continent = models.CharField(choices=CONTINENT_CHOICES, default='', max_length=200, null=True)
 
     def __str__(self):
         return self.name
