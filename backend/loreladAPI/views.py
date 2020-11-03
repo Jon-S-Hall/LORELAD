@@ -1,5 +1,5 @@
 from rest_framework import viewsets, permissions
-from .serializers import UserSerializer, GroupSerializer
+from .serializers import UserSerializer, GroupSerializer, LanguageSerializer, SpeakerSerializer, RecordSerializer
 from master.models import Language, Record, Speaker
 from django.contrib.auth.models import User, Group
 
