@@ -17,9 +17,9 @@
     <div class="container">
         {% for x in video %}
         <h3 class = "text-center mt -2 mb-2"> {{x.caption}}</h3>
-        <audio controls>
-            <source src = "{{x.video.url}}" type = "m4a" />
-        </audio>
+        <video id="intro" type="video/mp4" controls preload autoplay>
+          <source src="{{ x.videofile.url }}" type="video/mp4">
+      </video>
         {% endfor %}
     </div>
 
