@@ -25,7 +25,7 @@ SECRET_KEY = '1ek^@3h3b5!1yb9s!_p2go#hy1($awzf%1q1&d0(r(^*l+9^42'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lorelad-backend.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -40,12 +40,15 @@ INSTALLED_APPS = [
     'master',
     'storages',
     'rest_framework',
-    'loreladAPI.apps.LoreladapiConfig'
+    'loreladAPI.apps.LoreladapiConfig',
     
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware', #whitenoise allows web apps to serve its own static files. don't need later
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -149,7 +152,6 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 #STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, 'static')
-STATIC_URL = os.path.join(BASE_DIR, 'static/')
-
+STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
