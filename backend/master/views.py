@@ -29,7 +29,7 @@ def createRecord(request):
 def show_video(request):
     records = Record.objects.all()
 
-    return render(request, 'master/upload.html', {"records": records})
+    return render(request, 'master/recordings.html', {"records": records})
 
 
 #def createRecord(request):
