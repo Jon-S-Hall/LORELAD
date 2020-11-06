@@ -20,6 +20,9 @@
         <video id="intro" type="video/mp4" controls preload autoplay>
           <source src="{{ x.videofile.url }}" type="video/mp4">
       </video>
+      <a href="{{ x.videofile.url }}" download="{{x.caption}}">
+        <button class="btn"><i class="fa fa-download"></i> Download</button>
+      </a>
         {% endfor %}
     </div>
 
