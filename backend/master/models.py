@@ -57,12 +57,12 @@ class Record(models.Model):
     def __str__(self):
         return self.title + ": " + str(self.media)
 
-class Video(models.Model):
-    caption= models.CharField(max_length=500)
-    speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    videofile= models.FileField(upload_to=content_file_name, null=True)
+#class Video(models.Model):
+#    caption= models.CharField(max_length=500)
+#    speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE)
+#    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+#    videofile= models.FileField(upload_to=content_file_name, null=True)
 
 
-    def __str__(self):
-        return self.caption + ": " + str(self.videofile)
+#    def __str__(self):
+#        return self.caption + ": " + str(self.videofile)
