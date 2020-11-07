@@ -1,7 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
 from . import views
-from rest_framework.urlpatterns import format_suffix_patterns
 
 router = routers.DefaultRouter()
 
@@ -15,6 +14,6 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     path('languages/', views.language_list),
     path('languages/<int:pk>', views.language_detail),
+    path('records/', views.record_list),
+    path('records/<int:pk>', views.record_detail),
     ]
-
-# urlpatterns = format_suffix_patterns(urlpatterns)
