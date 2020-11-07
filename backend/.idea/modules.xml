@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/LORELAD.iml" filepath="$PROJECT_DIR$/.idea/LORELAD.iml" />
+      <module fileurl="file://E://lorelad/../../LORELAD/backend/.idea/LORELAD.iml" filepath="E://lorelad/../../LORELAD/backend/.idea/LORELAD.iml" />
     </modules>
   </component>
 </project>
