@@ -54,31 +54,12 @@ class Record(models.Model):
     def __str__(self):
         return self.title + ": " + str(self.media)
 
-class Video(models.Model):
-    caption= models.CharField(max_length=500)
-    speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE)
-    language = models.ForeignKey(Language, on_delete=models.CASCADE)
-    videofile= models.FileField(upload_to=content_file_name, null=True)
+#class Video(models.Model):
+#    caption= models.CharField(max_length=500)
+#    speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE)
+#    language = models.ForeignKey(Language, on_delete=models.CASCADE)
+#    videofile= models.FileField(upload_to=content_file_name, null=True)
 
 
-    def __str__(self):
-        return self.caption + ": " + str(self.videofile)
-
-#related_name referring the app name
-owner = models.ForeignKey('auth.User', related_name='master', on_delete=models.CASCADE)
-highlighted = models.TextField()
-
-
-# function came from tutorials might delete later
-def save(self, *args, **kwargs):
-    """
-    Use the `pygments` library to create a highlighted HTML
-    representation of the code snippet.
-    """
-    lexer = get_lexer_by_name(self.language)
-    linenos = 'table' if self.linenos else False
-    options = {'title': self.title} if self.title else {}
-    formatter = HtmlFormatter(style=self.style, linenos=linenos,
-                              full=True, **options)
-    self.highlighted = highlight(self.code, lexer, formatter)
-    super(Snippet, self).save(*args, **kwargs)
+#    def __str__(self):
+#        return self.caption + ": " + str(self.videofile)

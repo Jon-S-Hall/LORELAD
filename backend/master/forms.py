@@ -1,12 +1,12 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Video, Record
+from .models import Record
 
 
-class VideoForm(ModelForm):
-    class Meta:
-        model = Video
-        fields = '__all__'
+#class VideoForm(ModelForm):
+#    class Meta:
+#        model = Video
+#        fields = '__all__'
 
 
 class RecordForm(ModelForm):
