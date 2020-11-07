@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Video, Record
 from .forms import VideoForm, RecordForm
 
+
 # Create your views here.
 
 

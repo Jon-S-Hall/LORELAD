@@ -1,15 +1,12 @@
 from django.db import models
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
-CONTINENT_CHOICES = ['Asia', 'Africa', 'Australia',
-                    'Europe', 'North America', 'South America',
+CONTINENT_CHOICES = [('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'),
                     # 'Antarctica'
                     ]
 
 def content_file_name(instance, filename):
     return '/'.join(['recordings', instance.language.name, filename]) #the recording folder is known to be in s3
-
-
 
 
 class Language(models.Model):
@@ -66,3 +63,22 @@ class Video(models.Model):
 
     def __str__(self):
         return self.caption + ": " + str(self.videofile)
+
+#related_name referring the app name
+owner = models.ForeignKey('auth.User', related_name='master', on_delete=models.CASCADE)
+highlighted = models.TextField()
+
+
+# function came from tutorials might delete later
+def save(self, *args, **kwargs):
+    """
+    Use the `pygments` library to create a highlighted HTML
+    representation of the code snippet.
+    """
+    lexer = get_lexer_by_name(self.language)
+    linenos = 'table' if self.linenos else False
+    options = {'title': self.title} if self.title else {}
+    formatter = HtmlFormatter(style=self.style, linenos=linenos,
+                              full=True, **options)
+    self.highlighted = highlight(self.code, lexer, formatter)
+    super(Snippet, self).save(*args, **kwargs)

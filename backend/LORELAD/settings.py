@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'master',
     'storages',
     'rest_framework',
-    'loreladAPI.apps.LoreladapiConfig',
-    
+    'loreladAPI',
+
 ]
 
 MIDDLEWARE = [
