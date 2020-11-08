@@ -16,4 +16,6 @@ urlpatterns = [
     path('languages/<int:pk>', views.language_detail),
     path('records/', views.record_list),
     path('records/<int:pk>', views.record_detail),
+    path('users/', views.UserList.as_view()),
+    path('users/<int:pk>/', views.UserDetail.as_view()),
     ]
