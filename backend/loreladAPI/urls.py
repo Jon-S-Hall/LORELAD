@@ -1,7 +1,6 @@
 from django.urls import include, path
 from rest_framework import routers
 from . import views
-
 router = routers.DefaultRouter()
 
 
@@ -16,6 +15,6 @@ urlpatterns = [
     path('languages/<int:pk>', views.LanguageDetail.as_view()),
     path('records/', views.RecordList.as_view()),
     path('records/<int:pk>', views.RecordDetail.as_view()),
-    path('users/', views.UserList.as_view()),
-    path('users/<int:pk>/', views.UserDetail.as_view()),
+    #path('users/', views.UserList.as_view()),
+    #path('users/<int:pk>/', views.UserDetail.as_view()),
     ]

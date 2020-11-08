@@ -1,5 +1,5 @@
 from rest_framework import viewsets, permissions
-from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer, UserSerializer
+from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer
 from master.models import Language, Record, Speaker
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
@@ -9,14 +9,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+#class UserList(generics.ListAPIView):
+#    queryset = User.objects.all()
+#    serializer_class = UserSerializer
 
 
-class UserDetail(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+#class UserDetail(generics.RetrieveAPIView):
+#    queryset = User.objects.all()
+#    serializer_class = UserSerializer
 
 
 ## Languages API view

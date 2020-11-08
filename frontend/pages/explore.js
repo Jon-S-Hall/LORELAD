@@ -1,8 +1,9 @@
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Explore.module.css";
 import Layout from "../components/Layout";
 //functional or stateless component. recordings property gets passed in from getStaticProps
-const Explore = ({ recordings }) => (
+const Explore = (props) => (
   <Layout title="Explore">
     <div>
       <Head>
@@ -21,7 +22,7 @@ const Explore = ({ recordings }) => (
       <main className={styles.main}>
         <h1>Explore Languages</h1>
         <section>
-          <form action="index.html" method="post">
+          <form action="/" method="post">
             <div>
               <label for="search">search</label>
               <input
@@ -38,8 +39,11 @@ const Explore = ({ recordings }) => (
           </form>
         </section>
         <section className={styles.results}>
-          {recordings.map((recording) => (
-            <li>{recording.media}</li>
+          {props.languages.map((language) => (
+              <div>
+                <Link href="/"><p>{language.name}</p></Link>
+              </div>
+            //<li>{language.name}</li>
           ))}
         </section>
       </main>
@@ -49,12 +53,12 @@ const Explore = ({ recordings }) => (
 
 export async function getStaticProps() {
   // This is a real endpoint
-  const res = await fetch("https://lorelad-backend.herokuapp.com/records");
-  const recordings = await res.json();
+  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  const languages = await res.json();
 
   return {
     props: {
-      recordings,
+      languages,
     },
   };
 }

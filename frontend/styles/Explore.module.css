@@ -1,5 +1,6 @@
 .main {
   padding: 2rem 0 4rem;
+  background-color: #fefae0
 }
 .main h1 {
   text-align: center;
@@ -63,4 +64,15 @@
 
 .results div {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding:20px;
+}
+
+.results p {
+  border-radius: 25px;
+  background: #E5E5E5;
+  padding: 20px;
+  width: 80%;
+  height: 20%;
 }
