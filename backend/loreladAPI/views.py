@@ -1,39 +1,35 @@
 from rest_framework import viewsets, permissions
-from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer
+from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer, UserSerializer
 from master.models import Language, Record, Speaker
-from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
+
 from rest_framework.parsers import JSONParser
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.views import APIView
+from rest_framework import status
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
-# class LanguageViewSet(viewsets.ModelViewSet):
-#     queryset = Language.objects.all().order_by('name')
-#     serializer_class = LanguageSerializer
-#
-# class SpeakerViewSet(viewsets.ModelViewSet):
-#     queryset = Speaker.objects.all()
-#     serializer_class = SpeakerSerializer
-#
-# class RecordViewSet(viewsets.ModelViewSet):
-#     queryset = Record.objects.all()
-#     serializer_class = RecordSerializer
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 ## Languages API view
-@api_view(['GET', 'POST'])
-def language_list(request, format=None):
+class LanguageList(APIView):
     """
-    List all languages, or create a languages.
+    List all Languages, or create a new Language.
     """
-
-    if request.method == 'GET':
+    def get(self, request, format):
         language = Language.objects.all()
         serializer = LanguageSerializer(language, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+    def post(self, request, format):
         serializer = LanguageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -41,45 +37,47 @@ def language_list(request, format=None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 ## single language view add 'DELETE' in api_view
-@api_view(['GET', 'PUT'])
-def language_detail(request, pk, format=None):
+class LanguageDetail(APIView):
     """
     Retrieve or update a languages.
     """
-    try:
-        language = Language.objects.get(pk=pk)
-    except Language.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+    def get_object(self, pk):
+        try:
+            language = Language.objects.get(pk=pk)
+        except Language.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
+    def get(self, request, pk, format = None):
+        language = self.get_object(pk)
         serializer = LanguageSerializer(language)
         return Response(serializer.data)
 
-    elif request.method == 'PUT':
+    def put(self, request, pk, format = None):
+        language = self.get_object(pk)
         serializer = LanguageSerializer(language, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # elif request.method == 'DELETE':
-    #     snippet.delete()
-    #     return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, pk, format = None):
+        language = self.get_object(pk)
+        language.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 ## Record API View
-@api_view(['GET', 'POST'])
-def record_list(request, format=None):
+class RecordList(APIView):
     """
     List all records, or create a record.
     """
 
-    if request.method == 'GET':
+    def get(self, request, format):
         record = Record.objects.all()
         serializer = RecordSerializer(record, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST':
+    def post(self, request, format):
         serializer = RecordSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -87,23 +85,30 @@ def record_list(request, format=None):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 ## single record view, add 'DELETE' in api_view if wanted
-@api_view(['GET', 'PUT'])
-def record_detail(request, pk, format=None):
+class RecordDetail(APIView):
     """
     Retrieve or update a languages.
     """
-    try:
-        record = Record.objects.get(pk=pk)
-    except Record.DoesNotExist:
-        return Response(status=status.HTTP_404_NOT_FOUND)
+    def get_object(self, pk):
+        try:
+            record = Record.objects.get(pk=pk)
+        except Record.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND)
 
-    if request.method == 'GET':
+    def get(self, request, pk, format = None):
+        record = self.get_object(pk)
         serializer = RecordSerializer(record)
         return Response(serializer.data)
 
-    elif request.method == 'PUT':
+    def put(self, request, pk, format = None):
+        record = self.get_object(pk)
         serializer = RecordSerializer(record, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    def delete(self, request, pk, format = None):
+        record = self.get_object(pk)
+        record.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
