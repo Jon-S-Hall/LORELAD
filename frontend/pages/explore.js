@@ -1,7 +1,7 @@
 import Head from "next/head";
 import styles from "../styles/Explore.module.css";
 import Layout from "../components/Layout";
-
+//functional or stateless component. recordings property gets passed in from getStaticProps
 const Explore = ({ recordings }) => (
   <Layout title="Explore">
     <div>
@@ -38,20 +38,9 @@ const Explore = ({ recordings }) => (
           </form>
         </section>
         <section className={styles.results}>
-          {/* {recordings.map((recording) => (
-            <div>
-              <p>{recording.Description}</p>
-              <h6>We are in the middle of a language extinction.</h6>
-              <p>languages in the world.</p>
-              <p>are at risk of dying by 2100.</p>
-              <p>
-                With every language that dies undocumented, so does the culture,
-                knowledge and expressions that it encompasses. In our current
-                age, we have to the tools to help preserve these low-resource
-                languages.
-              </p>
-            </div>
-          ))} */}
+          {recordings.map((recording) => (
+            <li>{recording.media}</li>
+          ))}
         </section>
       </main>
     </div>
@@ -60,12 +49,12 @@ const Explore = ({ recordings }) => (
 
 export async function getStaticProps() {
   // This is a real endpoint
-  const res = await fetch("https://sampleapis.com/fakebank/api/Accounts");
+  const res = await fetch("https://lorelad-backend.herokuapp.com/records");
   const recordings = await res.json();
 
   return {
     props: {
-      recordings: recordings.slice(0, 10),
+      recordings,
     },
   };
 }
