@@ -2,6 +2,7 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../styles/Explore.module.css";
 import Layout from "../components/Layout";
+import { useRouter } from 'next/router'
 //functional or stateless component. recordings property gets passed in from getStaticProps
 const Explore = (props) => (
   <Layout title="Explore">
@@ -41,9 +42,11 @@ const Explore = (props) => (
         <section className={styles.results}>
           {props.languages.map((language) => (
               <div>
-                <Link href="/"><p>{language.name}</p></Link>
+                <Link href={{
+                  pathname:'/explore/[lang]',
+                  query: {lang: language.name}
+                }}><p>{language.name}</p></Link>
               </div>
-            //<li>{language.name}</li>
           ))}
         </section>
       </main>
