@@ -24,12 +24,12 @@ class LanguageList(APIView):
     """
     List all Languages, or create a new Language.
     """
-    def get(self, request, format):
+    def get(self, request, format = None):
         language = Language.objects.all()
         serializer = LanguageSerializer(language, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format):
+    def post(self, request, format = None):
         serializer = LanguageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -72,12 +72,12 @@ class RecordList(APIView):
     List all records, or create a record.
     """
 
-    def get(self, request, format):
+    def get(self, request, format = None):
         record = Record.objects.all()
         serializer = RecordSerializer(record, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format):
+    def post(self, request, format = None):
         serializer = RecordSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
