@@ -23,7 +23,7 @@ const Explore = (props) => (
       <main className={styles.main}>
         <h1>Explore Languages</h1>
         <section>
-          <form action="/" method="post">
+          <form action="/" method="get">
             <div>
               <label for="search">search</label>
               <input
@@ -53,6 +53,7 @@ const Explore = (props) => (
     </div>
   </Layout>
 );
+export default Explore;
 
 export async function getStaticProps() {
   // This is a real endpoint
@@ -66,4 +67,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Explore;
+
