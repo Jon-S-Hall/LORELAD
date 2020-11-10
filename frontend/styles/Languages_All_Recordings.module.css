@@ -1,15 +1,30 @@
 .main {
-  padding: 3rem 0 4rem;
+  padding: 3rem 5rem 4rem;
   font-family: Montserrat, sans-serif;
   background-color: #fefae0;
+  min-height: 100vh;
 }
-.main h1 {
-  text-align: center;
-  font-size: 2rem;
+
+.language_name {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.language_name h1 {
   font-weight: 700;
-  padding-bottom: 3rem;
-  color: #283618;
+  font-size: 2.5rem;
+  padding-left: 3rem;
 }
+
+.language_name svg {
+  font-size: 3rem;
+}
+
+.language_name svg:hover {
+  cursor: pointer;
+}
+
 .main form {
   text-align: center;
 }
@@ -26,7 +41,6 @@
 }
 
 .main form div {
-  width: 60%;
   padding: 0.75rem 0.5rem;
   margin: 0 auto 3rem;
   border-radius: 20px;
@@ -63,46 +77,50 @@
   color: #606c38;
 }
 
-.results {
-  width: 80%;
+.recording {
   margin: 0 auto;
-}
-
-.results h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  color: #283618;
-}
-
-.results .language_container {
-  display: flex;
-  box-shadow: 1px 1.5px 5px #999;
-  border-radius: 15px;
-  padding: 1rem 2rem;
-  margin-top: 1.25rem;
-  justify-content: space-between;
-  align-items: center;
   background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 1.4rem 2rem 1.4rem 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
 }
 
-.results h3 {
-  font-size: 1.25rem;
-  font-weight: 500;
+.recording_wrapper {
+  width: 100%;
   padding-right: 3rem;
 }
 
-.results h3:hover {
-  cursor: pointer;
-}
-
-.language_container div {
+.recording_info {
   display: flex;
   justify-content: space-between;
+}
+
+.recording_info div {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.recording_info h6 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding-right: 1rem;
+}
+
+.recording_info div p {
   color: #606c38;
+  font-size: 0.9rem;
   font-weight: 500;
 }
 
-.language_container p {
-  padding-left: 1.5rem;
+.recording_link {
+  color: #606c38;
+  font-size: 1rem;
+  text-decoration: underline;
+}
+
+.recording_link:hover {
+  cursor: pointer;
 }

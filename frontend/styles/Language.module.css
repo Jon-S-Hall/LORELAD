@@ -1,0 +1,173 @@
+.main {
+  padding: 3rem 5rem 4rem;
+  font-family: Montserrat, sans-serif;
+  background-color: #fefae0;
+}
+
+.language_name {
+  display: flex;
+  align-items: center;
+}
+
+.language_name h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  padding-left: 3rem;
+}
+
+.language_name svg {
+  font-size: 3rem;
+}
+
+.language_name svg:hover {
+  cursor: pointer;
+}
+
+/* About */
+.about_container,
+.recordings_container,
+.communities_container {
+  background-color: white;
+  border-radius: 25px;
+  margin: 2rem auto;
+  padding: 3rem 2.5rem;
+}
+
+.about_container h3,
+.recordings_container h3,
+.communities_container h3 {
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.top {
+  display: flex;
+  margin: 1rem 0 2rem;
+}
+
+.top img {
+  padding-right: 3rem;
+}
+
+.top span {
+  font-weight: 700;
+}
+
+.top p {
+  padding-bottom: 1rem;
+  line-height: 1.75rem;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats {
+  color: #606c38;
+  font-size: 1.75rem;
+  font-weight: 600;
+  line-height: 3rem;
+}
+
+.location {
+  display: flex;
+  color: #606c38;
+  font-size: 1.25rem;
+  align-items: center;
+  line-height: 2rem;
+}
+
+.location div {
+  padding: 0 1.5rem 0 1rem;
+}
+
+.location a {
+  color: #606c38;
+  text-decoration: underline;
+}
+
+/* Recordings */
+.recordings_top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.recordings_top button {
+  background-color: #bc6c25;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  outline: none;
+}
+
+.recordings_top button:hover {
+  cursor: pointer;
+}
+
+.recordings_top i {
+  padding-left: 0.5rem;
+}
+
+.recordings_container h4 {
+  color: #606c38;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding-bottom: 1rem;
+}
+
+.subjects {
+  display: flex;
+  justify-content: space-between;
+}
+.subject_1,
+.subject_2 {
+  padding-top: 1rem;
+  width: 47.5%;
+}
+
+.recording {
+  margin-bottom: 0.75rem;
+  border: 1px solid black;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.recording div {
+  display: flex;
+  padding-bottom: 0.5rem;
+}
+
+.recording h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  padding-right: 0.5rem;
+}
+
+.recording p {
+  color: #606c38;
+}
+
+/* Communities */
+.communities {
+  display: flex;
+  margin-top: 2rem;
+}
+
+.communities div {
+  text-align: center;
+  padding: 0 2rem;
+}
+
+.communities i {
+  font-size: 7rem;
+}
+
+.communities h6 {
+  font-size: 1.5rem;
+  padding-top: 1rem;
+  font-weight: 500;
+}

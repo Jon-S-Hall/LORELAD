@@ -64,21 +64,17 @@ const About = () => (
           </svg>
 
           <div className={about_styles.content_wrapper}>
-            <h1>What We Do</h1>
-            <p>We are in the middle of a language extinction.</p>
-            <div className={about_styles.stats}>
-              <p>
-                <span>7000</span> languages in the world.
-              </p>
-              <p>
-                <span>90%</span> are at risk of dying by 2100.
-              </p>
-            </div>
+            <h1>We Are LORELAD</h1>
+            <p className={about_styles.blurb}>
+              Our mission is to help preserve languages and cultures by creating
+              a platform to share stories.
+            </p>
+            {/* <div className={about_styles.stats}></div> */}
             <p>
-              With every language that dies undocumented, so does the culture,
-              knowledge and expressions that it encompasses. In our current age,
-              we have to the tools to help preserve these low-resource
-              languages.
+              Language is so much more than a tool to communicate. The way we
+              speak helps define who we are. Language holds our culture, our
+              heritage, and our history. And we want the world to hear yours.
+              Coming Soon.
             </p>
           </div>
         </section>

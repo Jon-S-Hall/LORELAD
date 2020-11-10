@@ -139,9 +139,11 @@ const Home = () => (
           </div>
           <div className={styles.researcher}>
             <p>Are you a researcher or student?</p>
-            <button>
-              <a href="">Explore Low Resource Languages</a>
-            </button>
+            <Link href="/explore">
+              <button>
+                <a href="">Explore Low Resource Languages</a>
+              </button>
+            </Link>
           </div>
         </section>
       </main>
