@@ -64,11 +64,17 @@ const About = () => (
           </svg>
 
           <div className={about_styles.content_wrapper}>
-            <h1>We are LORELAD</h1>
-            <p>Our mission is to help preserve languages and cultures by creating a platform to share stories.</p>
+
+            <h1>We Are LORELAD</h1>
+            <p className={about_styles.blurb}>
+              Our mission is to help preserve languages and cultures by creating
+              a platform to share stories.
+            </p>
+            {/* <div className={about_styles.stats}></div> */}
             <p>
-              Language is so much more than a tool to communicate. The way we speak helps define who we are.
-              Language holds our culture, our heritage, and our history. And we want the world to hear yours.
+              Language is so much more than a tool to communicate. The way we
+              speak helps define who we are. Language holds our culture, our
+              heritage, and our history. And we want the world to hear yours.
               Coming Soon.
             </p>
           </div>

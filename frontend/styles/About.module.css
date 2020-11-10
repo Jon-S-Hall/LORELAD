@@ -53,13 +53,17 @@
   font-weight: 700;
 }
 
+.blurb {
+  padding-bottom: 2rem;
+}
+
 .globe {
   top: 8rem;
   left: 13em;
 }
 
 .translate {
-  top: 11rem;
+  top: 9rem;
   right: 11em;
 }
 

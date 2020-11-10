@@ -1,0 +1,131 @@
+.main {
+  padding: 3rem 5rem 4rem;
+  font-family: Montserrat, sans-serif;
+  background-color: #fefae0;
+}
+
+.recording_name {
+  display: flex;
+  padding-bottom: 1rem;
+}
+
+.recording_name div {
+  padding-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recording_name h1 {
+  font-weight: 700;
+  font-size: 2.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.recording_name p {
+  font-weight: 600;
+}
+
+.recording_name svg {
+  font-size: 3rem;
+  margin-top: 0.6rem;
+}
+
+.recording_name svg:hover {
+  cursor: pointer;
+}
+
+.buttons_container {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1.2rem;
+}
+
+.buttons_container div {
+  display: flex;
+  align-items: center;
+}
+
+.buttons_container div button {
+  background-color: #fefae0;
+  border: 1px solid #606c38;
+  border-radius: 20px;
+  outline: none;
+  padding: 0.3rem 1.3rem;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+.download_btn {
+  background-color: #fefae0;
+  border: 1px solid black;
+  border-radius: 15px;
+  outline: none;
+  box-shadow: 1px 1.5px 5px #999;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: Montserrat;
+}
+
+.download_btn svg {
+  margin-left: 1rem;
+}
+
+.description {
+  background-color: white;
+  border-radius: 10px;
+  padding: 1.25rem 1.5rem;
+  color: black;
+  font-weight: 500;
+  line-height: 1.8rem;
+  box-shadow: 1px 1.5px 5px #999;
+  margin-bottom: 1.5rem;
+}
+
+.translations_container h3 {
+  font-weight: 600;
+  font-size: 1.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.translations {
+  display: flex;
+  justify-content: space-between;
+}
+
+.translations div {
+  border: 1px solid black;
+  border-radius: 15px;
+  padding: 1.5rem;
+  width: 47.5%;
+}
+
+.translations h6 {
+  font-weight: 600;
+  padding-bottom: 0.75rem;
+}
+
+.translations p {
+  line-height: 1.75rem;
+}
+
+.translations_container button {
+  background-color: #8ea934;
+  padding: 1rem 1.5rem;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 1rem;
+  margin-top: 2rem;
+  font-family: Montserrat;
+  font-weight: 600;
+}
+
+.translations_container i {
+  padding-right: 0.5rem;
+}
