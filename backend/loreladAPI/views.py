@@ -1,5 +1,5 @@
 from rest_framework import viewsets, permissions
-from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer, UserSerializer
+from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer
 from master.models import Language, Record, Speaker
 from django.contrib.auth.models import User
 from django.http import HttpResponse, JsonResponse
@@ -9,14 +9,14 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework import status
 
-class UserList(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+#class UserList(generics.ListAPIView):
+#    queryset = User.objects.all()
+#    serializer_class = UserSerializer
 
 
-class UserDetail(generics.RetrieveAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+#class UserDetail(generics.RetrieveAPIView):
+#    queryset = User.objects.all()
+#    serializer_class = UserSerializer
 
 
 ## Languages API view
@@ -24,12 +24,12 @@ class LanguageList(APIView):
     """
     List all Languages, or create a new Language.
     """
-    def get(self, request, format):
+    def get(self, request, format = None):
         language = Language.objects.all()
         serializer = LanguageSerializer(language, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format):
+    def post(self, request, format = None):
         serializer = LanguageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -72,12 +72,12 @@ class RecordList(APIView):
     List all records, or create a record.
     """
 
-    def get(self, request, format):
+    def get(self, request, format = None):
         record = Record.objects.all()
         serializer = RecordSerializer(record, many=True)
         return Response(serializer.data)
 
-    def post(self, request, format):
+    def post(self, request, format = None):
         serializer = RecordSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()

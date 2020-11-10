@@ -5,6 +5,7 @@ CONTINENT_CHOICES = [('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania')
                     # 'Antarctica'
                     ]
 
+
 def content_file_name(instance, filename):
     return '/'.join(['recordings', instance.language.name, filename]) #the recording folder is known to be in s3
 
@@ -20,6 +21,7 @@ class Language(models.Model):
 
     class Meta:
         ordering = ['name']
+
 
 class Speaker(models.Model):
     name = models.CharField(max_length=200, null=True)
@@ -54,12 +56,3 @@ class Record(models.Model):
     def __str__(self):
         return self.title + ": " + str(self.media)
 
-#class Video(models.Model):
-#    caption= models.CharField(max_length=500)
-#    speaker = models.ForeignKey(Speaker, on_delete=models.CASCADE)
-#    language = models.ForeignKey(Language, on_delete=models.CASCADE)
-#    videofile= models.FileField(upload_to=content_file_name, null=True)
-
-
-#    def __str__(self):
-#        return self.caption + ": " + str(self.videofile)
