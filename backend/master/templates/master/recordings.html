@@ -15,12 +15,12 @@
     <h1>Your Recordings!</h1>
     <hr>
     <div class="container">
-        {% for x in video %}
+        {% for x in records %}
         <h3 class = "text-center mt -2 mb-2"> {{x.caption}}</h3>
         <video id="intro" type="video/mp4" controls preload autoplay>
-          <source src="{{ x.videofile.url }}" type="video/mp4">
+          <source src="{{ x.media.url }}" type="video/mp4">
       </video>
-      <a href="{{ x.videofile.url }}" download="{{x.caption}}">
+      <a href="{{ x.media.url }}" download="{{x.title}}">
         <button class="btn"><i class="fa fa-download"></i> Download</button>
       </a>
         {% endfor %}

@@ -12,13 +12,13 @@
                     document.getElementById('formid').submit();
                 }
             }
-        </script> 
+        </script>
     </head>
     <body onload="setup()">
         <form method="POST" enctype="multipart/form-data"> 
             {% csrf_token %}
             {{ form.as_p }}
-            <input id='fileid' type='file' name='filename' hidden/> 
+            <!-- <input id='fileid' type='file' name='filename' hidden/> -->
             <input type='submit' value='Submit' /> 
         </form> 
     </body> 

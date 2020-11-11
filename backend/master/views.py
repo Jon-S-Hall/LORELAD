@@ -24,7 +24,8 @@ def createRecord(request):
             return redirect('recordings/')
         else:
             form = RecordForm()
-    return render(request, 'master/upload_media_form.html', {'form': form}) #form is something user can manipulate? render puts the view on the page
+    context = {'form':form}
+    return render(request, 'master/post.html', context) #form is something user can manipulate? render puts the view on the page
 
 
 def show_video(request):

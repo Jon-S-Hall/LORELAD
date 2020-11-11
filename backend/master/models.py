@@ -1,4 +1,4 @@
-from django.db import models
+from django.db import models 
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
 CONTINENT_CHOICES = [('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'),
@@ -17,7 +17,7 @@ class Language(models.Model):
     continent = models.CharField(choices=CONTINENT_CHOICES, default='', max_length=200, null=True)
 
     def __str__(self):
-        return self.name
+        return self.name or ''
 
     class Meta:
         ordering = ['name']
