@@ -72,22 +72,24 @@ const Explore = ({ languages }) => (
             </div>
           </div>
           {/* actual code for generating the language list: */}
-          {/* {languages.map((language) => (
-            <div>
-              <Link
-                href={{
-                  pathname: "/explore/[language]",
-                  query: { language: language.name },
-                }}
-              >
+          {languages.map((language) => (
+            <Link
+              href={{
+                pathname: "/explore/[slug]",
+                query: { slug: language.name },
+              }}
+            >
+              <div className={styles.language_container}>
                 <h3>{language.name}</h3>
-              </Link>
-              <div>
-                <p>Native speakers: {language.speakers}</p>
-                <p>Country: {language.country}</p>
+                <div>
+                  {/* <p>Native speakers: {language.speakers}</p>
+                  <p>Country: {language.country}</p> */}
+                  <p>Native speakers: 500</p>
+                  <p>Country: China</p>
+                </div>
               </div>
-            </div>
-          ))} */}
+            </Link>
+          ))}
         </section>
       </main>
     </div>
@@ -96,13 +98,13 @@ const Explore = ({ languages }) => (
 
 export async function getStaticProps() {
   // Call an external API endpoint to get languages
-  const res = await fetch("https://sampleapis.com/fakebank/api/Accounts");
+  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
   const languages = await res.json();
 
   // Pass languages to the page via props
   return {
     props: {
-      languages: languages.slice(0, 10),
+      languages,
     },
   };
 }

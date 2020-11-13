@@ -3,6 +3,7 @@
   padding: 3rem 0 4rem;
   font-family: Montserrat, sans-serif;
   background-color: #fefae0;
+  min-height: 100vh;
 }
 .main h1 {
   text-align: center;
@@ -93,7 +94,7 @@
   padding-right: 3rem;
 }
 
-.results h3:hover {
+.language_container:hover {
   cursor: pointer;
 }
 

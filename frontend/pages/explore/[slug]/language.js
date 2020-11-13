@@ -1,16 +1,19 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import styles from "../../../styles/Language.module.css";
 import Layout from "../../../components/Layout";
 
 // Language Page template - incomplete while API is getting finished
 // refer to taishanese > index.js for example of final product
+const router = useRouter();
+const { language } = router.query;
 
-const Language = ({ language }) => (
-  <Layout title="Language">
+const Language = ({ records }) => (
+  <Layout>
     <div>
       <Head>
-        <title>Language</title>
+        <title>{language.name}</title>
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" />
         {/* Google Fonts */}
@@ -58,13 +61,16 @@ const Language = ({ language }) => (
           <div className={styles.top}>
             <img src="/language_img.png" alt="taishanese_img" />
             <div>
-              <p>{language.description}</p>
+              {/* <p>{language.description}</p> */}
+              <p>description</p>
             </div>
           </div>
           <div className={styles.bottom}>
             <div className={styles.stats}>
-              <p>{language.speaker_num} Active Speakers</p>
-              <p>{language.recording_num} XXX Recordings</p>
+              {/* <p>{language.speaker_num} Active Speakers</p>
+              <p>{language.recording_num} Recordings</p> */}
+              <p>XXX Active Speakers</p>
+              <p>XXX Recordings</p>
             </div>
             <div className={styles.location}>
               <svg
@@ -91,8 +97,8 @@ const Language = ({ language }) => (
             <h3>Recordings</h3>
             <Link
               href={{
-                pathname: "/explore/[language]/all_recordings",
-                query: { language: language.name },
+                pathname: "/explore/[slug]/all_recordings",
+                query: { slug: language.name },
               }}
             >
               <button>
@@ -103,67 +109,89 @@ const Language = ({ language }) => (
           <div className={styles.subjects}>
             <div className={styles.subject_1}>
               <h4>Cooking</h4>
-              {language.recordings.map((recording) => (
+              {records.map((record) => (
                 <div className={styles.recording}>
                   <div>
-                    <h6>{recording.title}</h6>
-                    <p>@{recording.creator}</p>
+                    <h6>Recording Title</h6>
+                    <p>@lrlspeaker123</p>
+                    {/* <h6>{record.title}</h6>
+                    <p>@{record.creator}</p> */}
                   </div>
-                  <p>Audio player here</p>
+                  <p>@{record.media}</p>
                 </div>
               ))}
             </div>
             <div className={styles.subject_2}>
               <h4>Folk Stories</h4>
-              {language.recordings.map((recording) => (
+              <div className={styles.recording}>
+                <div>
+                  <h6>Recording Title</h6>
+                  <p>@lrlspeaker123</p>
+                </div>
+                <p>Audio player here</p>
+              </div>
+              <div className={styles.recording}>
+                <div>
+                  <h6>Recording Title</h6>
+                  <p>@lrlspeaker123</p>
+                </div>
+                <p>Audio player here</p>
+              </div>
+              <div className={styles.recording}>
+                <div>
+                  <h6>Recording Title</h6>
+                  <p>@lrlspeaker123</p>
+                </div>
+                <p>Audio player here</p>
+              </div>
+              {/* {language.records.map((record) => (
                 <div className={styles.recording}>
                   <div>
-                    <h6>{recording.title}</h6>
-                    <p>@{recording.creator}</p>
+                    <h6>{record.title}</h6>
+                    <p>@{record.creator}</p>
                   </div>
-                  <p>Audio player here</p>
+                  <p>@{record.media}</p>
                 </div>
-              ))}
+              ))} */}
             </div>
           </div>
         </section>
         <section className={styles.communities_container}>
           <h3>Communities</h3>
           <div className={styles.communities}>
+            <div>
+              <i class="fab fa-facebook-square"></i>
+              <h6>Facebook</h6>
+            </div>
+            <div>
+              <i class="fab fa-discord"></i>
+              <h6>Discord</h6>
+            </div>
+          </div>
+          {/* <div className={styles.communities}>
             {language.communities.map((community) => (
               <div>
                 <i class="fab fa-discord"></i>
                 <h6>{community.name}</h6>
               </div>
             ))}
-          </div>
+          </div> */}
         </section>
       </main>
     </div>
   </Layout>
 );
 
-export async function getStaticPaths() {
-  // Call an external API endpoint to get posts
-  const res = await fetch("https://sampleapis.com/fakebank/api/Accounts");
-  const languages = await res.json();
+export async function getServerSideProps() {
+  // This is a real endpoint
+  const res = await fetch("https://lorelad-backend.herokuapp.com/records");
+  const records = await res.json();
 
-  // Get the paths we want to pre-render based on languages
-  const paths = languages.map((language) => `/explore/${language.name}`);
-
-  // We'll pre-render only these paths at build time.
-  // { fallback: false } means other routes should 404.
-  return { paths, fallback: false };
-}
-
-export async function getStaticProps({ params }) {
-  // params contains the language name.
-  // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://.../explore/${language.name}`);
-  const language = await res.json();
-
-  // Pass language data to the page via props
-  return { props: { language } };
+  return {
+    props: {
+      records,
+    },
+  };
 }
 
 export default Language;

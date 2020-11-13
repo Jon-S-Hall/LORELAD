@@ -14,9 +14,9 @@ const Layout = (props) => (
     </Head>
     <header className={styles.header}>
       <nav className={styles.nav}>
-        <a className={styles.coming_soon} href="">
-          RECORD
-        </a>
+        <Link href="/record">
+          <a>RECORD</a>
+        </Link>
         <Link href="/explore">
           <a>EXPLORE</a>
         </Link>
@@ -34,6 +34,20 @@ const Layout = (props) => (
       </nav>
     </header>
     {props.children}
+    <footer className={styles.footer}>
+      <div className={styles.links}>
+        <Link href="/about">
+          <a>About</a>
+        </Link>
+        <Link href="/">
+          <a>Contact</a>
+        </Link>
+      </div>
+      <div className={styles.nav}>
+        <a>lorelad@gmail.com</a>
+        <p>©LORELAD 2020</p>
+      </div>
+    </footer>
   </div>
 );
 
