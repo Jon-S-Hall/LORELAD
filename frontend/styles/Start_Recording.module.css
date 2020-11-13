@@ -1,0 +1,149 @@
+.main {
+  padding: 3rem 5rem 4rem;
+  font-family: Montserrat, sans-serif;
+  background-color: #fefae0;
+  position: relative;
+  min-height: 100vh;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 3rem;
+}
+
+.top h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #283618;
+}
+
+.record_btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.record_btns div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.record_btns div:first-child,
+.record_btns div:last-child {
+  justify-content: space-between;
+}
+
+.rec_btn {
+  position: relative;
+}
+
+.rec_txt {
+  position: absolute;
+  top: 45%;
+  margin: 0 auto;
+  color: white;
+  font-weight: 500;
+  font-size: 1.8rem;
+}
+
+.time {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.record_label {
+  margin-top: 3rem;
+}
+
+.record_labels {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 2rem 0 4rem;
+}
+
+.record_labels p {
+  width: 15%;
+}
+
+.record_labels p:last-child {
+  text-align: right;
+}
+
+.directions {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 0 auto;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2rem;
+  width: 70%;
+}
+
+.upload {
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 1.2rem;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  width: 40%;
+  margin: 2rem auto 0;
+  align-self: center;
+  color: white;
+  background-color: #606c38;
+  display: block;
+}
+
+.finish_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+}
+
+.finish {
+  background-color: white;
+  height: 50vh;
+  width: 40vw;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* visibility: hidden; */
+}
+
+.finish h2 {
+  padding-bottom: 2rem;
+  font-size: 1.65rem;
+  font-weight: 600;
+}
+
+.finish button {
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.2rem;
+  background-color: #cddaa1;
+  margin-bottom: 1.25rem;
+  width: 60%;
+}
+
+.finish button:last-child {
+  background-color: #606c38;
+  color: white;
+  margin-bottom: 0;
+}

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../../styles/Recording.module.css";
-import Layout from "../../components/Layout";
+import styles from "../../../styles/Recording.module.css";
+import Layout from "../../../components/Layout";
 
 // Recording Page template - incomplete while API is getting finished
 // refer to recording_1.js for example of final product
@@ -29,7 +29,7 @@ const Recording = ({ recording }) => (
         <div className={styles.recording_name}>
           <Link
             href={{
-              pathname: "/explore/[language]/all_recordings",
+              pathname: "/explore/[slug]/all_recordings",
               query: { language: recording.language },
             }}
           >
