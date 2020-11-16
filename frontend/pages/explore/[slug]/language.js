@@ -57,6 +57,48 @@ const Language = ({ records }) => (
           <h1>{language.name}</h1>
         </div>
         <section className={styles.about_container}>
+          <svg
+            width="352"
+            height="339"
+            viewBox="0 0 352 339"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M32.1588 -35.5431C67.3636 -61.115 107.982 -97.2127 147.623 -88.1464C188.295 -78.8443 186.227 -21.3833 214.845 6.23908C237.587 28.1907 279.949 27.0436 295.391 54.4839C312.514 84.9097 319.07 125.73 301.067 159.455C283.337 192.669 242.196 208.015 206.198 221.57C177.403 232.413 148.473 222.679 118.634 228.15C79.1634 235.388 36.6378 276.937 4.34648 258.582C-27.0232 240.752 -2.18372 188.82 -11.3361 154.276C-20.6976 118.943 -58.1423 92.5053 -49.5688 55.089C-40.7252 16.4939 -1.83724 -10.8491 32.1588 -35.5431Z"
+              fill="#8EA934"
+            />
+          </svg>
+          <svg
+            width="264"
+            height="101"
+            viewBox="0 0 264 101"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M230.511 26.3623C219.916 39.66 188.013 27.5237 169.32 33.6383C152.282 39.2115 148.099 58.9045 128.439 59.7512C107.186 60.6665 78.8188 54.0253 64.459 38.1544C49.7528 21.9007 67.8155 4.45856 62.0386 -13.6369C57.0071 -29.3972 32.4909 -43.1571 33.7058 -58.1758C34.9628 -73.7157 52.5924 -82.1147 68.1662 -89.3899C84.6555 -97.0926 103.17 -103.147 124.778 -100.719C147.606 -98.1545 172.393 -90.4539 190.02 -75.7002C207.107 -61.3981 208.723 -42.2369 215.719 -24.6012C222.61 -7.23187 240.799 13.4483 230.511 26.3623Z"
+              fill="#8EA934"
+            />
+          </svg>
+          <svg
+            width="349"
+            height="132"
+            viewBox="0 0 349 132"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M175.117 0.578433C210.316 5.71293 213.408 44.7474 241.301 61.6437C266.724 77.0438 309.104 72.5476 327.427 92.8401C347.235 114.777 358.169 147.611 339.035 169.882C319.439 192.691 269.742 181.574 238.95 195.824C212.132 208.235 205.764 240.234 175.117 245.741C143.407 251.439 111.91 236.693 84.3701 223.601C55.2117 209.74 27.5891 193.003 14.0723 169.182C-0.20752 144.017 -6.01868 114.47 8.14463 89.2678C21.8744 64.8367 58.2925 54.4813 87.1443 39.1563C115.56 24.0629 140.935 -4.40789 175.117 0.578433Z"
+              fill="#8EA934"
+            />
+          </svg>
           <h3>About</h3>
           <div className={styles.top}>
             <img src="/language_img.png" alt="taishanese_img" />
@@ -181,6 +223,19 @@ const Language = ({ records }) => (
     </div>
   </Layout>
 );
+
+export async function getStaticPaths() {
+  // Call an external API endpoint to get posts
+  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  const languages = await res.json();
+
+  // Get the paths we want to pre-render based on recordings
+  const paths = languages.map((language) => `/explore/${language.name}`);
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false };
+}
 
 export async function getServerSideProps() {
   // This is a real endpoint
