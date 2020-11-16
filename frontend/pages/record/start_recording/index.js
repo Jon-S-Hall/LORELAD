@@ -98,7 +98,7 @@ const Start_Record = () => (
               >
                 <path d="M0 91H26V0H0V91ZM52 0V91H78V0H52Z" fill="#8EA934" />
               </svg>
-              {/* <p className={styles.record_label}>Pause</p> */}
+              <p className={styles.record_label}>Play Recording</p>
             </div>
             <div className={styles.rec_btn}>
               <svg
@@ -110,7 +110,7 @@ const Start_Record = () => (
               >
                 <circle cx="101.5" cy="101.5" r="101.5" fill="#8EA934" />
               </svg>
-              {/* <p className={styles.time}>0:00</p> */}
+              <p className={styles.time}>0:00</p>
               <p className={styles.rec_txt}>REC</p>
             </div>
             <div>
@@ -126,13 +126,8 @@ const Start_Record = () => (
                 <path d="M0 0H91V91H0V0Z" fill="#8EA934" />
               </svg>
               {/* </Link> */}
-              {/* <p className={styles.record_label}>Finish Recording</p> */}
+              <p className={styles.record_label}>Finish Recording</p>
             </div>
-          </div>
-          <div className={styles.record_labels}>
-            <p>Pause</p>
-            <p className={styles.time}>0:00</p>
-            <p>Finish Recording</p>
           </div>
         </section>
         <p className={styles.directions}>

@@ -13,6 +13,10 @@
   padding-bottom: 3rem;
 }
 
+.top svg:hover {
+  cursor: pointer;
+}
+
 .top h1 {
   font-size: 2rem;
   font-weight: 700;

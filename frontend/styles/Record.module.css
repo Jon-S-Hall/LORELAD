@@ -29,8 +29,9 @@
   width: 80%;
   margin: 0 auto;
   border-radius: 25px;
-  padding: 3rem;
+  padding: 3.5rem 3rem;
   text-align: center;
+  position: relative;
 }
 
 .container div:hover {
@@ -45,10 +46,39 @@
   background-color: #ffe9d1;
 }
 
+.container svg {
+  position: absolute;
+  z-index: 1;
+}
+
+.record_svg_1 {
+  top: 0;
+  left: 0;
+  border-top-left-radius: 25px;
+}
+
+.record_svg_2 {
+  top: 5rem;
+  right: 0;
+}
+
+.send_svg_1 {
+  top: 0;
+  left: 0;
+  border-top-left-radius: 25px;
+}
+
+.send_svg_2 {
+  top: 0;
+  right: 0;
+  border-top-right-radius: 25px;
+}
+
 .container h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 3.5rem;
+  z-index: 10;
 }
 
 .container img {
