@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'storages',
     'rest_framework',
     'loreladAPI',
+    'django_filters',
 
 ]
 
@@ -157,7 +158,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK = {'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
     ]

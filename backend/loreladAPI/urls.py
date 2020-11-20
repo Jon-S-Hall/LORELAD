@@ -1,4 +1,4 @@
-from django.urls import include, path
+from django.urls import include, path, re_path
 from rest_framework import routers
 from . import views
 router = routers.DefaultRouter()
@@ -14,6 +14,7 @@ urlpatterns = [
     path('languages/', views.LanguageList.as_view()),
     path('languages/<int:pk>', views.LanguageDetail.as_view()),
     path('records/', views.RecordList.as_view()),
+    re_path(r'^records/(?P<langage>.+)/$', views.RecordList.as_view()),
     path('records/<int:pk>', views.RecordDetail.as_view()),
     #path('users/', views.UserList.as_view()),
     #path('users/<int:pk>/', views.UserDetail.as_view()),

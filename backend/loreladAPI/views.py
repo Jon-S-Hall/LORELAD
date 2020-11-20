@@ -1,7 +1,7 @@
 from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer
 from master.models import Language, Record, Speaker
 from rest_framework import mixins
-from rest_framework import generics
+from rest_framework import generics, filters
 
 ## Languages API view
 class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
@@ -10,6 +10,8 @@ class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
     """
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -43,8 +45,14 @@ class RecordList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Generi
     """
     List all records, or create a record.
     """
-    queryset = Record.objects.all()
     serializer_class = RecordSerializer
+
+    def get_queryset(self):
+        queryset = Record.objects.all()
+        language = self.request.query_params.get('language', None)
+        if Language is not None:
+            queryset = queryset.filter(language=language)
+        return queryset
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
