@@ -1,9 +1,9 @@
-from django.db import models 
+from django.db import models
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
-CONTINENT_CHOICES = [('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'),
+CONTINENT_CHOICES = (('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'), ('nan', 'Not Defined')
                     # 'Antarctica'
-                    ]
+                    )
 
 
 def content_file_name(instance, filename):
@@ -11,10 +11,10 @@ def content_file_name(instance, filename):
 
 
 class Language(models.Model):
-    name = models.CharField(max_length=200, null=True)
+    name = models.CharField(max_length=200, null=False)
     #nearestLanguage = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     family = models.CharField(max_length=200, null=True)
-    continent = models.CharField(choices=CONTINENT_CHOICES, default='', max_length=200, null=True)
+    continent = models.CharField(choices=CONTINENT_CHOICES, default='nan', max_length=200)
 
     def __str__(self):
         return self.name or ''
@@ -55,4 +55,3 @@ class Record(models.Model):
 
     def __str__(self):
         return self.title + ": " + str(self.media)
-
