@@ -1,114 +1,82 @@
-from rest_framework import viewsets, permissions
 from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer
 from master.models import Language, Record, Speaker
-from django.contrib.auth.models import User
-from django.http import HttpResponse, JsonResponse
-
-from rest_framework.parsers import JSONParser
-from rest_framework.response import Response
-from rest_framework.views import APIView
-from rest_framework import status
-
-#class UserList(generics.ListAPIView):
-#    queryset = User.objects.all()
-#    serializer_class = UserSerializer
-
-
-#class UserDetail(generics.RetrieveAPIView):
-#    queryset = User.objects.all()
-#    serializer_class = UserSerializer
-
+from rest_framework import mixins
+from rest_framework import generics, filters
 
 ## Languages API view
-class LanguageList(APIView):
+class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     """
     List all Languages, or create a new Language.
     """
-    def get(self, request, format = None):
-        language = Language.objects.all()
-        serializer = LanguageSerializer(language, many=True)
-        return Response(serializer.data)
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = '__all__'
 
-    def post(self, request, format = None):
-        serializer = LanguageSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
 
-## single language view add 'DELETE' in api_view
-class LanguageDetail(APIView):
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+class LanguageDetail(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    generics.GenericAPIView):
     """
     Retrieve or update a languages.
     """
-    def get_object(self, pk):
-        try:
-            language = Language.objects.get(pk=pk)
-        except Language.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+    queryset = Language.objects.all()
+    serializer_class = LanguageSerializer
 
-    def get(self, request, pk, format = None):
-        language = self.get_object(pk)
-        serializer = LanguageSerializer(language)
-        return Response(serializer.data)
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
-    def put(self, request, pk, format = None):
-        language = self.get_object(pk)
-        serializer = LanguageSerializer(language, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
 
-    def delete(self, request, pk, format = None):
-        language = self.get_object(pk)
-        language.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
 
 
 ## Record API View
-class RecordList(APIView):
+class RecordList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     """
     List all records, or create a record.
     """
+    serializer_class = RecordSerializer
 
-    def get(self, request, format = None):
-        record = Record.objects.all()
-        serializer = RecordSerializer(record, many=True)
-        return Response(serializer.data)
+    def get_queryset(self):
+        queryset = Record.objects.all()
+        language = self.request.query_params.get('language', None)
+        if Language is not None:
+            queryset = queryset.filter(language=language)
+        return queryset
 
-    def post(self, request, format = None):
-        serializer = RecordSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
 
 ## single record view, add 'DELETE' in api_view if wanted
-class RecordDetail(APIView):
+class RecordDetail(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    generics.GenericAPIView):
     """
     Retrieve or update a languages.
     """
-    def get_object(self, pk):
-        try:
-            record = Record.objects.get(pk=pk)
-        except Record.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+    queryset = Record.objects.all()
+    serializer_class = RecordSerializer
 
-    def get(self, request, pk, format = None):
-        record = self.get_object(pk)
-        serializer = RecordSerializer(record)
-        return Response(serializer.data)
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
 
-    def put(self, request, pk, format = None):
-        record = self.get_object(pk)
-        serializer = RecordSerializer(record, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
 
-    def delete(self, request, pk, format = None):
-        record = self.get_object(pk)
-        record.delete()
-        return Response(status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)

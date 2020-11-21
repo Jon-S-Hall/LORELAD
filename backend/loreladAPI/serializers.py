@@ -21,7 +21,7 @@ class RecordSerializer(serializers.ModelSerializer):
 
 
 # To be deleted
-class SpeakerSerializer(serializers.HyperlinkedModelSerializer):
+class SpeakerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Speaker
         fields = ['name', 'email', 'phone', 'country', 'languages']
