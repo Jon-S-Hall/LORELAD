@@ -26,6 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('master.urls')),
     path('', include('loreladAPI.urls')),
+    path('s3direct/', include('s3direct.urls')),
     #path('', TemplateView.as_view(template_name='index.html')),
 
 ]

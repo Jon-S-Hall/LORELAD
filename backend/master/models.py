@@ -1,4 +1,5 @@
 from django.db import models
+from s3direct.fields import S3DirectField
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
 CONTINENT_CHOICES = (('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'), ('nan', 'Not Defined')
@@ -53,6 +54,7 @@ class Record(models.Model):
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     quality = models.IntegerField(null=True) #how can we find the quality of a recording?
     date_recorded = models.DateTimeField(null=True)
+    video = S3DirectField(dest='primary_destination', blank=True)
 
     class Meta:
         ordering = ['date_recorded']

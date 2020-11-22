@@ -1,0 +1,91 @@
+.main {
+    padding: 2rem 0 4rem;
+    background-color: #fefae0
+  }
+  .main aside {
+    display: block;
+    float: left;
+    font-family: Hind;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+  }
+  
+  .login {
+    position: absolute;
+  }
+
+  .lady {
+    top: 8rem;
+    right: 11em;
+  }
+
+  .content_wrapper h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: Montserrat;
+    font-weight: 600;
+    padding-bottom: 3rem;
+  }
+  
+  .content_wrapper p {
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: Hind;
+    line-height: 2rem;
+    font-weight: 400;
+  }
+  
+  .content_wrapper h1 + p {
+    font-weight: 700;
+  }
+  
+  .main form {
+      border: 3px solid #f1f1f1;
+    }
+
+  .main #container {
+        padding: 16px;
+      }
+
+  
+  .main input[type=text], 
+        input[type=password] {
+
+    font-family: Hind;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+
+    width: 90%;
+    border: none;
+    border-right: 1px solid black;
+    border-radius: 25px;
+    margin-right: 1rem;
+    font-size: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .main button {
+    font-family: Hind;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+    
+     
+    color: white;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background-color:#606C38;
+    font-size: 1rem;
+  }
+  
+  .main button:hover {
+    opacity: 0.8;
+  }
+  
+ 
