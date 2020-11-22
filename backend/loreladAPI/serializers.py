@@ -17,7 +17,7 @@ class LanguageSerializer(serializers.ModelSerializer):
 class RecordSerializer(serializers.ModelSerializer):
     class Meta:
         model = Record
-        fields = ['media', 'title', 'subject', 'source', 'language', 'speakerID', 'date_created', 'quality', 'date_recorded']
+        fields = ['title', 'subject', 'media', 'language', 'speakerID', 'date_created', 'date_recorded']
 
 
 # To be deleted
