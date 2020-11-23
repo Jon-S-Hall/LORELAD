@@ -3,12 +3,15 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/Explore.module.css";
 import Layout from "../../components/Layout";
+import SearchBar from "../../components/SearchBar";
 
 class Explore extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedLang: "",
+      selectedContinent: "",
+      selectedSpeakers: "",
     };
   }
 
@@ -23,13 +26,61 @@ class Explore extends React.Component {
     this.setState({ selectedLang: e.target.value });
   };
 
+  handleContinentChange = (e) => {
+    this.setState({ selectedContinent: e.target.value });
+  };
+
+  handleSpeakersChange = (e) => {
+    this.setState({ selectedSpeakers: e.target.value });
+  };
+
+  openList = () => {
+    document.getElementById("filter").classList.toggle("open");
+  };
+
   render() {
     let filteredLang = this.props.languages.filter((language) => {
-      console.log(this.state.selectedLang);
-      if (language.name != null) {
-        return language.name.includes(this.state.selectedLang);
+      let ret = [];
+      let min = 0;
+      let max = 0;
+      if (this.state.selectedSpeakers == "100") {
+        max = 100;
+      } else if (this.state.selectedSpeakers == "1000") {
+        min = 100;
+        max = 1000;
+      } else if (this.state.selectedSpeakers == "10000") {
+        min = 1000;
+        max = 10000;
+      } else if (this.state.selectedSpeakers == "100000") {
+        min = 10000;
+        max = 100000;
+      } else if (this.state.selectedSpeakers == "100000") {
+        min = 100000;
+        max = Number.MAX_SAFE_INTEGER;
       }
+      if (language.name != null) {
+        ret =
+          language.name.includes(this.state.selectedLang) &&
+          language.continent.includes(this.state.selectedContinent);
+        // Number(language.num_speakers) > min &&
+        // Number(language.num_speakers) < max;
+      }
+      return ret;
     });
+    let continents = [];
+    continents = this.props.languages.map((language) => {
+      let ret = [];
+      if (
+        language.continent != undefined &&
+        language.continent != "" &&
+        language.continent != null &&
+        !ret.includes(language.continent)
+      ) {
+        ret.push(language.continent);
+      }
+      return ret;
+    });
+
     return (
       <Layout {...this.props}>
         <div>
@@ -53,19 +104,7 @@ class Explore extends React.Component {
             <h1>Explore Languages</h1>
             <section>
               <form action="index.html" method="post">
-                <div>
-                  <label for="search">search</label>
-                  <input
-                    type="text"
-                    id="search"
-                    name="search"
-                    placeholder="Search"
-                    required
-                  />
-                  <button type="button" name="send">
-                    <i class="fas fa-search"></i>
-                  </button>
-                </div>
+                <SearchBar />
                 <select
                   name="language_dropdown"
                   id="language_dropdown"
@@ -76,7 +115,57 @@ class Explore extends React.Component {
                     <option value={language.name}>{language.name}</option>
                   ))}
                 </select>
+                <select
+                  name="continent_dropdown"
+                  id="continent_dropdown"
+                  onChange={this.handleContinentChange}
+                >
+                  <option value="">All</option>
+                  {continents.map((continent) => (
+                    <option value={continent}>{continent}</option>
+                  ))}
+                </select>
+                <select
+                  name="speakers_dropdown"
+                  id="speakers_dropdown"
+                  onChange={this.handleSpeakersChange}
+                >
+                  <option value="">All</option>
+                  <option value="100">less than 100</option>
+                  <option value="1000">100 - 1,000</option>
+                  <option value="10000">1,000 - 10,000</option>
+                  <option value="100000">10,000 - 100,000</option>
+                  <option value="1000000">more than 100,000</option>
+                </select>
               </form>
+              {/* <div
+                className={styles.custom_select_wrapper}
+                onClick={this.openList}
+              >
+                <div className={styles.custom_select} id="filter">
+                  <div className={styles.custom_select__trigger}>
+                    <span>Tesla</span>
+                    <div className={styles.arrow}></div>
+                  </div>
+                  <div className={styles.custom_options}>
+                    <span
+                      className={`${styles.custom_option} ${styles.selected}`}
+                      data-value="tesla"
+                    >
+                      Tesla
+                    </span>
+                    <span className={styles.custom_option} data-value="volvo">
+                      Volvo
+                    </span>
+                    <span
+                      className={styles.custom_option}
+                      data-value="mercedes"
+                    >
+                      Mercedes
+                    </span>
+                  </div>
+                </div>
+              </div> */}
             </section>
             <section className={styles.results}>
               <h2>All Languages</h2>
@@ -119,10 +208,8 @@ class Explore extends React.Component {
                   <div className={styles.language_container}>
                     <h3>{language.name}</h3>
                     <div>
-                      {/* <p>Native speakers: {language.speakers}</p>
-                      <p>Country: {language.country}</p> */}
-                      <p>Native speakers: 500</p>
-                      <p>Country: China</p>
+                      <p>Native speakers: {language.num_speakers}</p>
+                      <p>Continent: {language.continent}</p>
                     </div>
                   </div>
                 </Link>

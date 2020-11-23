@@ -23,10 +23,16 @@
   color: #283618;
 }
 
+.delete_btn {
+  visibility: hidden;
+}
+
 .record_btns {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 70%;
+  margin: 0 auto;
 }
 
 .record_btns div {
@@ -40,71 +46,73 @@
   justify-content: space-between;
 }
 
-.rec_btn {
-  position: relative;
+.stop_btn {
+  display: none;
+}
+
+.play_btn,
+.finish_btn {
+  opacity: 0.5;
+}
+
+.record_btns svg:hover {
+  cursor: pointer;
+}
+
+.record_label {
+  font-size: 1.2rem;
+  margin-top: 2.5rem;
+  font-family: Hind;
 }
 
 .rec_txt {
   position: absolute;
   top: 45%;
-  margin: 0 auto;
+  left: 0;
+  width: 100%;
+  height: 100%;
   color: white;
   font-weight: 500;
   font-size: 1.8rem;
+  font-family: Hind;
+}
+
+.rec_txt:hover {
+  cursor: pointer;
 }
 
 .time {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   text-align: center;
+  margin-top: 2.1rem;
+  font-family: Hind;
+  position: relative;
 }
 
-.record_label {
-  margin-top: 3rem;
+.time svg {
+  position: absolute;
+  top: -5px;
+  left: -18px;
 }
 
-.record_labels {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin: 2rem 0 4rem;
-}
-
-.record_labels p {
-  width: 15%;
-}
-
-.record_labels p:last-child {
-  text-align: right;
+.time svg circle {
+  fill: #acacac;
 }
 
 .directions {
-  background-color: white;
+  background-color: #fefae0;
   border: 1px solid black;
   border-radius: 20px;
-  padding: 2rem;
-  margin: 0 auto;
-  font-size: 1rem;
-  font-weight: 500;
-  line-height: 2rem;
-  width: 70%;
-}
-
-.upload {
-  font-size: 1rem;
-  font-weight: 500;
-  padding: 1.2rem;
-  border-radius: 15px;
-  outline: none;
-  border: none;
-  width: 40%;
+  padding: 2rem 2.5rem;
   margin: 2rem auto 0;
-  align-self: center;
-  color: white;
-  background-color: #606c38;
-  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 2.2rem;
+  width: 70%;
+  font-family: Hind;
 }
 
-.finish_container {
+.modal_container {
   position: fixed;
   top: 0;
   left: 0;
@@ -114,10 +122,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgba(70, 70, 70, 0.3);
   visibility: hidden;
 }
 
-.finish {
+.modal {
   background-color: white;
   height: 50vh;
   width: 40vw;
@@ -127,16 +136,16 @@
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  /* visibility: hidden; */
+  text-align: center;
 }
 
-.finish h2 {
-  padding-bottom: 2rem;
+.modal h2 {
+  padding-bottom: 3rem;
   font-size: 1.65rem;
   font-weight: 600;
 }
 
-.finish button {
+.modal button {
   padding: 1rem 2rem;
   border-radius: 25px;
   border: none;
@@ -146,8 +155,16 @@
   width: 60%;
 }
 
-.finish button:last-child {
+.modal button:last-child {
   background-color: #606c38;
   color: white;
   margin-bottom: 0;
+}
+
+.modal button:hover {
+  cursor: pointer;
+}
+
+.modal button:focus {
+  outline: none;
 }

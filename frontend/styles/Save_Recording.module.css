@@ -1,0 +1,203 @@
+.main {
+  padding: 3rem 5rem 4rem;
+  font-family: Montserrat, sans-serif;
+  background-color: #fefae0;
+  min-height: 100vh;
+}
+
+.top {
+  text-align: center;
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.top svg {
+  position: absolute;
+  top: 0.3rem;
+  left: 0.5rem;
+}
+
+.top svg:hover {
+  cursor: pointer;
+}
+
+.top h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #283618;
+}
+
+.main form {
+  display: flex;
+  flex-direction: column;
+  padding: 0 1.5rem;
+}
+
+.main label {
+  margin: 2rem 0 1rem;
+  font-weight: 600;
+}
+
+.name input {
+  padding: 0.5rem;
+  background-color: #fefae0;
+  border: none;
+  border-bottom: 1px solid black;
+  width: 30%;
+  margin-left: 2rem;
+  font-size: 1rem;
+  font-family: Hind;
+}
+
+.name input:focus {
+  outline: none;
+}
+
+.name label {
+  font-weight: 700;
+}
+
+.main textarea {
+  padding: 1rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  resize: none;
+  height: 10rem;
+  font-family: Hind;
+}
+
+.main textarea:focus {
+  outline: none;
+}
+
+.tags_container {
+  margin-top: 1rem;
+  margin-left: 1rem;
+}
+
+.tags {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0 4rem;
+}
+
+.tags button {
+  background-color: #fefae0;
+  border: 1px solid #606c38;
+  border-radius: 15px;
+  outline: none;
+  padding: 0.5rem 1.3rem;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+}
+
+.download_container {
+  width: 20%;
+}
+
+.download_container p {
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.download_btn {
+  width: 100%;
+  background-color: #fefae0;
+  border: 1px solid black;
+  border-radius: 15px;
+  outline: none;
+  box-shadow: 1px 1.5px 5px #999;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: Montserrat;
+}
+
+.download_btn svg {
+  margin-left: 1rem;
+}
+
+.upload_btns {
+  display: flex;
+  justify-content: space-between;
+  margin: 5rem auto 3rem;
+  padding: 0 15rem;
+  width: 100%;
+}
+
+.upload_btns button {
+  width: 40%;
+  font-size: 1rem;
+  font-family: Hind;
+  border-radius: 25px;
+  border: 1px solid #606c38;
+  padding: 0.5rem;
+}
+
+.upload_btns button:first-child {
+  background-color: #fefae0;
+}
+
+.upload_btns button:last-child {
+  background-color: #606c38;
+  color: white;
+}
+
+.modal_container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(70, 70, 70, 0.3);
+  visibility: hidden;
+}
+
+.modal {
+  background-color: white;
+  height: 50vh;
+  width: 40vw;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.modal h2 {
+  padding-bottom: 3rem;
+  font-size: 1.65rem;
+  font-weight: 600;
+}
+
+.modal button {
+  padding: 1rem 2rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1.2rem;
+  background-color: #cddaa1;
+  margin-bottom: 1.25rem;
+  width: 60%;
+}
+
+.modal button:last-child {
+  background-color: #606c38;
+  color: white;
+  margin-bottom: 0;
+}
+
+.modal button:hover {
+  cursor: pointer;
+}
+
+.modal button:focus {
+  outline: none;
+}

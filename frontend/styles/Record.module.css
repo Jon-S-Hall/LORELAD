@@ -48,7 +48,7 @@
 
 .container svg {
   position: absolute;
-  z-index: 1;
+  z-index: 0;
 }
 
 .record_svg_1 {
@@ -75,10 +75,10 @@
 }
 
 .container h2 {
+  position: relative;
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 3.5rem;
-  z-index: 10;
 }
 
 .container img {
@@ -96,4 +96,22 @@
   font-size: 1.5rem;
   font-weight: 600;
   color: black;
+}
+
+.upload {
+  font-size: 1.3rem;
+  padding: 1.2rem;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  width: 80%;
+  margin: 2rem auto 0;
+  align-self: center;
+  color: white;
+  background-color: #606c38;
+  display: block;
+}
+
+.upload span {
+  font-weight: 600;
 }

@@ -69,6 +69,9 @@ const Record = () => (
                 </Link>
               </div>
             </Link>
+            <button className={styles.upload}>
+              Already have a recording? <span>Upload Here</span>
+            </button>
           </section>
           <section>
             <Link href="/record/send_kit">

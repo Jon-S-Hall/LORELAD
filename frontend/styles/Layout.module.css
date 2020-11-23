@@ -1,11 +1,12 @@
 .header {
   background-color: #fefae0;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.25);
+  /* border-bottom: 4px solid rgba(0, 0, 0, 0.25); */
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   right: 0;
   z-index: 10;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 .nav {
@@ -71,12 +72,12 @@
 
 .links p {
   font-weight: 700;
-  padding-right: 5rem;
+  padding-right: 6rem;
 }
 
 .links a {
   color: #bc6c25;
-  padding-right: 3rem;
+  padding-right: 4rem;
   text-decoration: underline;
 }
 
