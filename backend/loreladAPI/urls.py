@@ -16,8 +16,8 @@ urlpatterns = [
     path('languages/', views.LanguageList.as_view()),
     path('languages/<int:pk>', views.LanguageDetail.as_view()),
     path('records/', views.RecordList.as_view()),
-    re_path(r'^records/(?P<langage>.+)/$', views.RecordList.as_view()),
     path('records/<int:pk>', views.RecordDetail.as_view()),
     path('users/', UserList.as_view()), #when creating a user, send POST to this url
+    path('records/<str:title>', views.RecordDetail.as_view()),
     #path('users/<int:pk>/', views.UserDetail.as_view()),
     ]
