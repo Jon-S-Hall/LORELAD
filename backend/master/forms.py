@@ -12,7 +12,5 @@ from .models import Record
 class RecordForm(ModelForm):
     class Meta:
         model = Record
-        fields = ['title', 'subject', 'language','date_recorded','media']
-        widgets = {
-            'date_recorded': forms.SelectDateWidget()
-}
+        fields = ['title', 'subject', 'language','date_recorded','media', 'quality', 'source']
+

@@ -6,6 +6,7 @@ import Layout from "../../../components/Layout";
 
 // Language Page template - incomplete while API is getting finished
 // refer to taishanese > index.js for example of final product
+
 const router = useRouter();
 const { language } = router.query;
 
@@ -56,13 +57,14 @@ const Language = ({ records }) => (
           </Link>
           <h1>{language.name}</h1>
         </div>
-        <section className={styles.about_container}>
+        <section className={`${styles.container} ${styles.about}`}>
           <svg
             width="352"
             height="339"
             viewBox="0 0 352 339"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className={styles.first}
           >
             <path
               fill-rule="evenodd"
@@ -77,6 +79,7 @@ const Language = ({ records }) => (
             viewBox="0 0 264 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className={styles.second}
           >
             <path
               fill-rule="evenodd"
@@ -91,6 +94,7 @@ const Language = ({ records }) => (
             viewBox="0 0 349 132"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className={styles.third}
           >
             <path
               fill-rule="evenodd"
@@ -134,7 +138,37 @@ const Language = ({ records }) => (
             </div>
           </div>
         </section>
-        <section className={styles.recordings_container}>
+        <section className={`${styles.container} ${styles.recordings}`}>
+          <svg
+            width="336"
+            height="139"
+            viewBox="0 0 336 139"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={styles.first}
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M301.715 23.0875C297.634 58.6684 335.832 103.59 305.256 128.194C274.198 153.186 219.472 125.349 174.982 125.066C141.68 124.854 110.869 130.245 77.6637 126.746C28.1923 121.533 -31.4264 130.799 -65.1701 99.7619C-98.7356 68.8884 -96.6389 19.0662 -80.2186 -18.4742C-65.238 -52.7233 -19.537 -67.6149 16.937 -87.9532C44.7457 -103.46 72.787 -117.421 106.278 -122.466C139.73 -127.507 172.96 -123.053 206.656 -116.537C249.868 -108.181 307.236 -111.451 329.069 -79.383C350.989 -47.1865 305.83 -12.7769 301.715 23.0875Z"
+              fill="#DDA15E"
+            />
+          </svg>
+          <svg
+            width="309"
+            height="217"
+            viewBox="0 0 309 217"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={styles.second}
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M211.511 0.0112255C247.228 0.368704 279.44 12.0065 311.091 25.0239C348.352 40.3486 395.262 51.1399 410.639 81.9093C426.139 112.923 411.352 150.213 387.392 177.7C366.221 201.988 323.992 204.787 291.169 218.967C263.894 230.751 241.176 246.288 211.511 253.686C169.438 264.178 124.97 283.774 84.1388 270.595C41.4842 256.828 12.1951 221.61 2.39228 186.19C-7.02111 152.177 13.0152 118.178 33.4047 87.2792C51.0394 60.5554 77.5714 38.9362 110.071 23.012C140.686 8.01145 175.439 -0.349792 211.511 0.0112255Z"
+              fill="#DDA15E"
+            />
+          </svg>
           <div className={styles.recordings_top}>
             <h3>Recordings</h3>
             <Link
@@ -198,9 +232,9 @@ const Language = ({ records }) => (
             </div>
           </div>
         </section>
-        <section className={styles.communities_container}>
+        <section className={`${styles.container} ${styles.communities}`}>
           <h3>Communities</h3>
-          <div className={styles.communities}>
+          <div className={styles.communities_list}>
             <div>
               <i class="fab fa-facebook-square"></i>
               <h6>Facebook</h6>

@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../../styles/Languages_All_Recordings.module.css";
 import Layout from "../../../components/Layout";
+import SearchBar from "../../../components/SearchBar";
+import SearchBarLg from "../../../components/SearchBarLg";
 
 // Example page of what an All Recordings Page would look like
 
@@ -54,7 +56,7 @@ const Recordings = ({ language }) => (
         </div>
         <section>
           <form action="index.html" method="post">
-            <div>
+            {/* <div>
               <label for="search">search</label>
               <input
                 type="text"
@@ -66,7 +68,8 @@ const Recordings = ({ language }) => (
               <button type="button" name="send">
                 <i class="fas fa-search"></i>
               </button>
-            </div>
+            </div> */}
+            <SearchBarLg />
           </form>
         </section>
         <section className={styles.recordings}>

@@ -1,8 +1,26 @@
+.main {
+  padding: 3rem 0 0;
+  font-family: Montserrat, sans-serif;
+  background-color: #fefae0;
+  min-height: 100vh;
+}
+
+.container {
+  box-shadow: 0 -3px 3px #aaa;
+  width: 80%;
+  margin: 0 auto;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
 .about_us,
 .what_we_do {
   color: #283618;
-  background-color: #fefae0;
   position: relative;
+}
+
+.what_we_do {
+  padding-bottom: 4rem;
 }
 
 .about_us svg,
@@ -10,13 +28,9 @@
   position: absolute;
 }
 
-.what_we_do {
-  padding-bottom: 4rem;
-}
-
 .content_wrapper {
   text-align: center;
-  width: 50%;
+  width: 54%;
   padding: 4rem 0 0;
   margin: 0 auto;
 }
@@ -59,12 +73,12 @@
 
 .globe {
   top: 8rem;
-  left: 13em;
+  left: 6.5em;
 }
 
 .translate {
   top: 9rem;
-  right: 11em;
+  right: 3.5em;
 }
 
 .div{
