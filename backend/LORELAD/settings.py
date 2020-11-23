@@ -25,7 +25,7 @@ SECRET_KEY = '1ek^@3h3b5!1yb9s!_p2go#hy1($awzf%1q1&d0(r(^*l+9^42'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lorelad-backend.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['lorelad-backend.herokuapp.com', '127.0.0.1', 'http://localhost', 'localhost', 'http://localhost:3000/']
 
 
 # Application definition
@@ -159,6 +159,13 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
+S3DIRECT_DESTINATIONS = {
+    'primary_destination': {
+        'key': 'recordings/',
+        'allowed': ['video/mp4'],
+    },
+}
+
 
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
@@ -168,7 +175,7 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',  #JWT
         'rest_framework.authentication.BasicAuthentication',  #JWT
     ],
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',), #JWT
+    #'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticated',), #JWT
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
     ],

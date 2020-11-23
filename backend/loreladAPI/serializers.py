@@ -13,7 +13,7 @@ from django.contrib.auth.models import User
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        fields = ['id', 'name', 'family', 'continent']
+        fields = ['id', 'name', 'family', 'continent', 'num_speakers', 'num_recordings']
 
 
 class RecordSerializer(serializers.ModelSerializer):

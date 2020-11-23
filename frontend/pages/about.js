@@ -17,7 +17,6 @@ const About = () => (
 
       <main>
         <section id="about_us" className={about_styles.about_us}>
-
           <svg
             className={about_styles.globe}
             width="120"
@@ -42,6 +41,7 @@ const About = () => (
                 languages.
               </p>
             </div>
+          </div>
           </section>
           <section id="what_we_do" className={about_styles.what_we_do}>
             <svg
@@ -71,8 +71,6 @@ const About = () => (
                 heritage, and our history. And we want the world to hear yours.
                 Coming Soon.
               </p>
-            </div>
-<<<<<<< HEAD
             <p>
               With every language that dies undocumented, so does the culture,
               knowledge and expressions that it encompasses. In our current age,
@@ -111,12 +109,7 @@ const About = () => (
               Coming Soon.
             </p>
           </div>
-
         </section>
-=======
-          </section>
-        </div>
->>>>>>> cc96838c90f81a990656971e5f74ade3ddaff253
       </main>
     </div>
   </Layout>

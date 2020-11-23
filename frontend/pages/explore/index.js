@@ -15,13 +15,6 @@ class Explore extends React.Component {
     };
   }
 
-  static async getInitialProps(ctx) {
-    // Call an external API endpoint to get languages
-    const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
-    const languages = await res.json();
-    return { languages: languages };
-  }
-
   handleChange = (e) => {
     this.setState({ selectedLang: e.target.value });
   };
@@ -58,6 +51,7 @@ class Explore extends React.Component {
         min = 100000;
         max = Number.MAX_SAFE_INTEGER;
       }
+
       if (language.name != null) {
         ret =
           language.name.includes(this.state.selectedLang) &&
@@ -67,6 +61,7 @@ class Explore extends React.Component {
       }
       return ret;
     });
+
     let continents = [];
     continents = this.props.languages.map((language) => {
       let ret = [];
@@ -80,7 +75,6 @@ class Explore extends React.Component {
       }
       return ret;
     });
-
     return (
       <Layout {...this.props}>
         <div>
@@ -102,6 +96,9 @@ class Explore extends React.Component {
 
           <main className={styles.main}>
             <h1>Explore Languages</h1>
+            <Link href="/">
+              <a>Add Language</a>
+            </Link>
             <section>
               <form action="index.html" method="post">
                 <SearchBar />
@@ -179,24 +176,6 @@ class Explore extends React.Component {
                   <p>Country: China</p>
                 </div>
               </div>
-              <div className={styles.language_container}>
-                <Link href="/explore/taishanese">
-                  <h3>Taishanese</h3>
-                </Link>
-                <div>
-                  <p>Native speakers: 500</p>
-                  <p>Country: China</p>
-                </div>
-              </div>
-              <div className={styles.language_container}>
-                <Link href="/explore/taishanese">
-                  <h3>Taishanese</h3>
-                </Link>
-                <div>
-                  <p>Native speakers: 500</p>
-                  <p>Country: China</p>
-                </div>
-              </div>
               {/* actual code for generating the language list: */}
               {filteredLang.map((language) => (
                 <Link
@@ -221,5 +200,16 @@ class Explore extends React.Component {
     );
   }
 }
+
+export async function getStaticProps(context) {
+  // Call an external API endpoint to get languages
+  //const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  const res = await fetch("http://127.0.0.1:8000/languages");
+  const languages = await res.json();
+  console.log(res)
+  return { props: {languages,}, }
+}
+
+
 
 export default Explore;
