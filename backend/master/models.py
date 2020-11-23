@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils.crypto import get_random_string      # generate unique id
+
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
 CONTINENT_CHOICES = (('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'), ('nan', 'Not Defined')
@@ -11,7 +13,7 @@ def content_file_name(instance, filename):
 
 
 class Language(models.Model):
-    name = models.CharField(max_length=200, null=False)
+    name = models.CharField(max_length=200, null=False, unique=True)
     #nearestLanguage = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     family = models.CharField(max_length=200, null=True)
     continent = models.CharField(choices=CONTINENT_CHOICES, default='nan', max_length=200)
@@ -44,6 +46,8 @@ class Speaker(models.Model):
 class Record(models.Model):
     SOURCES = (
         ('Direct Input','Direct Input') , ('WikiTongues', 'WikiTongues'), ('LORELAD Input', 'LORELAD Input'), ('YouTube', 'YouTube'), ('Physical Recorder','Physical Recorder'))
+
+    record_id = models.CharField(max_length=8, unique=True, default=get_random_string(8), null=True)
     media = models.FileField(upload_to=content_file_name, null=True)
     title = models.CharField(max_length=200, null=True)
     subject = models.CharField(max_length=200, null=True)
