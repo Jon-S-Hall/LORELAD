@@ -20,11 +20,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from rest_framework import routers
 from django.conf import settings
 from django.conf.urls.static import static
+from rest_framework_jwt.views import obtain_jwt_token
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('master.urls')),
+    path('token-auth/', obtain_jwt_token),
     path('', include('loreladAPI.urls')),
     #path('', TemplateView.as_view(template_name='index.html')),
 

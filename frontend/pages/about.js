@@ -16,6 +16,7 @@ const About = () => (
 
       <main>
         <section id="about_us" className={about_styles.about_us}>
+
           <svg
             className={about_styles.globe}
             width="120"

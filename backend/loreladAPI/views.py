@@ -1,7 +1,12 @@
-from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer
+from .serializers import LanguageSerializer, SpeakerSerializer, RecordSerializer, UserSerializer, UserSerializerWithToken
 from master.models import Language, Record, Speaker
 from rest_framework import mixins
-from rest_framework import generics, filters
+from rest_framework.views import APIView
+from rest_framework import generics, filters, permissions, status
+from django.contrib.auth.models import User
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 ## Languages API view
 class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
@@ -80,3 +85,32 @@ class RecordDetail(mixins.RetrieveModelMixin,
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+
+@api_view(['GET'])
+def current_user(request):
+    """
+    Determine the current user by their token, and return their data
+    """
+    #in the background, django will check if there is a user associated with the token in request.
+    #it will then run the rest of true
+    serializer = UserSerializer(request.user)
+    return Response(serializer.data)
+
+
+class UserList(APIView):
+    """
+    Create a new user. It's called 'UserList' because normally we'd have a get
+    method here too, for retrieving a list of all User objects.
+    """
+
+    #allows any user (no login needed) to access this view.
+    permission_classes = (permissions.AllowAny,)
+
+    def post(self, request, format=None):
+        print("were serving current user request")
+        serializer = UserSerializerWithToken(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
