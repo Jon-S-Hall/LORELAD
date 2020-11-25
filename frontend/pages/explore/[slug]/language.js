@@ -193,7 +193,7 @@ const Language = ({ records }) => (
                     {/* <h6>{record.title}</h6>
                     <p>@{record.creator}</p> */}
                   </div>
-                  <p>@{record.media}</p>
+                  <p>@{record.video}</p>
                 </div>
               ))}
             </div>
