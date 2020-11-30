@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
 
     handle_login = (e, data) => {
         e.preventDefault();
-        fetch('http://localhost:8000/token-auth/', {
+        fetch('https://lorelad-backend.herokuapp.com/token-auth/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -45,28 +45,6 @@
       border: 3px solid #f1f1f1;
     }
 
-  .main #container {
-        padding: 16px;
-      }
-
-  
-  .main input[type=text], 
-        input[type=password] {
-
-    font-family: Hind;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 18px;
-
-    width: 90%;
-    border: none;
-    border-right: 1px solid black;
-    border-radius: 25px;
-    margin-right: 1rem;
-    font-size: 1rem;
-    padding-right: 1rem;
-  }
   
   .main button {
     font-family: Hind;

@@ -206,8 +206,8 @@ class Explore extends React.Component {
 
 export async function getStaticProps(context) {
   // Call an external API endpoint to get languages
-  //const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
-  const res = await fetch("http://127.0.0.1:8000/languages");
+  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  //const res = await fetch("http://127.0.0.1:8000/languages");
   const languages = await res.json();
   console.log(res)
   return { props: {languages,}, }

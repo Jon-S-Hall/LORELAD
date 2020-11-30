@@ -30,7 +30,7 @@ class Add_language extends React.Component {
         {
             alert("You must be logged in to add a language.");
         }else {
-            fetch('http://localhost:8000/languages/', {
+            fetch('https://lorelad-backend.herokuapp.com/languages/', {
                 method: 'POST',
                 headers: {
                     Authorization: `JWT ${localStorage.getItem('token')}`,

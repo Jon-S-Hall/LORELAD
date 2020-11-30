@@ -38,7 +38,7 @@ class SignupForm extends React.Component {
 
     handle_signup = (e, data) => {
         e.preventDefault();
-        fetch('http://localhost:8000/users/', {
+        fetch('https://lorelad-backend.herokuapp.com/users/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
