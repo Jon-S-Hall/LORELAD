@@ -183,8 +183,8 @@ class Explore extends React.Component {
               {filteredLang.map((language) => (
                 <Link
                   href={{
-                    pathname: "/explore/[slug]",
-                    query: { slug: language.name },
+                    pathname: "/explore/[language]",
+                    query: { language: language.name },
                   }}
                 >
                   <div className={styles.language_container}>
@@ -209,10 +209,8 @@ export async function getStaticProps(context) {
   const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
   //const res = await fetch("http://127.0.0.1:8000/languages");
   const languages = await res.json();
-  console.log(res)
-  return { props: {languages,}, }
+  console.log(res);
+  return { props: { languages } };
 }
-
-
 
 export default Explore;

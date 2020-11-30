@@ -64,6 +64,7 @@
 .top {
   display: flex;
   margin: 1rem 0 2rem;
+  position: relative;
 }
 
 .top img {
@@ -83,6 +84,7 @@
 .bottom {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .stats {
