@@ -3,6 +3,7 @@
     font-family: Montserrat, sans-serif;
     background-color: #fefae0;
     min-height: 100vh;
+
 }
 
 .main h1 {
@@ -38,6 +39,22 @@
     text-align: center;
 }
 
+.sidebyside {
+    display:flex;
+
+
+}
+
+.sidebyside-child {
+    flex: 1;
+    align-content: center;
+}
+
+
+.main button[type=submit]{
+    font-family: Montserrat;
+    font-size: 2rem;
+}
 .main h4 {
     font-family: Montserrat;
     font-size: 2rem;
@@ -46,8 +63,29 @@
 }
 .main h3 {
     font-family: Montserrat;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: bold;
-     padding-bottom: 1%;
- }
+    padding-bottom: 1%;
+}
 
+.main input[type=text]{
+    padding: 15px 15px;
+    margin: 2px 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+    font-size: 2rem;
+    text-align: left;
+    width : 50%;
+}
+
+.main textarea{
+    font-family: Montserrat;
+    font-size: 2rem;
+    width : 6s0%;
+}
+
+.main select{
+    font-family: Montserrat;
+    font-size: 2rem;
+    width : 6s0%;
+}

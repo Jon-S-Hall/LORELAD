@@ -10,11 +10,12 @@ from django.contrib.auth.models import User
 #        model = User
 #        fields = ['id', 'username', 'languages', 'records']
 
+
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        fields = ['id', 'name', 'family', 'continent', 'num_speakers', 'num_recordings']
-
+        #fields = ['name', 'family', 'continent', 'num_speakers', 'num_recordings', 'summary']
+        fields = ['name', 'num_speakers', 'num_recordings', 'continent', 'summary']
 
 class RecordSerializer(serializers.ModelSerializer):
     class Meta:

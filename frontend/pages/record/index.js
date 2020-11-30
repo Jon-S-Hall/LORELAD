@@ -3,8 +3,8 @@ import Link from "next/link";
 import styles from "../../styles/Record.module.css";
 import Layout from "../../components/Layout";
 
-const Record = () => (
-  <Layout>
+const Record = (props) => (
+  <Layout {...props} >
     <div>
       <Head>
         <title>Record</title>

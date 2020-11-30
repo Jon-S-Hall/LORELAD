@@ -16,11 +16,10 @@ class Language(models.Model):
     name = models.CharField(max_length=200, null=False, unique=True)
     #nearestLanguage = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     family = models.CharField(max_length=200, null=True)
-    continent = models.CharField(choices=CONTINENT_CHOICES, default='nan', max_length=200)
+    continent = models.CharField(max_length=200, null=True)
     summary = models.CharField(max_length=1000, null = True)
     num_speakers = models.IntegerField(null = True)
     num_recordings = models.IntegerField(null = True)
-
 
     def __str__(self):
         return self.name or ''

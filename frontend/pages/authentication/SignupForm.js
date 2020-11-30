@@ -47,19 +47,14 @@ class SignupForm extends React.Component {
         })
             .then(res => res.json())
             .then(json => {
-                localStorage.setItem('token', json.token);
-                this.setState({
-                    logged_in: true,
-                    displayed_form: '',
-                    username: json.username
+                console.log(res)
                 });
-            });
-        e.default();
     };
+
 
     render() {
         return (
-            <Layout title="About">
+            <Layout title="Sign-up">
                     <Head>
                         <title>About</title>
                         <link rel="icon" href="/favicon.ico" />

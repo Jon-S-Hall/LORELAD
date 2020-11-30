@@ -22,10 +22,17 @@ class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
     filterset_fields = ['continent', 'family', 'name']
 
     def get(self, request, *args, **kwargs):
+
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        return self.create(request, *args, **kwargs)
+        print(request.headers)
+        serializer = LanguageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 class LanguageDetail(mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,

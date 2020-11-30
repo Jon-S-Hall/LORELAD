@@ -96,9 +96,12 @@ class Explore extends React.Component {
 
           <main className={styles.main}>
             <h1>Explore Languages</h1>
-            <Link href="/">
-              <a>Add Language</a>
-            </Link>
+            <div className={styles.add_language_cont}>
+              Don't see your language yet?
+              <Link href="/explore/add_language">
+                <a> Add it here!</a>
+              </Link>
+            </div>
             <section>
               <form action="index.html" method="post">
                 <SearchBar />

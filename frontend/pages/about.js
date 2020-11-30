@@ -2,8 +2,8 @@ import Head from "next/head";
 import about_styles from "../styles/About.module.css"; //import styles specific to about page
 import Layout from "../components/Layout"; //import common layout styles. notice that we're importing a JS class
 
-const About = () => (
-  <Layout title="About">
+const About = (props) => (
+  <Layout title="About" logged_in={props.logged_in} handle_logout = {props.handle_logout}>
     <div>
       <Head>
         <title>About</title>

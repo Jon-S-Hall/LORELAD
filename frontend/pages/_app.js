@@ -28,6 +28,7 @@ export default class MyApp extends Component {
           .then(res => res.json())
           .then(json => {
             this.setState({ username: json.username });
+            console.log("logged in!")
           });
     }
   }
