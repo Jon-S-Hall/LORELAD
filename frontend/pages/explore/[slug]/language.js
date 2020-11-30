@@ -270,7 +270,7 @@ export async function getStaticPaths() {
   // { fallback: false } means other routes should 404.
   return { paths, fallback: false };
 }
-
+/*
 export async function getServerSideProps() {
   // This is a real endpoint
   const res = await fetch("https://lorelad-backend.herokuapp.com/records");
@@ -282,5 +282,5 @@ export async function getServerSideProps() {
     },
   };
 }
-
+*/
 export default Language;
