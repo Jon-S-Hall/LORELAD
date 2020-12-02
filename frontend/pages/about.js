@@ -5,7 +5,7 @@ import Layout from "../components/Layout"; //import common layout styles. notice
 const About = (props) => (
   <Layout
     title="About"
-    logged_in={props.logged_in}
+    user_state = {props.user_state}
     handle_logout={props.handle_logout}
   >
     <div>

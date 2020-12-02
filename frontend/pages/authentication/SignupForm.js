@@ -69,7 +69,7 @@ class SignupForm extends React.Component {
 
     render() {
         return (
-            <Layout title="Sign-up">
+            <Layout title="Sign-up" user_state = {this.props.user_state}>
                     <Head>
                         <title>About</title>
                         <link rel="icon" href="/favicon.ico" />

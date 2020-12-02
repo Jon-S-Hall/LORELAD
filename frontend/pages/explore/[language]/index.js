@@ -7,28 +7,24 @@ import Layout from "../../../components/Layout";
 // Language Page template - incomplete while API is getting finished
 // refer to taishanese > index.js for example of final product
 
-function Language({ languages, records }) {
+function Language({language, records, user_state }) {
   //get language name from route
   const router = useRouter();
-  const { language } = router.query;
 
   //match language from list of languages based on language name
-  const languageRes = languages.filter(
-    (languageObj) => languageObj.name == language
-  );
+
   //extract result from languageRes list
-  const language_match = languageRes[0];
+  console.log(language)
   const records_match = records.filter(
-    (record) => record.language == language_match.id
+    (record) => record.language == language.id
   );
-  console.log(records);
   console.log(records_match);
 
   return (
-    <Layout user_state = {props.user_state}>
+    <Layout user_state = {user_state}>
       <div>
         <Head>
-          <title>{language_match.name}</title>
+          <title>{language.name}</title>
           {/* Favicon */}
           <link rel="icon" href="/favicon.ico" />
           {/* Google Fonts */}
@@ -69,7 +65,7 @@ function Language({ languages, records }) {
                 />
               </svg>
             </Link>
-            <h1>{language_match.name}</h1>
+            <h1>{language.name}</h1>
           </div>
           <section className={`${styles.container} ${styles.about}`}>
             <svg
@@ -121,13 +117,13 @@ function Language({ languages, records }) {
             <div className={styles.top}>
               <img src="/language_img.png" alt="language_img" />
               <div>
-                <p>{language_match.summary}</p>
+                <p>{language.summary}</p>
               </div>
             </div>
             <div className={styles.bottom}>
               <div className={styles.stats}>
-                <p>{language_match.num_speakers} Active Speakers</p>
-                <p>{language_match.num_recordings} Recordings</p>
+                <p>{language.num_speakers} Active Speakers</p>
+                <p>{language.num_recordings} Recordings</p>
               </div>
               <div className={styles.location}>
                 <svg
@@ -276,33 +272,42 @@ function Language({ languages, records }) {
   );
 }
 
-export async function getStaticProps() {
-  // Call an external API endpoint to get languages
-  const rec = await fetch("https://lorelad-backend.herokuapp.com/records");
-  const records = await rec.json();
-  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
-  const languages = await res.json();
 
-  // Pass languages to the page via props
-  return {
-    props: {
-      languages: languages,
-      records: records,
-    },
-  };
-}
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
-  const languages = await res.json();
-
+  const res = await fetch("http://127.0.0.1:8000/languages")
+  const languages = await res.json()
   // Get the paths we want to pre-render based on recordings
-  const paths = languages.map((language) => `/explore/${language.name}`);
+  const paths = languages.map((language) => ({
+    params:{language: language.name},
+  }))
+  console.log(paths)
+      //`/explore/${language.name}`);
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false };
+  return { paths, fallback: false }
+}
+
+
+export async function getStaticProps({params}) {
+  // Call an external API endpoint to get languages
+  const res = await fetch(`http://127.0.0.1:8000/languages/${params.language}`);
+  console.log(res)
+  const language = await res.json();
+  const rec = await fetch("http://127.0.0.1:8000/records");
+  const records = await rec.json();
+  const logged_in = false;
+  const username = "na";
+  // Pass languages to the page via props
+  return {
+    props: {
+      language: language,
+      records: records,
+      user_state: {logged_in, username}
+    },
+  };
 }
 
 // export async function getServerSideProps() {

@@ -43,6 +43,8 @@ class LanguageDetail(mixins.RetrieveModelMixin,
     """
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
+    model = Language
+    lookup_field = "name"
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
