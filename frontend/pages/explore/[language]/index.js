@@ -25,7 +25,7 @@ function Language({ languages, records }) {
   console.log(records_match);
 
   return (
-    <Layout>
+    <Layout user_state = {props.user_state}>
       <div>
         <Head>
           <title>{language_match.name}</title>

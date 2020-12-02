@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import styles from "../styles/Layout.module.css";
 
 const Layout = (props) => {
-  console.log(props.logged_in);
   const logged_out = (
     <ul>
       <li>
@@ -22,10 +21,10 @@ const Layout = (props) => {
   );
   const logged_in = (
     <ul>
+        <li><div>Hi {props.user_state.username}! </div></li>
       <Link href="/">
         <li onClick={props.handle_logout}>
-          {" "}
-          <a>Logout</a>
+          <a>Log out</a>
         </li>
       </Link>
     </ul>
@@ -62,7 +61,7 @@ const Layout = (props) => {
             <div className={styles.dropdown}>
               <button className={styles.profile}></button>
               <div className={styles.dropdown_content}>
-                <div>{props.logged_in ? logged_in : logged_out}</div>
+                <div>{props.user_state.logged_in ? logged_in : logged_out}</div>
               </div>
             </div>
           </div>

@@ -10,6 +10,7 @@ class SignupForm extends React.Component {
     state = {
         username: '',
         password: '',
+        confirm_password: '',
     };
     handle_change = e => {
         const name = e.target.name;
@@ -31,6 +32,9 @@ class SignupForm extends React.Component {
         {
             document.getElementById("status").innerHTML = "Username must be longer.";
             e.preventDefault();
+        }else if (this.state.password != this.state.confirm_password){
+            document.getElementById("status").innerHTML = "Passwords must match.";
+            e.preventDefault();
         }else{
             this.props.handle_signup(e, this.state)
         }
@@ -47,8 +51,19 @@ class SignupForm extends React.Component {
         })
             .then(res => res.json())
             .then(json => {
-                console.log(res)
-                });
+                if(json.token == null)
+                {
+                    alert("Failed to create account. Please try again.")
+                }else {
+                    localStorage.setItem('token', json.token);
+                    this.setState({
+                        logged_in: true,
+                        displayed_form: '',
+                        username: json.username
+                    });
+                    alert("Account creation successful!")
+                }
+            });
     };
 
 
@@ -80,6 +95,14 @@ class SignupForm extends React.Component {
                                 type="password"
                                 name="password"
                                 value={this.state.password}
+                                onChange={this.handle_change}
+                            />
+
+                            <h4>Confirm Password </h4>
+                            <input
+                                type="confirm_password"
+                                name="confirm_password"
+                                value={this.state.confirm_password}
                                 onChange={this.handle_change}
                             />
                             <h4 id = "status"> </h4>

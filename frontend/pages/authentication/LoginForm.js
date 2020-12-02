@@ -23,7 +23,7 @@ class LoginForm extends React.Component {
 
     handle_login = (e, data) => {
         e.preventDefault();
-        fetch('https://lorelad-backend.herokuapp.com/token-auth/', {
+        fetch('127.0.0.1:8000/tokhen-auth/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -36,17 +36,17 @@ class LoginForm extends React.Component {
                 this.setState({
                     logged_in: true,
                     displayed_form: '',
-                    username: json.user.username
+                    username: json.user.username,
                 });
+                alert("logged in!")
             });
-        document.getElementById("status").innerHTML = this.props.logged_in
     };
 
     handle_submit = e => {
         e.preventDefault()
         if(this.state.password.length < 5)
         {
-            document.getElementById("status").innerHTML = "Passwords must be longer.";
+            document.getElementById("status").innerHTML = "Password must be longer.";
             e.preventDefault();
         }
         else if(this.state.username.length < 5)
@@ -60,7 +60,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <Layout title="Login" logged_in={this.props.logged_in} handle_logout = {this.props.handle_logout}>
+            <Layout title="Login" user_state={this.props.user_state} handle_logout = {this.props.handle_logout}>
                 <Head>
                     <title>Log In</title>
                     <link rel="icon" href="/favicon.ico" />

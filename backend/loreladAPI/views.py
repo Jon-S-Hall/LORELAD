@@ -107,6 +107,7 @@ def current_user(request):
     #in the background, django will check if there is a user associated with the token in request.
     #it will then run the rest of true
     serializer = UserSerializer(request.user)
+    print("hello")
     return Response(serializer.data)
 
 

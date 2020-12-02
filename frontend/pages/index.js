@@ -6,7 +6,7 @@ import styles from "../styles/Home.module.css";
 const Home = (props) => {
 
   return (
-      <Layout title="Home" logged_in={props.logged_in} handle_logout = {props.handle_logout}>
+      <Layout title="Home"  user_state = {props.user_state} handle_logout = {props.handle_logout} >
         <div className={styles.container}>
 
           <Head>
@@ -28,7 +28,7 @@ const Home = (props) => {
                     <h2>YOUR STORIES.</h2>
                     <p>
                       <span>LORELAD</span> is an online database designed to protect
-                      and preserve your language for learning, research, &
+                      and preserve languages for learning, research, &
                       posterity.
                     </p>
                   </div>
