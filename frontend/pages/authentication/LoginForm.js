@@ -70,7 +70,7 @@ class LoginForm extends React.Component {
                     />
                 </Head>
                 <main className={styles.main}>
-                    <h1>Log In</h1>
+                    <h1>Login</h1>
                     <p> Don't have an account? <Link href="/authentication/SignupForm" > Create One </Link></p>
                     <div className={styles.container}>
                         <form onSubmit={ this.handle_submit}>
@@ -89,7 +89,7 @@ class LoginForm extends React.Component {
                                 onChange={this.handle_change}
                             />
                             <h4 id = "status"> </h4>
-                            <input type="submit" />
+                            <button type="submit">Login</button>
                         </form>
                     </div>
                 </main>

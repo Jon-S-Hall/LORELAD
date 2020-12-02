@@ -83,7 +83,7 @@ class SignupForm extends React.Component {
                                 onChange={this.handle_change}
                             />
                             <h4 id = "status"> </h4>
-                            <input type="submit" />
+                            <button type="submit">Sign Up</button>
                         </form>
                     </div>
                 </main>
