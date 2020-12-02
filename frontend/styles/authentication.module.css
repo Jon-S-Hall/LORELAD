@@ -24,7 +24,7 @@
 }
 
 .container h4{
-    text-align: center;
+    text-align: right;
     margin-bottom: 1%;
 }
 
@@ -39,15 +39,23 @@
 }
 
 .main h4 {
-    font-family: Montserrat;
+    text-align: center;
     font-size: 2rem;
-    font-weight: bold;
-    padding-bottom: 1%;
-}
-.main h3 {
     font-family: Montserrat;
-    font-size: 1.2rem;
-    font-weight: bold;
-     padding-bottom: 1%;
+    font-weight: 600;
+    padding-bottom: 3rem;
+}
+.container button {
+    font-family: Hind;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 38px;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    background-color:#606C38;
+    font-size: 1rem;
  }
 
