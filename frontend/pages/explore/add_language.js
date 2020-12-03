@@ -12,7 +12,6 @@ class Add_language extends React.Component {
 
     constructor(props) {
         super(props);
-        this.logged_in = props.logged_in;
         this.state = {
             name:"",
             family:"",
@@ -26,11 +25,13 @@ class Add_language extends React.Component {
 
     handle_submit = (e, data) => {
         e.preventDefault();
-        if(this.logged_in == false)
+        console.log(this.state)
+        this.state.name = this.state.name.split(" ").join("_")
+        if(this.props.user_state.logged_in == false)
         {
             alert("You must be logged in to add a language.");
         }else {
-            fetch('https://lorelad-backend.herokuapp.com/languages/', {
+            fetch('http://127.0.0.1:8000/languages/', {
                 method: 'POST',
                 headers: {
                     Authorization: `JWT ${localStorage.getItem('token')}`,
@@ -67,7 +68,7 @@ class Add_language extends React.Component {
 
     render() {
         return (
-            <Layout title="Add Language" logged_in={this.props.logged_in} handle_logout = {this.props.handle_logout}>
+            <Layout title="Add Language" logged_in={this.props.logged_in} handle_logout = {this.props.handle_logout} user_state = {this.props.user_state}>
                 <main className={styles.main}>
                     <h1>Add Language to LORELAD</h1>
                     <div> We're sorry if you're language is currently not featured on LORELAD! We'd love if you could introduce us though! Please tell us all about it.</div>

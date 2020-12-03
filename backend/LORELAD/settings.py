@@ -177,9 +177,9 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',  #JWT
     ],
     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAuthenticatedOrReadOnly',), #JWT
-    'DEFAULT_PARSER_CLASSES': [
+    'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
-    ],
+    ),
 }
 
 

@@ -44,12 +44,17 @@ export default class MyApp extends Component {
     })
         .then(res => res.json())
         .then(json => {
-          localStorage.setItem('token', json.token);
-          this.setState({
-            logged_in: true,
-            displayed_form: '',
-            username: json.user.username
-          });
+          if(json.user == null ){
+              alert("Failed to Log in. Try again.")
+          }else {
+              localStorage.setItem('token', json.token);
+              this.setState({
+                  logged_in: true,
+                  displayed_form: '',
+                  username: json.user.username,
+              });
+              alert("Logged in. Welcome " + json.user.username + "!")
+          }
         });
   };
 
@@ -64,12 +69,18 @@ export default class MyApp extends Component {
     })
         .then(res => res.json())
         .then(json => {
-          localStorage.setItem('token', json.token);
-          this.setState({
-            logged_in: true,
-            displayed_form: '',
-            username: json.username
-          });
+          if(json.token == null)
+          {
+              alert("Failed to create account. Please try again.")
+          }else {
+              localStorage.setItem('token', json.token);
+              this.setState({
+                  logged_in: true,
+                  displayed_form: '',
+                  username: json.username
+              });
+              alert("Account creation successful! Please log in.")
+          }
         });
   };
 
@@ -89,9 +100,10 @@ export default class MyApp extends Component {
         <div className="App">
           <Component
               {...pageProps}
-              logged_in={this.state.logged_in}
+              user_state = {this.state}
               handle_logout={this.handle_logout}
               handle_login={this.handle_login}
+              handle_signup={this.handle_signup}
            />
         </div>
     );

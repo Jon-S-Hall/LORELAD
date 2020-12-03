@@ -37,6 +37,7 @@
 .main div {
     padding-bottom: 2%;
     text-align: center;
+    font-size: 20px;
 }
 
 .sidebyside {
@@ -57,7 +58,7 @@
 }
 .main h4 {
     font-family: Montserrat;
-    font-size: 2rem;
+    font-size: 1.6rem;
     font-weight: bold;
     padding-bottom: 1%;
 }
@@ -76,6 +77,14 @@
     font-size: 2rem;
     text-align: left;
     width : 50%;
+
+}
+.main input[type=file]{
+    padding: 15px 15px;
+    font-family: Montserrat;
+    font-size: 2rem;
+    align-content: center;
+    width : 450px;
 }
 
 .main textarea{
@@ -83,6 +92,21 @@
     font-size: 2rem;
     width : 6s0%;
 }
+
+.main input[type=date]{
+    position: relative;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border: 2px solid #8DBF42;
+    font-size: 14px;
+    padding: 12px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    width: 300px;
+}
+
 
 .main select{
     font-family: Montserrat;

@@ -110,8 +110,22 @@
   color: white;
   background-color: #606c38;
   display: block;
+  cursor: pointer;
 }
+
 
 .upload span {
   font-weight: 600;
+}
+
+.upload a {
+  text-decoration: none;
+  font-size: 1.3rem;
+  align-self: center;
+  color: white;
+  background-color: #606c38;
+  display: block;
+}
+.upload a:hover {
+  color: #283618;
 }

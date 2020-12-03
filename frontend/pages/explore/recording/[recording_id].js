@@ -6,8 +6,8 @@ import Layout from "../../../components/Layout";
 // Recording Page template - incomplete while API is getting finished
 // refer to recording_1.js for example of final product
 
-const Recording = ({ recording }) => (
-  <Layout>
+const Recording = ({ recording, user_state }) => (
+  <Layout user_state = {user_state}>
     <div>
       <Head>
         <title>Recording 1</title>
@@ -157,9 +157,13 @@ export async function getStaticProps({ params }) {
   // If the route is like /posts/1, then params.id is 1
   const res = await fetch(`https://.../explore/${recording.id}`);
   const recording = await res.json();
-
+  const logged_in = false;
+  const username = "na";
   // Pass recording data to the page via props
-  return { props: { recording } };
+  return {props: {
+    recording: recording,
+    user_state: {logged_in, username}
+  }};
 }
 
 export default Recording;

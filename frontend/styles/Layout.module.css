@@ -121,6 +121,14 @@
   display: block;
 }
 
+.dropdown_content div {
+  color: darkgreen;
+  text-align: center;
+  font-family: "Hind";
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .dropdown_content a:hover {
   color: #283618;
 }
@@ -131,4 +139,8 @@
 
 .dropdown:hover .profile {
   background-color: #8ea934;
+}
+
+.li div{
+  align-content: center;
 }

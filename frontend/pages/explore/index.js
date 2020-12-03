@@ -183,7 +183,7 @@ class Explore extends React.Component {
               {filteredLang.map((language) => (
                 <Link
                   href={{
-                    pathname: "/explore/[language]",
+                    pathname: "/explore/[language]", //this takes us to our slug. replace language with langauge.name
                     query: { language: language.name },
                   }}
                 >
