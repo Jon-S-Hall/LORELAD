@@ -7,9 +7,9 @@ from django.contrib.auth.models import User
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.parsers import MultiPartParser, FormParser
+from rest_framework.parsers import MultiPartParser, FormParser, FileUploadParser
 from django_filters.rest_framework import DjangoFilterBackend
-
+from master.forms import RecordForm
 ## Languages API view
 class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     """
@@ -26,7 +26,7 @@ class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
-        print(request.headers)
+        print(request.data)
         serializer = LanguageSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -59,7 +59,8 @@ class LanguageDetail(mixins.RetrieveModelMixin,
 
 ## Record API View
 class RecordList(mixins.ListModelMixin, generics.GenericAPIView):
-    parser_classes = (MultiPartParser, FormParser)
+    parser_classes = (MultiPartParser, FormParser,)
+    #parser_classes = [FileUploadParser  FormParser]
     queryset = Record.objects.all()
     serializer_class = RecordSerializer
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
@@ -67,12 +68,13 @@ class RecordList(mixins.ListModelMixin, generics.GenericAPIView):
     filterset_fields = ['language__name', 'source', 'speakerID__name', 'subject', 'title']
 
     def post(self, request, *args, **kwargs):
+        print(request.data)
+
         serializer = RecordSerializer(data=request.data)
         if serializer.is_valid():
-          serializer.save()
-          return Response(serializer.data, status=status.HTTP_201_CREATED)
-        else:
-          return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)

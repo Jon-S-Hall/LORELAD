@@ -69,9 +69,11 @@ const Record = (props) => (
                 </Link>
               </div>
             </Link>
-            <button className={styles.upload}>
-              Already have a recording? <span>Upload Here</span>
-            </button>
+            <Link href="/record/upload_recording">
+              <button className={styles.upload}>
+                <a> Already have a recording? <span>Upload Here</span> </a>
+              </button>
+            </Link>
           </section>
           <section>
             <Link href="/record/send_kit">

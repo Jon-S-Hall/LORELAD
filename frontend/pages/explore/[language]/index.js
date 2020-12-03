@@ -197,7 +197,7 @@ function Language({language, records, user_state }) {
             </div>
             <div className={styles.subjects}>
               <div className={styles.subject_1}>
-                <h4>Cooking</h4>
+                <h4>Recent</h4>
                 {records_match.map((record) => (
                   <div className={styles.recording}>
                     <div>
@@ -206,7 +206,7 @@ function Language({language, records, user_state }) {
                       {/* <h6>{record.title}</h6>
                     <p>@{record.creator}</p> */}
                     </div>
-                    <p>{record.media}</p>
+                    <p>{record.subject}</p>
                   </div>
                 ))}
               </div>

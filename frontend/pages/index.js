@@ -138,7 +138,7 @@ const Home = (props) => {
               <div className={styles.speaker}>
                 <p>Are you a low-resource language speaker?</p>
                 <button>
-                  <a href="">Make A Recording</a>
+                  <a href="/recordings">Make A Recording</a>
                 </button>
               </div>
               <div className={styles.researcher}>

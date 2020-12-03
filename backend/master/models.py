@@ -46,11 +46,12 @@ class Record(models.Model):
     SOURCES = (
         ('Direct Input','Direct Input') , ('WikiTongues', 'WikiTongues'), ('LORELAD Input', 'LORELAD Input'), ('YouTube', 'YouTube'), ('Physical Recorder','Physical Recorder'))
 
-    record_id = models.CharField(max_length=8, unique=True, default=get_random_string(8), null=True)
+    record_id = models.CharField(max_length=8, unique=True, default=get_random_string(6), null=True)
     media = models.FileField(upload_to=content_file_name, null=True)
+    #media = models.CharField(max_length=200, null=True)
     title = models.CharField(max_length=200, null=True)
     subject = models.CharField(max_length=200, null=True)
-    source = models.CharField(max_length=200, null=True, choices=SOURCES)
+    source = models.CharField(max_length=200, null=True)
     language = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     speakerID = models.ForeignKey(Speaker, null=True, on_delete=models.SET_NULL)
     date_created = models.DateTimeField(auto_now_add=True, null=True)

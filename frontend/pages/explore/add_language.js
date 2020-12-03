@@ -25,6 +25,7 @@ class Add_language extends React.Component {
 
     handle_submit = (e, data) => {
         e.preventDefault();
+        console.log(this.state)
         this.state.name = this.state.name.split(" ").join("_")
         if(this.props.user_state.logged_in == false)
         {
