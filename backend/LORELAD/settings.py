@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'loreladAPI',
     'django_filters',
-    'corsheaders'
+    'taggit',
+    'taggit_serializer',
+    'corsheaders',
 
 ]
 

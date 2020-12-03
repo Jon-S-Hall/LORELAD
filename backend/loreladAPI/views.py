@@ -9,7 +9,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.parsers import MultiPartParser, FormParser
 from django_filters.rest_framework import DjangoFilterBackend
-
+from taggit.views import TagListMixin
 ## Languages API view
 class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
     """
@@ -76,21 +76,22 @@ class RecordList(mixins.ListModelMixin, generics.GenericAPIView):
         return self.list(request, *args, **kwargs)
 
 
-
-## single record view, add 'DELETE' in api_view if wanted
-class RecordDetail(mixins.RetrieveModelMixin,
+class RecordDetail(#mixins.RetrieveModelMixin,
+                    TagListMixin,
+                    mixins.ListModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.DestroyModelMixin,
-                    generics.GenericAPIView):
+                    generics.GenericAPIView,):
     """
     Retrieve or update a languages.
     """
     queryset = Record.objects.all()
     serializer_class = RecordSerializer
-    lookup_field = 'title'
+
+    # lookup_field = 'tags'
 
     def get(self, request, *args, **kwargs):
-        return self.retrieve(request, *args, **kwargs)
+        return self.list(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
