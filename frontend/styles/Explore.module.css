@@ -124,7 +124,7 @@
 }
 
 .results {
-  width: 80%;
+  width: 70%;
   margin: 3rem auto 0;
 }
 
@@ -169,7 +169,12 @@
 
 .add_language_cont {
   font-family: Montserrat;
-  font-size: 2rem;
+  font-size: 1.1rem;
   text-align: center;
   margin-bottom: 1%;
+}
+
+.add_language_cont a {
+  color: #606c38;
+  font-weight: 500;
 }

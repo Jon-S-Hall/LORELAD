@@ -3,25 +3,26 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import styles from "../../../styles/Language.module.css";
 import Layout from "../../../components/Layout";
+import Player from "../../../components/PlayerMinimal";
 
 // Language Page template - incomplete while API is getting finished
 // refer to taishanese > index.js for example of final product
 
-function Language({language, records, user_state }) {
+function Language({ language, records, user_state }) {
   //get language name from route
   const router = useRouter();
 
   //match language from list of languages based on language name
 
   //extract result from languageRes list
-  console.log(language)
+  console.log(language);
   const records_match = records.filter(
     (record) => record.language == language.id
   );
   console.log(records_match);
 
   return (
-    <Layout user_state = {user_state}>
+    <Layout user_state={user_state}>
       <div>
         <Head>
           <title>{language.name}</title>
@@ -203,10 +204,9 @@ function Language({language, records, user_state }) {
                     <div>
                       <h6>{record.title}</h6>
                       <p>@{record.speakerID}</p>
-                      {/* <h6>{record.title}</h6>
-                    <p>@{record.creator}</p> */}
                     </div>
                     <p>{record.subject}</p>
+                    <Player />
                   </div>
                 ))}
               </div>
@@ -272,31 +272,30 @@ function Language({language, records, user_state }) {
   );
 }
 
-
-
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://lorelad-backend.herokuapp.com/languages")
-  const languages = await res.json()
+  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  const languages = await res.json();
   // Get the paths we want to pre-render based on recordings
   const paths = languages.map((language) => ({
-    params:{language: language.name},
-  }))
-  console.log(paths)
-      //`/explore/${language.name}`);
+    params: { language: language.name },
+  }));
+  console.log(paths);
+  //`/explore/${language.name}`);
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
-  return { paths, fallback: false }
+  return { paths, fallback: false };
 }
 
-
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
   // Call an external API endpoint to get languages
-  const res = await fetch(`https://lorelad-backend.herokuapp.com/languages/${params.language}`);
-  console.log(res)
+  const res = await fetch(
+    `https://lorelad-backend.herokuapp.com/languages/${params.language}`
+  );
+  console.log(res);
   const language = await res.json();
-  const rec = await fetch("http://127.0.0.1:8000/records");
+  const rec = await fetch("https://lorelad-backend.herokuapp.com/records");
   const records = await rec.json();
   const logged_in = false;
   const username = "na";
@@ -305,7 +304,7 @@ export async function getStaticProps({params}) {
     props: {
       language: language,
       records: records,
-      user_state: {logged_in, username}
+      user_state: { logged_in, username },
     },
   };
 }

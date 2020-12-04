@@ -7,7 +7,7 @@ import Layout from "../../../components/Layout";
 // refer to recording_1.js for example of final product
 
 const Recording = ({ recording, user_state }) => (
-  <Layout user_state = {user_state}>
+  <Layout user_state={user_state}>
     <div>
       <Head>
         <title>Recording 1</title>
@@ -29,7 +29,7 @@ const Recording = ({ recording, user_state }) => (
         <div className={styles.recording_name}>
           <Link
             href={{
-              pathname: "/explore/[slug]/all_recordings",
+              pathname: "/explore/[language]/all_recordings",
               query: { language: recording.language },
             }}
           >
@@ -106,8 +106,8 @@ const Recording = ({ recording, user_state }) => (
               <p>{recording.description}</p>
             </div>
           </div>
-          <div className={styles.bottom}>
-            <div className={styles.stats}>
+          <div className={styles.player}>
+            <div>
               <p>Record player here</p>
             </div>
           </div>
@@ -145,7 +145,9 @@ export async function getStaticPaths() {
   const recordings = await res.json();
 
   // Get the paths we want to pre-render based on recordings
-  const paths = recordings.map((recording) => `/explore/${recording.id}`);
+  const paths = recordings.map(
+    (recording) => `/explore/recording/${recording.id}`
+  );
 
   // We'll pre-render only these paths at build time.
   // { fallback: false } means other routes should 404.
@@ -160,10 +162,12 @@ export async function getStaticProps({ params }) {
   const logged_in = false;
   const username = "na";
   // Pass recording data to the page via props
-  return {props: {
-    recording: recording,
-    user_state: {logged_in, username}
-  }};
+  return {
+    props: {
+      recording: recording,
+      user_state: { logged_in, username },
+    },
+  };
 }
 
 export default Recording;

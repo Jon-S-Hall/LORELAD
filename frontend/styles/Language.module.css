@@ -29,6 +29,7 @@
   margin: 2rem auto;
   padding: 2.75rem 2.5rem;
   position: relative;
+  width: 85%;
 }
 
 .container h3 {
@@ -84,7 +85,6 @@
 .bottom {
   display: flex;
   justify-content: space-between;
-  position: relative;
 }
 
 .stats {
@@ -166,7 +166,7 @@
 .recording {
   margin-bottom: 0.75rem;
   border: 1px solid black;
-  padding: 1rem;
+  padding: 1rem 1rem 0.5rem;
   border-radius: 15px;
   background-color: white;
   position: relative;
@@ -175,12 +175,32 @@
 .recording div {
   display: flex;
   padding-bottom: 0.5rem;
+  box-shadow: none;
+  padding: 0;
+}
+
+.recording div div div:last-child {
+  flex: 0.5 10 auto;
+}
+
+.recording button {
+  color: black;
+}
+
+.recording div div div:first-child div div div:first-child {
+  background-color: white;
+  border: 4px solid black;
+}
+
+.recording div div div:first-child div div div:last-child {
+  /* background-color: black; */
 }
 
 .recording h6 {
   font-size: 1rem;
   font-weight: 500;
   padding-right: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .recording p {

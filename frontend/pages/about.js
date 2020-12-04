@@ -5,7 +5,7 @@ import Layout from "../components/Layout"; //import common layout styles. notice
 const About = (props) => (
   <Layout
     title="About"
-    user_state = {props.user_state}
+    user_state={props.user_state}
     handle_logout={props.handle_logout}
   >
     <div>
@@ -36,9 +36,15 @@ const About = (props) => (
             </svg>
             <div className={about_styles.content_wrapper}>
               <h1>About Us</h1>
-              <p className={about_styles.blurb}>
-                We are in the middle of a language extinction.
-              </p>
+              <p>We are in the middle of a language extinction.</p>
+              <div className={about_styles.stats}>
+                <p>
+                  <span>7000</span> languages in the world.
+                </p>
+                <p>
+                  <span>90%</span> are at risk of dying by 2100.
+                </p>
+              </div>
               <p>
                 With every language that dies undocumented, so does the culture,
                 knowledge and expressions that it encompasses. In our current

@@ -1,8 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import styles from "../../../styles/Languages_All_Recordings.module.css";
 import Layout from "../../../components/Layout";
+import SearchBar from "../../../components/SearchBar";
+import Player from "../../../components/Player";
+import styles from "../../../styles/Languages_All_Recordings.module.css";
 
 // All Recordings Page template - incomplete while API is getting finished
 // refer to taishanese > all_recordings.js for example of final product
@@ -61,23 +63,11 @@ function Recordings({ recordings }) {
                 />
               </svg>
             </Link>
-            <h1>Language - All Recordings</h1>
+            <h1>{language} - All Recordings</h1>
           </div>
-          <section>
+          <section className={styles.search_container}>
             <form action="index.html" method="post">
-              <div>
-                <label for="search">search</label>
-                <input
-                  type="text"
-                  id="search"
-                  name="search"
-                  placeholder="Search"
-                  required
-                />
-                <button type="button" name="send">
-                  <i class="fas fa-search"></i>
-                </button>
-              </div>
+              <SearchBar />
             </form>
           </section>
           <section className={styles.recordings}>
@@ -85,50 +75,50 @@ function Recordings({ recordings }) {
               <div className={styles.recording}>
                 <div className={styles.recording_wrapper}>
                   <div className={styles.recording_info}>
-                    <div>
-                      <h6>{recording.title}</h6>
-                      <p>@{recording.creator}</p>
-                    </div>
-                    <Link
-                      href={{
-                        pathname: "/explore/[recording_id]",
-                        query: { recording_id: recording.id },
-                      }}
-                    >
-                      <p className={styles.recording_link}>more info</p>
-                    </Link>
+                    <h6>{recording.title}</h6>
+                    <p>@{recording.speakerID}</p>
                   </div>
-                  <p>Audio player here</p>
+                  <Player source="/sample2.mp3" />
                 </div>
-                <svg
-                  width="56"
-                  height="56"
-                  viewBox="0 0 56 56"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M49 35V44.3333C49 45.571 48.5083 46.758 47.6332 47.6332C46.758 48.5083 45.571 49 44.3333 49H11.6667C10.429 49 9.242 48.5083 8.36683 47.6332C7.49167 46.758 7 45.571 7 44.3333V35"
-                    stroke="black"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M16.333 23.3334L27.9997 35L39.6663 23.3334"
-                    stroke="black"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                  <path
-                    d="M28 35V7"
-                    stroke="black"
-                    stroke-width="4"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
+                <div className={styles.recording_links}>
+                  <Link
+                    href={{
+                      pathname: "/explore/recording/[recording_id]",
+                      query: { recording_id: recording.record_id },
+                    }}
+                  >
+                    <p className={styles.recording_link}>more info</p>
+                  </Link>
+                  <svg
+                    width="30"
+                    height="33"
+                    viewBox="0 0 30 33"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M26.25 20.625V26.125C26.25 26.8543 25.9866 27.5538 25.5178 28.0695C25.0489 28.5853 24.413 28.875 23.75 28.875H6.25C5.58696 28.875 4.95107 28.5853 4.48223 28.0695C4.01339 27.5538 3.75 26.8543 3.75 26.125V20.625"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M8.75 13.75L15 20.625L21.25 13.75"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                    <path
+                      d="M15 20.625V4.125"
+                      stroke="black"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
               </div>
             ))}
           </section>

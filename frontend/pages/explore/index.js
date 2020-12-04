@@ -102,7 +102,7 @@ class Explore extends React.Component {
                 <a> Add it here!</a>
               </Link>
             </div>
-            <section>
+            <section className={styles.search_container}>
               <form action="index.html" method="post">
                 <SearchBar />
                 <select
