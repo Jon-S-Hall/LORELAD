@@ -276,7 +276,7 @@ function Language({language, records, user_state }) {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("http://127.0.0.1:8000/languages")
+  const res = await fetch("https://lorelad-backend.herokuapp.com/languages")
   const languages = await res.json()
   // Get the paths we want to pre-render based on recordings
   const paths = languages.map((language) => ({
@@ -293,7 +293,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
   // Call an external API endpoint to get languages
-  const res = await fetch(`http://127.0.0.1:8000/languages/${params.language}`);
+  const res = await fetch(`https://lorelad-backend.herokuapp.com/languages/${params.language}`);
   console.log(res)
   const language = await res.json();
   const rec = await fetch("http://127.0.0.1:8000/records");

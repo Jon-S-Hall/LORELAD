@@ -36,7 +36,7 @@ class Upload_Recording extends React.Component {
         {
             alert("You must be logged in to upload a recording.");
         }else {
-            fetch('http://127.0.0.1:8000/records/', {
+            fetch('https://lorelad-backend.herokuapp.com/records/', {
                 method: 'POST',
                 headers: {
                     Authorization: `JWT ${localStorage.getItem('token')}`,
@@ -116,7 +116,7 @@ class Upload_Recording extends React.Component {
 
 export async function getStaticProps(context) {
     // Call an external API endpoint to get languages
-    const res = await fetch("http://127.0.0.1:8000/languages");
+    const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
     //const res = await fetch("http://127.0.0.1:8000/languages");
     const langs = await res.json();
     console.log(langs)
