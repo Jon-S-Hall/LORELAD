@@ -85,6 +85,7 @@
 .bottom {
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
 .stats {

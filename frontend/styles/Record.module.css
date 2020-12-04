@@ -15,6 +15,8 @@
 
 .container {
   display: flex;
+  width: 85%;
+  margin: 0 auto;
 }
 
 .container section {
@@ -86,7 +88,7 @@
 }
 
 .container p {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   line-height: 2rem;
   margin-bottom: 1.5rem;
 }
@@ -113,7 +115,6 @@
   cursor: pointer;
 }
 
-
 .upload span {
   font-weight: 600;
 }
@@ -126,6 +127,7 @@
   background-color: #606c38;
   display: block;
 }
+
 .upload a:hover {
   color: #283618;
 }
