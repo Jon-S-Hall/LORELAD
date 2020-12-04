@@ -13,3 +13,5 @@
 .idea
 
 backend/.idea
+*.pyc
+*.pyc

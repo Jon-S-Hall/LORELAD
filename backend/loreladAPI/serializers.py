@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 from master.models import Language, Record, Speaker, CONTINENT_CHOICES
 from rest_framework_jwt.settings import api_settings
 from django.contrib.auth.models import User
+from taggit_serializer.serializers import (TagListSerializerField,
+                                           TaggitSerializer)
 
 #class UserSerializer(serializers.ModelSerializer):
 #    snippets = serializers.PrimaryKeyRelatedField(many=True, queryset=Snippet.objects.all())
@@ -14,13 +16,13 @@ from django.contrib.auth.models import User
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        #fields = ['name', 'family', 'continent', 'num_speakers', 'num_recordings', 'summary']
-        fields = ['id', 'name', 'num_speakers', 'num_recordings', 'continent', 'summary']
+        fields = ['name', 'num_speakers', 'num_recordings', 'continent', 'summary']
 
-class RecordSerializer(serializers.ModelSerializer):
+class RecordSerializer(TaggitSerializer, serializers.ModelSerializer):
+    tags = TagListSerializerField() # tag type: list of str
     class Meta:
         model = Record
-        fields = ['title', 'subject', 'media', 'language', 'speakerID', 'date_created', 'date_recorded']
+        fields = ['title', 'subject', 'media', 'language', 'speakerID', 'date_created', 'date_recorded', 'tags']
 
 
 # To be deleted

@@ -1,6 +1,9 @@
 from django.db import models
 from django.utils.crypto import get_random_string      # generate unique id
 from s3direct.fields import S3DirectField
+from taggit.managers import TaggableManager
+
+
 # Created language models for tables.
 #We will try our best to manage this class since there will be max 7000 languages.
 CONTINENT_CHOICES = (('as', 'Asia'), ('af', 'Africa'),          ('oc','Oceania'),('eu','Europe'''), ('na','North America'), ('sa','South America'), ('nan', 'Not Defined')
@@ -58,7 +61,7 @@ class Record(models.Model):
     quality = models.IntegerField(null=True) #how can we find the quality of a recording?
     date_recorded = models.DateTimeField(null=True)
     video = S3DirectField(dest='primary_destination', blank=True)
-
+    tags = TaggableManager(blank=True)
     class Meta:
         ordering = ['date_recorded']
 
