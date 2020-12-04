@@ -187,8 +187,8 @@ function Language({ language, records, user_state }) {
               > */}
               <Link
                 href={{
-                  pathname: `/explore/${language}/all_recordings`,
-                  query: { language: language },
+                  pathname: "/explore/[language]/all_recordings",
+                  query: { language: language.name },
                 }}
               >
                 <button>
