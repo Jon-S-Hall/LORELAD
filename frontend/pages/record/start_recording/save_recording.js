@@ -60,7 +60,7 @@ function Save_Recording() {
             </svg>
             <h1>Upload Recording</h1>
           </div>
-          <section>
+          <section className={styles.save_container}>
             <form action="index.html" method="post">
               <div className={styles.name}>
                 <label for="name">Name: </label>
@@ -89,28 +89,28 @@ function Save_Recording() {
                 <button className={styles.download_btn}>
                   Download
                   <svg
-                    width="40"
-                    height="40"
-                    viewBox="0 0 40 40"
+                    width="25"
+                    height="26"
+                    viewBox="0 0 25 26"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <path
-                      d="M35 25V31.6667C35 32.5507 34.6488 33.3986 34.0237 34.0237C33.3986 34.6488 32.5507 35 31.6667 35H8.33333C7.44928 35 6.60143 34.6488 5.97631 34.0237C5.35119 33.3986 5 32.5507 5 31.6667V25"
+                      d="M21.574 15.9824V20.0145C21.574 20.5492 21.3616 21.062 20.9835 21.44C20.6055 21.8181 20.0927 22.0305 19.558 22.0305H5.44572C4.91104 22.0305 4.39825 21.8181 4.02017 21.44C3.64209 21.062 3.42969 20.5492 3.42969 20.0145V15.9824"
                       stroke="black"
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
-                      d="M11.667 16.6665L20.0003 24.9998L28.3337 16.6665"
+                      d="M7.46289 10.9424L12.503 15.9825L17.5431 10.9424"
                       stroke="black"
                       stroke-width="2"
                       stroke-linecap="round"
                       stroke-linejoin="round"
                     />
                     <path
-                      d="M20 25V5"
+                      d="M12.502 15.9825V3.88623"
                       stroke="black"
                       stroke-width="2"
                       stroke-linecap="round"

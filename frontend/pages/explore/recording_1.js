@@ -65,28 +65,28 @@ const Recording = ({ recording }) => (
             <button className={styles.download_btn}>
               Download
               <svg
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
+                width="25"
+                height="25"
+                viewBox="0 0 25 25"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  d="M35 25V31.6667C35 32.5507 34.6488 33.3986 34.0237 34.0237C33.3986 34.6488 32.5507 35 31.6667 35H8.33333C7.44928 35 6.60143 34.6488 5.97631 34.0237C5.35119 33.3986 5 32.5507 5 31.6667V25"
+                  d="M21.574 15.8315V19.8636C21.574 20.3983 21.3616 20.9111 20.9835 21.2892C20.6055 21.6672 20.0927 21.8797 19.558 21.8797H5.44572C4.91104 21.8797 4.39825 21.6672 4.02017 21.2892C3.64209 20.9111 3.42969 20.3983 3.42969 19.8636V15.8315"
                   stroke="black"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M11.667 16.6666L20.0003 25L28.3337 16.6666"
+                  d="M7.46289 10.7915L12.503 15.8316L17.5431 10.7915"
                   stroke="black"
                   stroke-width="2"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <path
-                  d="M20 25V5"
+                  d="M12.502 15.8316V3.73535"
                   stroke="black"
                   stroke-width="2"
                   stroke-linecap="round"
@@ -106,8 +106,8 @@ const Recording = ({ recording }) => (
               </p>
             </div>
           </div>
-          <div className={styles.bottom}>
-            <div className={styles.stats}>
+          <div className={styles.player}>
+            <div>
               <p>Record player here</p>
             </div>
           </div>

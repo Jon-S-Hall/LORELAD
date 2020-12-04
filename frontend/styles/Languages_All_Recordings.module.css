@@ -5,6 +5,11 @@
   min-height: 100vh;
 }
 
+.search_container {
+  width: 65%;
+  margin: 0 auto;
+}
+
 .language_name {
   display: flex;
   align-items: center;
@@ -61,22 +66,6 @@
   outline: none;
 }
 
-.main button {
-  border: none;
-  outline: none;
-  background-color: white;
-  font-size: 1rem;
-}
-
-.main button:focus {
-  border: none;
-  outline: none;
-}
-
-.main button i {
-  color: #606c38;
-}
-
 .recording {
   margin: 0 auto;
   background-color: white;
@@ -86,21 +75,39 @@
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
+  width: 85%;
 }
 
 .recording_wrapper {
-  width: 100%;
-  padding-right: 3rem;
+  width: 90%;
+}
+
+.recording_wrapper div {
+  box-shadow: none;
+  padding: 0;
+}
+
+.recording_wrapper button {
+  color: black;
+}
+
+.recording_wrapper div div div:last-child {
+  flex: none;
+}
+
+.recording_wrapper div div div:first-child div div div:first-child {
+  background-color: white;
+  border: 4px solid black;
+}
+
+.recording_wrapper div div div:first-child div div div:last-child {
+  background-color: black;
 }
 
 .recording_info {
   display: flex;
-  justify-content: space-between;
-}
-
-.recording_info div {
-  display: flex;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 
 .recording_info h6 {
@@ -109,18 +116,32 @@
   padding-right: 1rem;
 }
 
-.recording_info div p {
+.recording_info p {
   color: #606c38;
   font-size: 0.9rem;
   font-weight: 500;
+}
+
+.recording_links {
+  text-align: center;
 }
 
 .recording_link {
   color: #606c38;
   font-size: 1rem;
   text-decoration: underline;
+  margin-bottom: 1rem;
 }
 
 .recording_link:hover {
   cursor: pointer;
+}
+
+.recording_links svg:hover {
+  cursor: pointer;
+}
+
+.audio_container {
+  background-color: white;
+  width: 800px;
 }

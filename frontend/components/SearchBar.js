@@ -8,7 +8,7 @@ const SearchBar = () => {
         type="text"
         id="search"
         name="search"
-        placeholder="Search"
+        placeholder="search"
         required
       />
       <button type="button" name="send">
