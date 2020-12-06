@@ -141,7 +141,7 @@ const Recording = ({ recording, user_state }) => (
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("http://127.0.0.1:8000/records");
+  const res = await fetch("https://lorelad-backend.herokuapp.com/records");
   const recordings = await res.json();
 
   // Get the paths we want to pre-render based on recordings
@@ -159,7 +159,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params contains the recording id.
   // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`http://127.0.0.1:8000/records/${params.recording_id}`);
+  const res = await fetch(`https://lorelad-backend.herokuapp.com/records/${params.recording_id}`);
   const recording = await res.json();
   const logged_in = false;
   const username = "na";
