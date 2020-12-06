@@ -81,6 +81,14 @@ class SignupForm extends React.Component {
                 <main className={styles.main}>
                     <h1>Sign Up</h1>
                     <p> Already have an account? <Link href="/authentication/LoginForm" > Sign In </Link></p>
+                    <div className={styles.ls}>
+                        <p> Sign up for a LORELAD account to:</p>
+                        <ul>
+                        <li>Upload Recordings</li>
+                        <li>Translate</li>
+                        <li>Download Recordings</li>
+                        </ul>
+                </div>
                     <div className={styles.container}>
                         <form onSubmit={ this.handle_submit}>
                             <h4> Username </h4>
@@ -106,7 +114,9 @@ class SignupForm extends React.Component {
                                 onChange={this.handle_change}
                             />
                             <h4 id = "status"> </h4>
-                            <button type="submit">Sign Up</button>
+                            <div className={styles.bcontainer}>
+                                <button type="submit">Sign Up</button>
+                            </div>
                         </form>
                     </div>
                 </main>
