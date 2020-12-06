@@ -4,7 +4,7 @@ import styles from "../../../styles/Save_Recording.module.css";
 import Layout from "../../../components/Layout";
 import SearchBar from "../../../components/SearchBar";
 
-function Save_Recording() {
+function Save_Recording(props) {
   const leaveOpen = () => {
     let element = document.getElementById("leave_modal");
     console.log(element == null);
@@ -15,7 +15,7 @@ function Save_Recording() {
     element.style.visibility = "hidden";
   };
   return (
-    <Layout>
+    <Layout user_state = {props.user_state} handle_logout = {props.handle_logout}>
       <div>
         <Head>
           <title>Save Recording</title>

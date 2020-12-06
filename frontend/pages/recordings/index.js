@@ -71,9 +71,8 @@ class Recordings extends React.Component {
 
 export async function getStaticProps() {
     // Call an external API endpoint to get languages
-    const res = await fetch("https://lorelad-backend.herokuapp.com/records");
+    const res = await fetch("http://127.0.0.1:8000/records");
     const recordings = await res.json();
-
     // Pass languages to the page via props
     return {
         props: {

@@ -7,7 +7,7 @@ const Home = (props) => {
 
   return (
       <Layout title="Home"  user_state = {props.user_state} handle_logout = {props.handle_logout} >
-        <div className={styles.container}>
+        <div className={styles.main}>
 
           <Head>
             <title>Lorelad</title>

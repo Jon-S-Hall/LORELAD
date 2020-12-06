@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "../../../styles/Start_Recording.module.css";
 import Layout from "../../../components/Layout";
 
-function Start_Record() {
+function Start_Record(props) {
   let isRecording = false;
   let isNew = true;
   const leaveOpen = () => {
@@ -59,7 +59,7 @@ function Start_Record() {
   };
 
   return (
-    <Layout>
+    <Layout user_state = {props.user_state} handle_logout = {props.handle_logout} >
       <div>
         <Head>
           <title>Start Recording</title>

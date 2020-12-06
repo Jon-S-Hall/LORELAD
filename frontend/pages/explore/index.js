@@ -169,16 +169,6 @@ class Explore extends React.Component {
             </section>
             <section className={styles.results}>
               <h2>All Languages</h2>
-              <div className={styles.language_container}>
-                {/* Example sections showing what the language list would look like */}
-                <Link href="/explore/taishanese">
-                  <h3>Taishanese</h3>
-                </Link>
-                <div>
-                  <p>Native speakers: 500</p>
-                  <p>Country: China</p>
-                </div>
-              </div>
               {/* actual code for generating the language list: */}
               {filteredLang.map((language) => (
                 <Link
@@ -209,7 +199,6 @@ export async function getStaticProps(context) {
   const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
   //const res = await fetch("http://127.0.0.1:8000/languages");
   const languages = await res.json();
-  console.log(res);
   return { props: { languages } };
 }
 

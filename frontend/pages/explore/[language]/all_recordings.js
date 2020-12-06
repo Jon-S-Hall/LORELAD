@@ -9,12 +9,12 @@ import styles from "../../../styles/Languages_All_Recordings.module.css";
 // All Recordings Page template - incomplete while API is getting finished
 // refer to taishanese > all_recordings.js for example of final product
 
-function Recordings({ recordings }) {
+function Recordings({ recordings, user_state }) {
   const router = useRouter();
   const { language } = router.query;
 
   return (
-    <Layout>
+    <Layout user_state = {user_state}>
       <div>
         <Head>
           <title>{language.name} Recordings</title>
@@ -84,7 +84,7 @@ function Recordings({ recordings }) {
                   <Link
                     href={{
                       pathname: "/explore/recording/[recording_id]",
-                      query: { recording_id: recording.record_id },
+                      query: { recording_id: recording.id },
                     }}
                   >
                     <p className={styles.recording_link}>more info</p>
@@ -130,9 +130,8 @@ function Recordings({ recordings }) {
 
 export async function getStaticProps() {
   // Call an external API endpoint to get languages
-  const res = await fetch("https://lorelad-backend.herokuapp.com/records");
+  const res = await fetch("http://127.0.0.1:8000/records");
   const recordings = await res.json();
-
   // Pass languages to the page via props
   return {
     props: {
@@ -143,7 +142,7 @@ export async function getStaticProps() {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  const res = await fetch("http://127.0.0.1:8000/languages");
   const languages = await res.json();
 
   // Get the paths we want to pre-render based on recordings

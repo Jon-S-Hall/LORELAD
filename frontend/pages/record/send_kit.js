@@ -3,8 +3,8 @@ import Link from "next/link";
 import styles from "../../styles/Send_Kit.module.css";
 import Layout from "../../components/Layout";
 
-const Send_Kit = () => (
-  <Layout>
+const Send_Kit = (props) => (
+  <Layout user_state = {props.user_state} handle_logout = {props.handle_logout}>
     <div>
       <Head>
         <title>Send Kit</title>

@@ -8,7 +8,7 @@ import Layout from "../../../components/Layout";
 
 const Recording = ({ recording, user_state }) => (
   <Layout user_state={user_state}>
-    <div>
+    <div className={styles.container}>
       <Head>
         <title>Recording 1</title>
         {/* Favicon */}
@@ -141,12 +141,14 @@ const Recording = ({ recording, user_state }) => (
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://sampleapis.com/fakebank/api/Accounts");
+  const res = await fetch("http://127.0.0.1:8000/records");
   const recordings = await res.json();
 
   // Get the paths we want to pre-render based on recordings
   const paths = recordings.map(
-    (recording) => `/explore/recording/${recording.id}`
+    (recording) =>({
+      params: {recording_id: recording.id.toString()},
+    })
   );
 
   // We'll pre-render only these paths at build time.
@@ -157,7 +159,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params contains the recording id.
   // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://.../explore/${recording.id}`);
+  const res = await fetch(`http://127.0.0.1:8000/records/${params.recording_id}`);
   const recording = await res.json();
   const logged_in = false;
   const username = "na";

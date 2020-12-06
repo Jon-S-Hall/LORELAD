@@ -293,7 +293,6 @@ export async function getStaticProps({ params }) {
   const res = await fetch(
     `https://lorelad-backend.herokuapp.com/languages/${params.language}`
   );
-  console.log(res);
   const language = await res.json();
   const rec = await fetch("https://lorelad-backend.herokuapp.com/records");
   const records = await rec.json();

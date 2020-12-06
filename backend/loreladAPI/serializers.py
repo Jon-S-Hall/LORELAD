@@ -22,7 +22,7 @@ class RecordSerializer(TaggitSerializer, serializers.ModelSerializer):
     tags = TagListSerializerField() # tag type: list of str
     class Meta:
         model = Record
-        fields = ['title', 'subject', 'media', 'language', 'speakerID', 'date_created', 'date_recorded', 'tags']
+        fields = ['id', 'title', 'subject', 'media', 'language', 'speakerID', 'date_created', 'date_recorded', 'tags']
 
 
 # To be deleted

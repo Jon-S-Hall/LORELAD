@@ -19,7 +19,6 @@ def createRecord(request):
     form = RecordForm(request.POST, request.FILES)
     print(request.POST)
     if request.method == 'POST':
-
         if form.is_valid():
             form.save()
             return redirect('recordings/')

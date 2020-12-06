@@ -22,7 +22,6 @@ class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
     filterset_fields = ['continent', 'family', 'name']
 
     def get(self, request, *args, **kwargs):
-
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -80,8 +79,8 @@ class RecordList(mixins.ListModelMixin, generics.GenericAPIView):
         return self.list(request, *args, **kwargs)
 
 
-class RecordDetail(#mixins.RetrieveModelMixin,
-                    TagListMixin,
+class RecordDetail(mixins.RetrieveModelMixin,
+                    #TagListMixin,
                     mixins.ListModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.DestroyModelMixin,
@@ -91,11 +90,11 @@ class RecordDetail(#mixins.RetrieveModelMixin,
     """
     queryset = Record.objects.all()
     serializer_class = RecordSerializer
-
+    #lookup_field = "id"
     # lookup_field = 'tags'
 
     def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
+        return self.retrieve(request, *args, **kwargs)
 
     def put(self, request, *args, **kwargs):
         return self.update(request, *args, **kwargs)
