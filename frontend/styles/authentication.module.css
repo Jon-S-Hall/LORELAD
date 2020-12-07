@@ -65,6 +65,10 @@
     background-color:#606C38;
     font-size: 1rem;
  }
+ .main button:hover {
+     cursor:pointer;
+     opacity:70%
+ }
  .bcontainer {
     text-align: center;
     }

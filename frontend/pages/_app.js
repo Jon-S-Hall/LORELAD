@@ -105,6 +105,7 @@ export default class MyApp extends Component {
               handle_login={this.handle_login}
               handle_signup={this.handle_signup}
            />
+           <send_kit/>
         </div>
     );
   }
