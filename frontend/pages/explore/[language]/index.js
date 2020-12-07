@@ -318,7 +318,9 @@ export async function getStaticProps({ params }) {
       language: language,
       records: records,
       user_state: { logged_in, username },
+
     },
+    revalidate: 1, // In seconds
   };
 }
 
