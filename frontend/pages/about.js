@@ -1,6 +1,8 @@
 import Head from "next/head";
+
 import about_styles from "../styles/About.module.css"; //import styles specific to about page
 import Layout from "../components/Layout"; //import common layout styles. notice that we're importing a JS class
+
 
 const About = (props) => (
   <Layout
@@ -80,6 +82,9 @@ const About = (props) => (
                 heritage, and our history. And we want the world to hear yours.
                 Coming Soon.
               </p>
+            </div>
+            <div>
+            <img alt="Yuhao He" src="/yuhao_img.jpg" width="200" height="300" className={about_styles.img}/>
             </div>
           </section>
         </div>
