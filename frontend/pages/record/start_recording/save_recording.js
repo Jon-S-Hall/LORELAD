@@ -3,6 +3,8 @@ import Link from "next/link";
 import styles from "../../../styles/Save_Recording.module.css";
 import Layout from "../../../components/Layout";
 import SearchBar from "../../../components/SearchBar";
+import { server } from '../../../config';
+
 
 function Save_Recording(props) {
   const leaveOpen = () => {

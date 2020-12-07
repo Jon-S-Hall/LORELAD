@@ -82,6 +82,19 @@ const About = (props) => (
               </p>
             </div>
           </section>
+          <div className={about_styles.content_wrapper}>
+            <h1>We Are LORELAD</h1>
+            <p className={about_styles.blurb}>
+              Our mission is to help preserve languages and cultures by
+              creating a platform to share stories.
+            </p>
+            <img src="/chinese_culture.jpg" alt="No Picture">
+
+            </img>
+          </div>
+          <section>
+
+          </section>
         </div>
       </main>
     </div>

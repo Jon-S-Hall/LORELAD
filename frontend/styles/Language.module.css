@@ -71,6 +71,8 @@
 .top img {
   padding-right: 3rem;
   position: relative;
+  max-width:35%;
+  max-height:35%;
 }
 
 .top span {

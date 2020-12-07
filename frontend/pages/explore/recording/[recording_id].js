@@ -2,11 +2,14 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../../styles/Recording.module.css";
 import Layout from "../../../components/Layout";
-
+import { server } from '../../../config';
 // Recording Page template - incomplete while API is getting finished
 // refer to recording_1.js for example of final product
 
-const Recording = ({ recording, user_state }) => (
+const Recording = ({ recording, user_state }) => {
+
+
+  return (
   <Layout user_state={user_state}>
     <div className={styles.container}>
       <Head>
@@ -137,11 +140,12 @@ const Recording = ({ recording, user_state }) => (
       </main>
     </div>
   </Layout>
-);
+  );
+}
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://lorelad-backend.herokuapp.com/records");
+  const res = await fetch(`${server}/records`);
   const recordings = await res.json();
 
   // Get the paths we want to pre-render based on recordings
@@ -159,7 +163,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // params contains the recording id.
   // If the route is like /posts/1, then params.id is 1
-  const res = await fetch(`https://lorelad-backend.herokuapp.com/records/${params.recording_id}`);
+  const res = await fetch(`${server}/records/${params.recording_id}`);
   const recording = await res.json();
   const logged_in = false;
   const username = "na";

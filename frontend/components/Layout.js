@@ -43,7 +43,7 @@ const Layout = (props) => {
           <Link href="/record">
             <a>RECORD</a>
           </Link>
-          <Link href="/explore">
+          <Link href="/explore/languages">
             <a>EXPLORE</a>
           </Link>
           <h1 className={styles.h1}>

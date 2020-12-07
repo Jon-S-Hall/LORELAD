@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import styles from "../../../styles/Language.module.css";
 import Layout from "../../../components/Layout";
 import Player from "../../../components/PlayerMinimal";
+import { server } from '../../../config';
 
 // Language Page template - incomplete while API is getting finished
 // refer to taishanese > index.js for example of final product
@@ -15,12 +16,17 @@ function Language({ language, records, user_state }) {
   //match language from list of languages based on language name
 
   //extract result from languageRes list
-  console.log(language);
   const records_match = records.filter(
     (record) => record.language == language.id
   );
-  console.log(records_match);
 
+  const default_img = (
+      <img src="/chinese_culture.jpg" alt="No Picture" />
+
+  );
+  const lang_img = (
+      <img src= {language.cov_image} alt="No Picture" />
+  );
   return (
     <Layout user_state={user_state}>
       <div>
@@ -42,7 +48,7 @@ function Language({ language, records, user_state }) {
 
         <main className={styles.main}>
           <div className={styles.language_name}>
-            <Link href="/explore">
+            <Link href="/explore/languages">
               <svg
                 width="51"
                 height="27"
@@ -116,7 +122,7 @@ function Language({ language, records, user_state }) {
             </svg>
             <h3>About</h3>
             <div className={styles.top}>
-              <img src="/language_img.png" alt="language_img" />
+              {language.cov_image==null ? default_img : lang_img}
               <div>
                 <p>{language.summary}</p>
               </div>
@@ -140,8 +146,7 @@ function Language({ language, records, user_state }) {
                   />
                 </svg>
                 <div>
-                  <p>Where in the World?</p>
-                  <a href="">View on Maps</a>
+                  <a href="https://www.google.com/maps/place/"><p>Where in the World?</p></a>
                 </div>
               </div>
             </div>
@@ -187,7 +192,7 @@ function Language({ language, records, user_state }) {
               > */}
               <Link
                 href={{
-                  pathname: "/explore/[language]/all_recordings",
+                  pathname: "/explore/recordings",
                   query: { language: language.name },
                 }}
               >
@@ -266,6 +271,16 @@ function Language({ language, records, user_state }) {
             ))}
           </div> */}
           </section>
+          <Link
+              href={{
+                pathname: "/explore/add_language",
+                query: { language: language.name },
+              }}
+          >
+            <button>
+              Edit
+            </button>
+          </Link>
         </main>
       </div>
     </Layout>
@@ -274,13 +289,12 @@ function Language({ language, records, user_state }) {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+  const res = await fetch(`${server}/languages`);
   const languages = await res.json();
   // Get the paths we want to pre-render based on recordings
   const paths = languages.map((language) => ({
     params: { language: language.name },
   }));
-  console.log(paths);
   //`/explore/${language.name}`);
 
   // We'll pre-render only these paths at build time.
@@ -291,10 +305,10 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Call an external API endpoint to get languages
   const res = await fetch(
-    `https://lorelad-backend.herokuapp.com/languages/${params.language}`
+    `${server}/languages/${params.language}`
   );
   const language = await res.json();
-  const rec = await fetch("https://lorelad-backend.herokuapp.com/records");
+  const rec = await fetch(`${server}/records`);
   const records = await rec.json();
   const logged_in = false;
   const username = "na";

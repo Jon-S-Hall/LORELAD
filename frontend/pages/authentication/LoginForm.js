@@ -4,6 +4,7 @@ import Head from "next/head";
 import Layout from "../../components/Layout"; //import common layout styles. notice that we're importing a JS class
 import styles from "../../styles/authentication.module.css";
 import Link from "next/link";
+import { server } from '../../config';
 
 class LoginForm extends React.Component {
     state = {
@@ -23,7 +24,7 @@ class LoginForm extends React.Component {
 
     handle_login = (e, data) => {
         e.preventDefault();
-        fetch('127.0.0.1:8000/tokhen-auth/', {
+        fetch(`${server}/token-auth/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

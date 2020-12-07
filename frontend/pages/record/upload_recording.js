@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import styles from "../../styles/Add_Language.module.css";
 import Layout from "../../components/Layout"; //import common layout styles. notice that we're importing a JS class
 import axios from 'axios'
-
+import { server } from '../../config';
 
 class Upload_Recording extends React.Component {
     //state of form entry
@@ -36,7 +36,7 @@ class Upload_Recording extends React.Component {
         {
             alert("You must be logged in to upload a recording.");
         }else {
-            fetch('https://lorelad-backend.herokuapp.com/records/', {
+            fetch(`${server}/records/`, {
                 method: 'POST',
                 headers: {
                     Authorization: `JWT ${localStorage.getItem('token')}`,
@@ -116,7 +116,7 @@ class Upload_Recording extends React.Component {
 
 export async function getStaticProps(context) {
     // Call an external API endpoint to get languages
-    const res = await fetch("https://lorelad-backend.herokuapp.com/languages");
+    const res = await fetch(`${server}/languages`);
     //const res = await fetch("http://127.0.0.1:8000/languages");
     const langs = await res.json();
     console.log(langs)

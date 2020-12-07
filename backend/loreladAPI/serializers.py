@@ -16,7 +16,7 @@ from taggit_serializer.serializers import (TagListSerializerField,
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
-        fields = ['name', 'num_speakers', 'num_recordings', 'continent', 'summary']
+        fields = ['id', 'name', 'num_speakers', 'num_recordings', 'continent', 'summary', 'cov_image']
 
 class RecordSerializer(TaggitSerializer, serializers.ModelSerializer):
     tags = TagListSerializerField() # tag type: list of str
@@ -41,11 +41,11 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserSerializerWithToken(serializers.ModelSerializer):
 
-    #user field doesn't natively have a token field
+    # user field doesn't natively have a token field
     token = serializers.SerializerMethodField()
     password = serializers.CharField(write_only=True)
 
-    #handles creation of new tokens
+    # handles creation of new tokens
     def get_token(self, obj):
         jwt_payload_handler = api_settings.JWT_PAYLOAD_HANDLER
         jwt_encode_handler = api_settings.JWT_ENCODE_HANDLER

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Layout from '../components/Layout'
 import App from 'next/app';
 import Router from 'next/router';
-
+import { server } from '../config';
 
 //This is the js file that runs when
 export default class MyApp extends Component {
@@ -12,7 +12,7 @@ export default class MyApp extends Component {
     super(props);
     this.state = {
       logged_in: false,
-      username: ''
+      username: '',
     };
   }
 
@@ -20,7 +20,7 @@ export default class MyApp extends Component {
   componentDidMount() {
     this.state.logged_in = localStorage.getItem('token') ? true : false
     if (this.state.logged_in) {
-      fetch('https://lorelad-backend.herokuapp.com/check_user/', {
+      fetch(`${server}/check_user/`, {
         headers: {
           Authorization: `JWT ${localStorage.getItem('token')}`
         }
@@ -28,14 +28,13 @@ export default class MyApp extends Component {
           .then(res => res.json())
           .then(json => {
             this.setState({ username: json.username });
-            console.log("logged in!")
           });
     }
   }
 
   handle_login = (e, data) => {
     e.preventDefault();
-    fetch('https://lorelad-backend.herokuapp.com/token-auth/', {
+    fetch(`${server}/token-auth/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -60,7 +59,7 @@ export default class MyApp extends Component {
 
   handle_signup = (e, data) => {
     e.preventDefault();
-    fetch('https://lorelad-backend.herokuapp.com/users/', {
+    fetch(`${server}/users/`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -95,7 +94,6 @@ export default class MyApp extends Component {
 
   render() {
     const { Component, pageProps } = this.props;
-
     return (
         <div className="App">
           <Component

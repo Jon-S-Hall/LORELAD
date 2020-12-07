@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Layout from "../../components/Layout"; //import common layout styles. notice that we're importing a JS class
 import styles from "../../styles/authentication.module.css";
 import Link from "next/link";
-
+import { server } from '../../config';
 
 class SignupForm extends React.Component {
     state = {
@@ -42,7 +42,7 @@ class SignupForm extends React.Component {
 
     handle_signup = (e, data) => {
         e.preventDefault();
-        fetch('https://lorelad-backend.herokuapp.com/users/', {
+        fetch(`${server}/users/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

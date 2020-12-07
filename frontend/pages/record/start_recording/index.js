@@ -2,6 +2,8 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../../styles/Start_Recording.module.css";
 import Layout from "../../../components/Layout";
+import { server } from '../../../config';
+
 
 function Start_Record(props) {
   let isRecording = false;

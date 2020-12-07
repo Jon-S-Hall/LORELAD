@@ -15,6 +15,9 @@ def content_file_name(instance, filename):
     return '/'.join(['recordings', instance.language.name, filename]) #the recording folder is known to be in s3
 
 
+def image_folder(instance, filename):
+    return '/'.join(['languages', instance.name, filename])
+
 class Language(models.Model):
     name = models.CharField(max_length=200, null=False, unique=True)
     #nearestLanguage = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
@@ -22,6 +25,7 @@ class Language(models.Model):
     continent = models.CharField(max_length=200, null=True)
     summary = models.CharField(max_length=1000, null = True)
     num_speakers = models.IntegerField(null = True)
+    cov_image = models.ImageField(upload_to=image_folder, null=True)
     num_recordings = models.IntegerField(null = True)
 
     def __str__(self):
@@ -51,7 +55,6 @@ class Record(models.Model):
 
     record_id = models.CharField(max_length=8, unique=True, default=get_random_string(6), null=True)
     media = models.FileField(upload_to=content_file_name, null=True)
-    #media = models.CharField(max_length=200, null=True)
     title = models.CharField(max_length=200, null=True)
     subject = models.CharField(max_length=200, null=True)
     source = models.CharField(max_length=200, null=True)

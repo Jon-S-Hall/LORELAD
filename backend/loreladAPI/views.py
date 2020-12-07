@@ -15,6 +15,7 @@ class LanguageList(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
     """
     List all Languages, or create a new Language.
     """
+    parser_classes = (MultiPartParser, FormParser,)
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
