@@ -2,63 +2,181 @@ import Head from "next/head";
 import Link from "next/link";
 import styles from "../../styles/Send_Kit.module.css";
 import Layout from "../../components/Layout";
+import axios from 'axios'
+import React, { useState } from 'react'
 
-const Send_Kit = (props) => (
-  <Layout user_state = {props.user_state} handle_logout = {props.handle_logout}>
-    <div>
+function Send_Kit(props) {
+  const [status, setStatus] = useState({
+    submitted: false,
+    submitting: false,
+    info: { error: false, msg: null },
+  })
+  const [inputs, setInputs] = useState({
+    name: '',
+    address_1: '',
+    address_2: '',
+    city: '',
+    state: '',
+    zipcode: '',
+    country: '',
+    note: '',
+  })
+  const handleServerResponse = (ok, msg) => {
+    if (ok) {
+      setStatus({
+        submitted: true,
+        submitting: false,
+        info: { error: false, msg: msg },
+      })
+      setInputs({
+        name: '',
+        address_1: '',
+        address_2: '',
+        city: '',
+        state: '',
+        zipcode: '',
+        country: '',
+        note: '',
+      })
+    } else {
+      setStatus({
+        info: { error: true, msg: 'jv' },
+      })
+    }
+  }
+  const handleOnChange = (e) => {
+    e.persist()
+    setInputs((prev) => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }))
+    setStatus({
+      submitted: false,
+      submitting: false,
+      info: { error: false, msg: null },
+    })
+  }
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    setStatus((prevStatus) => ({ ...prevStatus, submitting: true }))
+    axios({
+      method: 'POST',
+      url: "https://formspree.io/f/xoqpkqke",
+      data: inputs,
+    })
+      .then((response) => {
+        handleServerResponse(
+          true,
+          'Thank you, your Send-a-Kit request has been submitted.'
+        )
+      })
+      .catch((error) => {
+        handleServerResponse(false, error.response.data.error)
+      })
+  }
+  return (
+    <Layout user_state = {props.user_state} handle_logout = {props.handle_logout}>
+      <div>
       <Head>
-        <title>Send Kit</title>
-        {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
-        {/* Google Fonts */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=MuseoModerno:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-        {/* Font Awesome */}
-        <link
-          rel="stylesheet"
-          href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
-        />
-      </Head>
-
+          <title>Send Kit</title>
+          {/* Favicon */}
+          <link rel="icon" href="/favicon.ico" />
+          {/* Google Fonts */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=MuseoModerno:wght@400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
       <main className={styles.main}>
-        <h1>Record</h1>
-        <div className={styles.container}>
-          <section>
-            <Link href="/record/start_recording">
-              <div className={styles.record}>
-                <h2>Start a New Recording</h2>
-                <img src="/microphone.png" alt="microphone" />
-                <p>
-                  Use our built-in recorder tool to record and upload audio of a
-                  low-resource language!
-                </p>
-                <Link href="/record/start_recording">
-                  <a>Get Started</a>
-                </Link>
-              </div>
-            </Link>
-          </section>
-          <section>
-            <Link href="/record/send_kit">
-              <div className={styles.send}>
-                <h2>Send a Kit</h2>
-                <img src="/kit.png" alt="kit" />
-                <p>
-                  Know a low-resource language speaker who can’t use our record
-                  tool? Send them an audio kit on us!
-                </p>
-                <Link href="/record/send_kit">
-                  <a>Get Started</a>
-                </Link>
-              </div>
-            </Link>
-          </section>
+        <h1>Send a Kit</h1>
+      <div classname={styles.container}>
+        <h3>Ship to Information</h3>
+      <form onSubmit={handleOnSubmit}>
+        <h4>Name</h4>
+        <input
+          id="name"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.name}
+        />
+        <h4>Address 1</h4>
+        <input
+          id="address_1"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.address_1}
+        />
+        <h4>Address 2</h4>
+        <input
+          id="address_2"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.address_2}
+        />
+        <h4>City</h4>
+        <input
+          id="city"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.city}
+        />
+        <h4>State/Province</h4>
+        <input
+          id="state"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.state}
+        />
+        <h4>ZIP code</h4>
+        <input
+          id="zipcode"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.zipcode}
+        />
+        <h4>Country of Origin</h4>
+        <input
+          id="country"
+          type="text"
+          onChange={handleOnChange}
+          required
+          value={inputs.country}
+        />
+        <h4>Note</h4>
+        <textarea
+          id="note"
+          name="note"
+          onChange={handleOnChange}
+          required
+          value={inputs.note}
+        />
+        <div className={styles.bcontainer}>
+        <button type="submit" disabled={status.submitting}>
+          {!status.submitting
+            ? !status.submitted
+              ? 'Send Kit'
+              : 'Sent Request'
+            : 'Submitting...'}
+        </button>
         </div>
+        
+      </form>
+      </div>
+      {status.info.error && (
+        <div className="error">Error: {status.info.msg}</div>
+      )}
+      {!status.info.error && status.info.msg && <p>{status.info.msg}</p>}
+                
       </main>
-    </div>
-  </Layout>
-);
-
+      </div>
+      </Layout>
+    
+  
+); }
 export default Send_Kit;

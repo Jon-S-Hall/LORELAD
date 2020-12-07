@@ -49,15 +49,15 @@
 
 .main h4 {
     font-size: 16px;
-    font: Hindi;
+    font: Montserrat;
     font-weight: 400;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
     font-style: normal;
 }
-.container button {
+.main button {
     font-family: Hindi;
     margin: 8px 0;
-    width: 70%;
+    width: 20%;
     font-style: normal;
     font-weight: 500;
     font-size: 24px;
@@ -69,12 +69,17 @@
     background-color:#606C38;
     font-size: 1rem;
  }
+ .main button:hover {
+     cursor:pointer;
+     opacity:70%
+ }
  .bcontainer {
     text-align: center;
     }
 .ls {
-    text-align: left;
-    padding:5px;
+    
+    text-align:center;
+ 
 }
 .ls ul {
     list-style: none;
