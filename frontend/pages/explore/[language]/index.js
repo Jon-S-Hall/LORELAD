@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import styles from "../../../styles/Language.module.css";
 import Layout from "../../../components/Layout";
 import Player from "../../../components/PlayerMinimal";
-import { server } from '../../../config';
+import { server } from "../../../config";
 
 // Language Page template - incomplete while API is getting finished
 // refer to taishanese > index.js for example of final product
@@ -20,13 +20,8 @@ function Language({ language, records, user_state }) {
     (record) => record.language == language.id
   );
 
-  const default_img = (
-      <img src="/chinese_culture.jpg" alt="No Picture" />
-
-  );
-  const lang_img = (
-      <img src= {language.cov_image} alt="No Picture" />
-  );
+  const default_img = <img src="/chinese_culture.jpg" alt="No Picture" />;
+  const lang_img = <img src={language.cov_image} alt="No Picture" />;
   return (
     <Layout user_state={user_state}>
       <div>
@@ -122,7 +117,7 @@ function Language({ language, records, user_state }) {
             </svg>
             <h3>About</h3>
             <div className={styles.top}>
-              {language.cov_image==null ? default_img : lang_img}
+              {language.cov_image == null ? default_img : lang_img}
               <div>
                 <p>{language.summary}</p>
               </div>
@@ -146,7 +141,9 @@ function Language({ language, records, user_state }) {
                   />
                 </svg>
                 <div>
-                  <a href="https://www.google.com/maps/place/"><p>Where in the World?</p></a>
+                  <a href="https://www.google.com/maps/place/">
+                    <p>Where in the World?</p>
+                  </a>
                 </div>
               </div>
             </div>
@@ -211,7 +208,8 @@ function Language({ language, records, user_state }) {
                       <p>@{record.speakerID}</p>
                     </div>
                     <p>{record.subject}</p>
-                    <Player />
+                    <p>{record.media}</p>
+                    <Player source={record.media} />
                   </div>
                 ))}
               </div>
@@ -272,14 +270,12 @@ function Language({ language, records, user_state }) {
           </div> */}
           </section>
           <Link
-              href={{
-                pathname: "/explore/add_language",
-                query: { language: language.name },
-              }}
+            href={{
+              pathname: "/explore/add_language",
+              query: { language: language.name },
+            }}
           >
-            <button>
-              Edit
-            </button>
+            <button>Edit</button>
           </Link>
         </main>
       </div>
@@ -304,21 +300,19 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Call an external API endpoint to get languages
-  const res = await fetch(
-    `${server}/languages/${params.language}`
-  );
+  const res = await fetch(`${server}/languages/${params.language}`);
   const language = await res.json();
   const rec = await fetch(`${server}/records`);
   const records = await rec.json();
   const logged_in = false;
   const username = "na";
+  console.log(records);
   // Pass languages to the page via props
   return {
     props: {
       language: language,
       records: records,
       user_state: { logged_in, username },
-
     },
     revalidate: 1, // In seconds
   };
