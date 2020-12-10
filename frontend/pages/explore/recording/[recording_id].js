@@ -32,7 +32,7 @@ const Recording = ({ recording, user_state }) => {
         <div className={styles.recording_name}>
           <Link
             href={{
-              pathname: "/explore/[language]/all_recordings",
+              pathname: "/explore/recordings",
               query: { language: recording.language },
             }}
           >

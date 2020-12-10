@@ -74,11 +74,13 @@ function Recordings({ recordings, user_state }) {
             {recordings.map((recording) => (
               <div className={styles.recording}>
                 <div className={styles.recording_wrapper}>
-                  <div className={styles.recording_info}>
+                  <div className={styles.rec_details}>
                     <h6>{recording.title}</h6>
-                    <p>@{recording.speakerID}</p>
+                    <p>@{recording.source}</p>
                   </div>
-                  <Player source="/sample2.mp3" />
+                  <div className={styles.rec_player}>
+                    <Player source= {recording.media} />
+                  </div>
                 </div>
                 <div className={styles.recording_links}>
                   <Link
@@ -87,7 +89,7 @@ function Recordings({ recordings, user_state }) {
                       query: { recording_id: recording.id },
                     }}
                   >
-                    <p className={styles.recording_link}>more info</p>
+                    <a className={styles.recording_link}>more info</a>
                   </Link>
                   <svg
                     width="30"

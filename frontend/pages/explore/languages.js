@@ -166,7 +166,7 @@ class Languages extends React.Component {
                 >
                   <div className={styles.language_container}>
                     <h3>{language.name}</h3>
-                    <div>
+                    <div className={styles.language_details}>
                       <p>Native speakers: {language.num_speakers}</p>
                       <p>Continent: {language.continent}</p>
                     </div>

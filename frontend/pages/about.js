@@ -10,15 +10,14 @@ const About = (props) => (
     user_state={props.user_state}
     handle_logout={props.handle_logout}
   >
-    <div>
-      <Head>
-        <title>About</title>
-        <link rel="icon" href="/favicon.ico" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=MuseoModerno:wght@400;500;600;700;800;900&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
+    <Head>
+      <title>About</title>
+      <link rel="icon" href="/favicon.ico" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&family=MuseoModerno:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+      />
+    </Head>
 
       <main className={about_styles.main}>
         <div className={about_styles.container}>
@@ -94,48 +93,41 @@ const About = (props) => (
             </p>
           </div>
 
-        <section>
-        <div className={about_styles.content_wrapper}>
-        <h1>Our Team</h1>
-        </div>
-        <div className={about_styles.row}>
-            <div className={about_styles.column}>
-                <img src="/Laurina.png" alt="" className={about_styles.avatar}/>
-                <img src="/Jonathon.png" alt="" className={about_styles.avatar}/>
-                <img src="/Tsubasa.png" alt="" className={about_styles.avatar}/>
-            </div>
-        </div>
-        <div className={about_styles.row}>
-            <div className={about_styles.name}>Laurina Saint Fleur</div>
-            <div className={about_styles.name}>Jonathan Hall</div>
-            <div className={about_styles.name}>Tsubasa Morita</div>
-        </div>
-        <div className={about_styles.row}>
-            <div className={about_styles.title}>Developer</div>
-            <div className={about_styles.title}>Founder</div>
-            <div className={about_styles.title}>Developer</div>
-        </div>
+        <section className={about_styles.our_team}>
+          <div className={about_styles.content_wrapper}>
+            <h1>Our Team</h1>
+          </div>
+          <div className={about_styles.row}>
+                <div className={about_styles.pics}><img src="/team/Laurina.png" alt="" className={about_styles.avatar}/></div>
+                <div className={about_styles.pics}><img src="/team/Jonathon.png" alt="" className={about_styles.avatar}/></div>
+              <div className={about_styles.pics}> <img src="/team/Tsubasa.png" alt="" className={about_styles.avatar}/></div>
+          </div>
+          <div className={about_styles.row}>
+              <div className={about_styles.name}>Laurina Saint Fleur</div>
+              <div className={about_styles.name}>Jonathan Hall</div>
+              <div className={about_styles.name}>Tsubasa Morita</div>
+          </div>
+          <div className={about_styles.row}>
+              <div className={about_styles.title}>Developer</div>
+              <div className={about_styles.title}>Founder</div>
+              <div className={about_styles.title}>Developer</div>
+          </div>
 
-        <div className={about_styles.row}>
-            <div className={about_styles.column}>
-                <img src="/Yuhao.png" alt="" className={about_styles.avatar1}/>
-                <img src="/Thuy-An.png" alt="" className={about_styles.avatar1}/>
-            </div>
-        </div>
-        <div className={about_styles.row}>
-            <div className={about_styles.name1}>Yuhao He</div>
-            <div className={about_styles.name1}>Thuy-An Nguyen</div>
-        </div>
-        <div className={about_styles.row}>
-            <div className={about_styles.title1}>Developer</div>
-            <div className={about_styles.title1}>UI/UX Designer</div>
-        </div>
-
-
+          <div className={about_styles.row}>
+            <div className={about_styles.pics}><img src="/team/Yuhao.png" alt="" className={about_styles.avatar1}/></div>
+            <div className={about_styles.pics}><img src="/team/Thuy-An.png" alt="" className={about_styles.avatar1}/></div>
+          </div>
+          <div className={about_styles.row}>
+              <div className={about_styles.name}>Yuhao He</div>
+              <div className={about_styles.name}>Thuy-An Nguyen</div>
+          </div>
+          <div className={about_styles.row}>
+              <div className={about_styles.title}>Developer</div>
+              <div className={about_styles.title}>UI/UX Designer</div>
+          </div>
         </section>
         </div>
       </main>
-    </div>
   </Layout>
 );
 

@@ -40,7 +40,13 @@
 
 .h1 {
   display: inline;
-  padding: 1.8rem 0;
+  max-width: 30%;
+  text-align: center;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
 }
 
 .h1 a {
@@ -48,6 +54,7 @@
   font-family: MuseoModerno;
   font-weight: 900;
   font-size: 3rem;
+
 }
 
 .h1 a:hover {

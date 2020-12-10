@@ -4,12 +4,10 @@ import "react-h5-audio-player/lib/styles.css";
 
 const Player = (props) => {
   const { source } = props;
-  console.log(source);
   return (
     <AudioPlayer
       src={source}
       autoPlay={false}
-      onPlay={(e) => console.log("onPlay")}
       customAdditionalControls={[]}
       customVolumeControls={[]}
       customProgressBarSection={[

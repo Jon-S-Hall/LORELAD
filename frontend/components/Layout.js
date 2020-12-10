@@ -92,7 +92,7 @@ const Layout = (props) => {
           </Link>
           <h1 className={styles.h1}>
             <Link href="/">
-              <a>LORELAD</a>
+                <img src="../../Official Logo - LORELAD.png" alt= "LORELAD" className={styles.logo}/>
             </Link>
           </h1>
           <Link href="/about">

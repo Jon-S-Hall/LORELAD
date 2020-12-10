@@ -61,9 +61,17 @@
 }
 
 .results h3 {
+  width: 40%;
   font-size: 1.25rem;
   font-weight: 500;
   padding-right: 3rem;
+  text-overflow:ellipsis;
+}
+
+.language_details{
+  width:50%;
+  text-overflow:ellipsis;
+  overflow:hidden;
 }
 
 .language_container:hover {

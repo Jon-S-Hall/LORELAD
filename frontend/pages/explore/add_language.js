@@ -17,7 +17,7 @@ class Add_Language extends React.Component {
         this.state = {
             name:"",
             family:"",
-            continent:"af",
+            continent:"",
             num_speakers: null,
             num_recordings:0,
             summary:"",

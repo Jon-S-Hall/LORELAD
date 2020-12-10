@@ -234,3 +234,20 @@
   padding-top: 1rem;
   font-weight: 500;
 }
+
+.rec_details{
+  width: 30%;
+}
+
+.rec_player{
+  width: 60%;
+}
+.recording_wrapper {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.search_container{
+  padding-bottom: 5%;
+}
