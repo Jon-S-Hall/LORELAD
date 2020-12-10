@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Head from "next/head";
-import React, { Component } from "react";
+import React, { useState, setState } from "react";
 import PropTypes from "prop-types";
 import styles from "../styles/Layout.module.css";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Layout = (props) => {
   const logged_out = (
@@ -21,7 +23,9 @@ const Layout = (props) => {
   );
   const logged_in = (
     <ul>
-        <li><div>Hi {props.user_state.username}! </div></li>
+      <li>
+        <div>Hi {props.user_state.username}! </div>
+      </li>
       <Link href="/">
         <li onClick={props.handle_logout}>
           <a>Log out</a>
@@ -29,6 +33,13 @@ const Layout = (props) => {
       </Link>
     </ul>
   );
+
+  const [toggle, setToggle] = useState(false);
+
+  let Toggle = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div className="Layout">
       <Head>
@@ -40,11 +51,44 @@ const Layout = (props) => {
       </Head>
       <header className={styles.header}>
         <nav className={styles.nav}>
+          <div className={styles.menu}>
+            <button onClick={Toggle} className={styles.mobile}>
+              <FontAwesomeIcon icon={faBars} />
+            </button>
+            <ul
+              className={toggle ? `${styles.show_nav}` : `${styles.nav_links}`}
+            >
+              <li>
+                <Link href="/about">
+                  <a>ABOUT</a>
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/explore/languages">
+                  <a>EXPLORE</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/record">
+                  <a>RECORD</a>
+                </Link>
+              </li>
+              <li>
+                <a
+                  className={`${styles.coming_soon} ${styles.mobile_none}`}
+                  href=""
+                >
+                  CONTACT
+                </a>
+              </li>
+            </ul>
+          </div>
           <Link href="/record">
-            <a>RECORD</a>
+            <a className={styles.mobile_none}>RECORD</a>
           </Link>
           <Link href="/explore/languages">
-            <a>EXPLORE</a>
+            <a className={styles.mobile_none}>EXPLORE</a>
           </Link>
           <h1 className={styles.h1}>
             <Link href="/">
@@ -52,9 +96,9 @@ const Layout = (props) => {
             </Link>
           </h1>
           <Link href="/about">
-            <a>ABOUT</a>
+            <a className={styles.mobile_none}>ABOUT</a>
           </Link>
-          <a className={styles.coming_soon} href="">
+          <a className={`${styles.coming_soon} ${styles.mobile_none}`} href="">
             CONTACT
           </a>
           <div className={styles.profile_container}>
@@ -70,17 +114,19 @@ const Layout = (props) => {
       {props.children}
       <footer className={styles.footer}>
         <div className={styles.info}>
-          <div className={styles.links}>
-            <p>lorelad@gmail.com</p>
-            <Link href="/">
-              <a>Terms of Service</a>
-            </Link>
-            <Link href="/">
-              <a>Privacy</a>
-            </Link>
-            <Link href="/">
-              <a>Legal</a>
-            </Link>
+          <div>
+            <p className={styles.email}>lorelad@gmail.com</p>
+            <div className={styles.links}>
+              <Link href="/">
+                <a>Terms of Service</a>
+              </Link>
+              <Link href="/">
+                <a>Privacy</a>
+              </Link>
+              <Link href="/">
+                <a>Legal</a>
+              </Link>
+            </div>
           </div>
           <p>
             ©<span>LORELAD</span> 2020

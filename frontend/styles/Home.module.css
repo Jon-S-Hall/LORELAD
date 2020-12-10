@@ -1,5 +1,6 @@
 .top {
   min-height: 80vh;
+  padding: 7% 12.5% 2%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -13,7 +14,6 @@
 }
 
 .top_content {
-  padding: 7% 12.5% 2%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -96,6 +96,7 @@
 
 .svgs svg {
   margin-bottom: 2.8rem;
+  stroke: #606c38;
 }
 
 .right_content p {
@@ -133,19 +134,20 @@
   font-size: 4.5rem;
   color: #bc6c25;
 }
-
 .cta {
+  background-color: #fefae0;
+  padding: 5% 18% 10%;
+}
+.cta_content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #fefae0;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  padding: 5% 18% 10%;
 }
 
 .speaker,
@@ -190,4 +192,41 @@
   color: #fefae0;
   font-size: 1.1rem;
   line-height: 1.7rem;
+}
+
+@media (min-width: 1800px) {
+  .top_content,
+  .cta_content {
+    max-width: 1450px;
+  }
+  .left h2 {
+    font-size: 3.5rem;
+  }
+
+  .left p {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+  }
+  .right h3 {
+    font-size: 2.8rem;
+  }
+  .right_content p {
+    font-size: 1.7rem;
+    line-height: 2.5rem;
+  }
+  .svgs svg {
+    margin-bottom: 4.2rem;
+  }
+  .top_cta_button p {
+    font-size: 2.7rem;
+  }
+
+  .speaker,
+  .researcher {
+    font-size: 1.6rem;
+  }
+  .speaker a,
+  .researcher a {
+    font-size: 1.6rem;
+  }
 }
