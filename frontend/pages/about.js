@@ -83,27 +83,61 @@ const About = (props) => (
                 Coming Soon.
               </p>
             </div>
-            <div>
-            <img alt="Yuhao He" src="/yuhao_img.jpg" width="200" height="300" className={about_styles.img}/>
-            </div>
           </section>
           <div className={about_styles.content_wrapper}>
-            <h1>We Are LORELAD</h1>
+            <h1>What We Do</h1>
             <p className={about_styles.blurb}>
-              Our mission is to help preserve languages and cultures by
-              creating a platform to share stories.
+              A place to preserve & a place to explore
             </p>
-            <img src="/chinese_culture.jpg" alt="No Picture">
-
-            </img>
+            <p>
+            By creating a database where low-resource languages can put recordings of their language, we are enabling a documentation process that can allow for preservation, learning and research. Those interested in learning about low-resource languages are able to hear the language as it is meant to be spoken and what it might mean.
+            </p>
           </div>
-          <section>
 
-          </section>
+        <section>
+        <div className={about_styles.content_wrapper}>
+        <h1>Our Team</h1>
+        </div>
+        <div className={about_styles.row}>
+            <div className={about_styles.column}>
+                <img src="/Laurina.png" alt="" className={about_styles.avatar}/>
+                <img src="/Jonathon.png" alt="" className={about_styles.avatar}/>
+                <img src="/Tsubasa.png" alt="" className={about_styles.avatar}/>
+            </div>
+        </div>
+        <div className={about_styles.row}>
+            <div className={about_styles.name}>Laurina Saint Fleur</div>
+            <div className={about_styles.name}>Jonathan Hall</div>
+            <div className={about_styles.name}>Tsubasa Morita</div>
+        </div>
+        <div className={about_styles.row}>
+            <div className={about_styles.title}>Developer</div>
+            <div className={about_styles.title}>Founder</div>
+            <div className={about_styles.title}>Developer</div>
+        </div>
+
+        <div className={about_styles.row}>
+            <div className={about_styles.column}>
+                <img src="/Yuhao.png" alt="" className={about_styles.avatar1}/>
+                <img src="/Thuy-An.png" alt="" className={about_styles.avatar1}/>
+            </div>
+        </div>
+        <div className={about_styles.row}>
+            <div className={about_styles.name1}>Yuhao He</div>
+            <div className={about_styles.name1}>Thuy-An Nguyen</div>
+        </div>
+        <div className={about_styles.row}>
+            <div className={about_styles.title1}>Developer</div>
+            <div className={about_styles.title1}>UI/UX Designer</div>
+        </div>
+
+
+        </section>
         </div>
       </main>
     </div>
   </Layout>
 );
+
 
 export default About;
