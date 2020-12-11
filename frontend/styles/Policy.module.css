@@ -1,0 +1,30 @@
+.main{
+    text-align: center;
+}
+
+.policy_container{
+    padding: 2% 20% 2% 20%;
+}
+
+ .policy_container h1{
+    font-weight: bolder;
+     font-size: 25px;
+     padding-top: 2%;
+     padding-bottom: 2%;
+}
+
+.policy_container h2{
+    font-size: 18px;
+    font-weight: bolder;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.policy_container h3{
+    font-size: large;
+    padding-bottom: 1%;
+}
+
+.policy_container p{
+    padding-bottom: 3px;
+}

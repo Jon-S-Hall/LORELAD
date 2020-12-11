@@ -129,7 +129,7 @@ const Layout = (props) => {
               <Link href="/">
                 <a>Terms of Service</a>
               </Link>
-              <Link href="/">
+              <Link href="/legal/privacy_policy">
                 <a>Privacy</a>
               </Link>
               <Link href="/">

@@ -63,10 +63,10 @@ const Layout = (props) => {
               <Link href="/">
                 <a>Terms of Service</a>
               </Link>
-              <Link href="/">
+              <Link href="../pages/legal/privacy_policy.js">
                 <a>Privacy</a>
               </Link>
-              <Link href="/">
+              <Link href="../pages/legal/privacy_policy.js">
                 <a>Legal</a>
               </Link>
             </div>
