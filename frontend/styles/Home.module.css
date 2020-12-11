@@ -257,6 +257,10 @@
   .top {
     padding: 7% 10% 2%;
   }
+
+  .top a{
+    font-weight: bold;
+  }
   .cta {
     padding: 5% 15% 10%;
   }

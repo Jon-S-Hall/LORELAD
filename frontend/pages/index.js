@@ -28,9 +28,8 @@ const Home = (props) => {
                   <h2>YOUR LANGUAGE.</h2>
                   <h2>YOUR STORIES.</h2>
                   <p className={styles.floating}>
-                    <span>LORELAD</span> is an online database designed to
-                    protect and preserve languages for learning, research, &
-                    posterity.
+                    <span>LORELAD</span> is an online platform to share stories from under-represented languages, and spread awareness of
+                    <a href="/about"> the language diversity problem. </a>
                   </p>
                 </div>
                 <div className={`${styles.right} ${styles.lg}`}>
@@ -102,15 +101,15 @@ const Home = (props) => {
                     </div>
                     <div>
                       <p>
-                        Record audio of low-resource languages being spoken.
+                        Record or upload audio of anything you want to share in your native language.
                       </p>
                       <p>
                         Submit the audio to be translated by yourself and
                         others.
                       </p>
                       <p>
-                        Explore Languages! Listen to recordings of low-resource
-                        languages & the stories and culture they bring with
+                        Explore Languages! Listen to recordings from other
+                        languages & learn the stories and culture they bring with
                         them.
                       </p>
                     </div>

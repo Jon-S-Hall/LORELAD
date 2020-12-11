@@ -33,10 +33,6 @@ function download(url){
 function Recordings({ recordings, user_state }) {
   const router = useRouter();
   const { language } = router.query;
-
-
-
-
   return (
     <Layout user_state={user_state}>
       <div>

@@ -205,10 +205,19 @@ function Language({ language, records, user_state }) {
                   <div className={styles.recording}>
                     <div>
                       <h6>{record.title}</h6>
-                      <p>@{record.speakerID}</p>
+                      <p>@{record.speaker}</p>
                     </div>
                     <p className={styles.subject}>{record.subject}</p>
                     <Player source={record.media} />
+                    <div>
+                      <Link
+                        href={{
+                          pathname: "/explore/recording/[recording_id]",
+                          query: { recording_id: record.id },
+                        }}
+                    >
+                      <a>more info</a>
+                    </Link></div>
                   </div>
                 ))}
               </div>

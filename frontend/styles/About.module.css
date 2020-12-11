@@ -37,17 +37,35 @@
   font-family: Montserrat;
   font-weight: 600;
   color: #283618;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
+}
+
+.content_wrapper h2 {
+  font-size: 2rem;
+  font-family: Montserrat;
+  font-weight: 500;
+  color: #283618;
+  padding-bottom: 1rem;
 }
 
 .content_wrapper p {
+  text-align: justify;
   font-size: 1.25rem;
   font-family: Hind;
   line-height: 2rem;
   font-weight: 400;
   color: #283618;
   position: relative;
+  padding-bottom: 10px;
 }
+.content_wrapper .intro{
+  text-align: center;
+}
+
+.content_wrapper b{
+  font-weight: bold;
+}
+
 
 .content_wrapper h1 + p {
   font-weight: 700;

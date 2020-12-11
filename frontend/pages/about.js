@@ -23,27 +23,40 @@ const About = (props) => (
         <section id="about_us" className={about_styles.about_us}>
           <div className={about_styles.content_wrapper}>
             <h1>About Us</h1>
-            <p>We are in the middle of a language extinction.</p>
             <div className={about_styles.stats}>
-              <p>
-                <span>7000</span> languages in the world.
+              <p className={about_styles.intro}>
+                There are over <span>7000</span> active languages in the world.
               </p>
-              <p>
-                <span>90%</span> are at risk of dying by 2100.
+              <p className={about_styles.intro}>
+                <span>90%</span> may no longer be spoken by 2100.
               </p>
             </div>
-            <p>
-              With every language that dies undocumented, so does the culture,
-              knowledge and expressions that it encompasses. In our current age,
-              we have to the tools to help preserve these low-resource
-              languages.
-            </p>
+            <h2>The Language Problem</h2>
+            <p>Our rapidly globalizing world economy has allowed us to be <b>more connected</b> than ever. But with convenience comes a cost.</p>
+
+            <p>Our connectedness has made the languages we speak <b>a skill. </b></p>
+
+            <p>We're taught a second language in American schools, and they're almost always one of <b>the big 10</b>.
+              Among them are English, Spanish, Mandarin, French, and Hindi.</p>
+
+            <p> This is no coincidence. These languages are some of the most spoken on the planet. In fact, <b>5.34 billion people </b>
+              speak at least one.</p>
+
+            <p> They have become the tools of trade and business. Most jobs require you to speak one fluently. And of course, the more you know the better.</p>
+
+            <p>But <b> language is so much more than a tool to communicate. The way we
+              speak helps define who we are. Language holds our culture, our
+              heritage, and our history.</b></p>
+
+            <p>And they're dying. </p>
+
+
           </div>
           <svg
             className={about_styles.globe}
-            width="120"
-            height="120"
-            viewBox="0 0 120 120"
+            width="100"
+            height="100"
+            viewBox="0 -5 160 130"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -55,16 +68,14 @@ const About = (props) => (
         </section>
         <section id="what_we_do" className={about_styles.what_we_do}>
           <div className={about_styles.content_wrapper}>
-            <h1>We Are LORELAD</h1>
-            <p className={about_styles.blurb}>
-              Our mission is to help preserve languages and cultures by creating
-              a platform to share stories.
+            <h1>We're LORELAD</h1>
+            <p className={about_styles.intro}>
+              Our goal is to help bring awareness to the language problem by providing a platform to share stories.
             </p>
-            <p>
-              Language is so much more than a tool to communicate. The way we
-              speak helps define who we are. Language holds our culture, our
-              heritage, and our history. And we want the world to hear yours.
-              Coming Soon.
+            <p className={about_styles.intro}>
+              With every language that dies undocumented, so does the culture,
+              knowledge, and expressions that it encompasses. If you have something to share,
+              we want a place where everyone can listen.
             </p>
           </div>
           <svg
@@ -83,10 +94,10 @@ const About = (props) => (
         </section>
         <div className={about_styles.content_wrapper}>
           <h1>What We Do</h1>
-          <p className={about_styles.blurb}>
+          <p className={about_styles.intro}>
             A place to preserve & a place to explore
           </p>
-          <p>
+          <p className={about_styles.intro}>
             By creating a database where low-resource languages can put
             recordings of their language, we are enabling a documentation
             process that can allow for preservation, learning and research.

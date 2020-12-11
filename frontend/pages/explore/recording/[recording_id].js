@@ -67,8 +67,6 @@ const Recording = ({ recording, user_state }) => {
             <div className={styles.buttons_container}>
               <div>
                 <button>{recording.tag}</button>
-                <button>cooking</button>
-                <button>recipe</button>
               </div>
               <button className={styles.download_btn}>
                 Download
