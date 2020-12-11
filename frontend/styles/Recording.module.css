@@ -19,7 +19,6 @@
   padding-left: 3rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .recording_name h1 {
@@ -97,6 +96,23 @@
   margin: 0 auto;
 }
 
+.player div {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.player div div:first-child div div div:first-child {
+  border: 4px solid black;
+}
+
+.player div div:first-child div div div:last-child {
+  background-color: black;
+}
+
+.player div div div:last-child {
+  flex: none;
+}
+
 .translations_container {
   width: 85%;
   margin: 0 auto;
@@ -145,4 +161,48 @@
 
 .translations_container i {
   padding-right: 0.5rem;
+}
+
+@media (min-width: 1800px) {
+  .recording_name {
+    width: 1500px;
+    margin: 0 auto;
+  }
+  .recording_name h1 {
+    font-size: 2.8rem;
+  }
+  .recording_name p {
+    font-size: 1.5rem;
+  }
+  .about_container {
+    width: 1300px;
+    margin: 0 auto;
+  }
+  .buttons_container div button {
+    font-size: 1.6rem;
+  }
+  .download_btn {
+    font-size: 1.5rem;
+  }
+  .description {
+    font-size: 1.5rem;
+    line-height: 2.4rem;
+  }
+  .translations_container {
+    width: 1300px;
+    margin: 0 auto;
+  }
+  .translations_container h3 {
+    font-size: 2.3rem;
+  }
+  .translations h6 {
+    font-size: 1.5rem;
+  }
+  .translations p {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+  .translations_container button {
+    font-size: 1.5rem;
+  }
 }

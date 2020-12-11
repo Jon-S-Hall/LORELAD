@@ -168,3 +168,10 @@
 .modal button:focus {
   outline: none;
 }
+
+@media (min-width: 1441px) {
+  .record_btns,
+  .directions {
+    width: 1000px;
+  }
+}

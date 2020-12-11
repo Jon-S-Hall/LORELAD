@@ -134,10 +134,12 @@
   font-size: 4.5rem;
   color: #bc6c25;
 }
+
 .cta {
   background-color: #fefae0;
   padding: 5% 18% 10%;
 }
+
 .cta_content {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -194,15 +196,22 @@
   line-height: 1.7rem;
 }
 
+.sm_md {
+  display: none;
+}
+.sm {
+  display: none;
+}
+
 @media (min-width: 1800px) {
   .top_content,
   .cta_content {
     max-width: 1450px;
+    margin: 0 auto;
   }
   .left h2 {
     font-size: 3.5rem;
   }
-
   .left p {
     font-size: 1.7rem;
     line-height: 2.5rem;
@@ -220,13 +229,229 @@
   .top_cta_button p {
     font-size: 2.7rem;
   }
-
   .speaker,
   .researcher {
     font-size: 1.6rem;
   }
+  .speaker button,
+  .researcher button {
+    padding: 2rem 1.5rem;
+  }
   .speaker a,
   .researcher a {
     font-size: 1.6rem;
+  }
+}
+@media (max-width: 1300px) {
+  .left,
+  .right {
+    width: 45%;
+  }
+  .speaker,
+  .researcher {
+    width: 40%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .top {
+    padding: 7% 10% 2%;
+  }
+  .cta {
+    padding: 5% 15% 10%;
+  }
+}
+@media (max-width: 1024px) {
+  .cta {
+    padding: 5% 13% 10%;
+  }
+  .left h2 {
+    font-size: 2.3rem;
+  }
+  .left p {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+  }
+  .right h3 {
+    font-size: 1.95rem;
+  }
+  .right_content p {
+    font-size: 1rem;
+    line-height: 1.8rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .top {
+    padding: 7% 9% 2%;
+  }
+  .top_cta_button p {
+    font-size: 1.7rem;
+  }
+  .top_cta_button a {
+    font-size: 3.5rem;
+  }
+  .cta {
+    padding: 5% 12% 10%;
+  }
+  .left,
+  .right {
+    width: 47%;
+  }
+  .speaker,
+  .researcher {
+    width: 42%;
+  }
+}
+@media (max-width: 768px) {
+  .top {
+    padding: 7% 11% 2%;
+    min-height: 0;
+  }
+  .cta {
+    padding: 5% 10% 10%;
+  }
+  .lg {
+    display: none;
+  }
+  .sm_md {
+    display: initial;
+  }
+  .left {
+    width: 100%;
+  }
+  .left p {
+    margin-bottom: 2rem;
+  }
+  .speaker,
+  .researcher {
+    margin-bottom: 4rem;
+  }
+  .right_content {
+    display: flex;
+    width: 75%;
+    margin: 0 auto;
+  }
+  .right_content p {
+    padding-bottom: 2.5rem;
+  }
+  .right_content p:last-child {
+    padding-bottom: 0;
+  }
+  .svgs svg:last-child {
+    margin-bottom: 0;
+  }
+}
+@media (max-width: 650px) {
+  .top {
+    padding: 7% 11% 1%;
+  }
+  .cta {
+    padding: 5% 8% 10%;
+  }
+  .left h2 {
+    font-size: 2.1rem;
+    padding-bottom: 1.5rem;
+  }
+  .left p {
+    padding-top: 0.5rem;
+  }
+  .right_content {
+    width: 85%;
+  }
+}
+@media (max-width: 425px) {
+  .md_lg {
+    display: none;
+  }
+  .sm {
+    display: initial;
+  }
+  .left h2 {
+    font-size: 1.5rem;
+  }
+  .left p {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+  }
+  .top {
+    position: relative;
+    justify-content: left;
+  }
+  .left {
+    padding: 1rem 0 3rem;
+  }
+  .floating {
+    position: absolute;
+    background-color: white;
+    left: 0;
+    top: 150px;
+    max-width: 80%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  }
+  .left p {
+    padding: 1rem;
+  }
+  .cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .speaker,
+  .researcher {
+    margin: 4rem 0 3rem;
+    width: 45%;
+  }
+  .speaker button,
+  .researcher button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+  }
+  .speaker a,
+  .researcher a {
+    margin-top: 1rem;
+    font-size: 1rem;
+  }
+  .top_cta_button {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .right_content p {
+    font-size: 0.9rem;
+    padding-bottom: 1.85rem;
+  }
+  .right_content p:last-child {
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 375px) {
+  .speaker,
+  .researcher {
+    margin: 5rem 0 3rem;
+  }
+  .right_content {
+    width: 95%;
+  }
+  .right_content p {
+    padding-bottom: 1.85rem;
+  }
+  .right_content p:last-child {
+    padding-bottom: 0;
+  }
+}
+@media (max-width: 325px) {
+  .left {
+    padding: 1rem 0 4.5rem;
+  }
+  .speaker,
+  .researcher {
+    margin: 6rem 0 3rem;
+  }
+  .svgs svg {
+    margin-bottom: 4.1rem;
   }
 }

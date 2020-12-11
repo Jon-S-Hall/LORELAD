@@ -207,8 +207,7 @@ function Language({ language, records, user_state }) {
                       <h6>{record.title}</h6>
                       <p>@{record.speakerID}</p>
                     </div>
-                    <p>{record.subject}</p>
-                    <p>{record.media}</p>
+                    <p className={styles.subject}>{record.subject}</p>
                     <Player source={record.media} />
                   </div>
                 ))}
@@ -269,14 +268,16 @@ function Language({ language, records, user_state }) {
             ))}
           </div> */}
           </section>
-          <Link
-            href={{
-              pathname: "/explore/add_language",
-              query: { language: language.name },
-            }}
-          >
-            <button>Edit</button>
-          </Link>
+          <section className={styles.edit_container}>
+            <Link
+              href={{
+                pathname: "/explore/add_language",
+                query: { language: language.name },
+              }}
+            >
+              <button className={styles.edit}>Edit</button>
+            </Link>
+          </section>
         </main>
       </div>
     </Layout>
@@ -285,7 +286,8 @@ function Language({ language, records, user_state }) {
 
 export async function getStaticPaths() {
   // Call an external API endpoint to get posts
-  const res = await fetch(`${server}/languages`);
+  // const res = await fetch(`${server}/languages`);
+  const res = await fetch("http://lorelad-backend.herokuapp.com/languages");
   const languages = await res.json();
   // Get the paths we want to pre-render based on recordings
   const paths = languages.map((language) => ({
@@ -300,9 +302,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   // Call an external API endpoint to get languages
-  const res = await fetch(`${server}/languages/${params.language}`);
+  // const res = await fetch(`${server}/languages/${params.language}`);
+  const res = await fetch(
+    `http://lorelad-backend.herokuapp.com/languages/${params.language}`
+  );
   const language = await res.json();
-  const rec = await fetch(`${server}/records`);
+  // const rec = await fetch(`${server}/records`);
+  const rec = await fetch("http://lorelad-backend.herokuapp.com/records");
   const records = await rec.json();
   const logged_in = false;
   const username = "na";

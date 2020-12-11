@@ -71,8 +71,9 @@
 .top img {
   padding-right: 3rem;
   position: relative;
-  max-width:35%;
-  max-height:35%;
+  max-width: 35%;
+  /* max-height: 35%; */
+  height: auto;
 }
 
 .top span {
@@ -160,6 +161,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .subject_1,
 .subject_2 {
   padding-top: 1rem;
@@ -180,6 +182,11 @@
   padding-bottom: 0.5rem;
   box-shadow: none;
   padding: 0;
+  flex-wrap: wrap;
+}
+
+.subject {
+  margin-bottom: 1rem;
 }
 
 .recording div div div:last-child {
@@ -235,19 +242,68 @@
   font-weight: 500;
 }
 
-.rec_details{
-  width: 30%;
+.edit_container {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
 }
 
-.rec_player{
-  width: 60%;
-}
-.recording_wrapper {
-  content: "";
-  display: table;
-  clear: both;
+.edit {
+  padding: 0.5rem 1rem;
+  background-color: #606c38;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 20px;
+  width: 15%;
 }
 
-.search_container{
-  padding-bottom: 5%;
+@media (min-width: 1800px) {
+  .language_name {
+    width: 1500px;
+    margin: 0 auto;
+  }
+  .language_name h1 {
+    font-size: 2.8rem;
+  }
+  .container {
+    width: 1300px;
+  }
+  .container h3 {
+    font-size: 2.3rem;
+  }
+  .top p {
+    font-size: 1.5rem;
+    line-height: 2.2rem;
+  }
+  .stats {
+    font-size: 1.8rem;
+  }
+  .location {
+    font-size: 1.6rem;
+    align-items: center;
+    line-height: 2.5rem;
+  }
+  .recordings_top button {
+    font-size: 1.5rem;
+  }
+  .recordings h4 {
+    font-size: 2rem;
+  }
+  .recordings h6 {
+    font-size: 1.5rem;
+  }
+  .recording div {
+    font-size: 1.3rem;
+  }
+  .subject {
+    font-size: 1.3rem;
+  }
+  .edit_container {
+    width: 1300px;
+    margin: 0 auto;
+  }
+  .edit {
+    font-size: 1.5rem;
+  }
 }

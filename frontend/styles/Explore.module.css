@@ -100,3 +100,31 @@
   color: #606c38;
   font-weight: 800;
 }
+
+@media (min-width: 1800px) {
+  .main h1 {
+    font-size: 2.8rem;
+  }
+  .search_container {
+    width: 1000px;
+  }
+  .search_container input,
+  .search_container select {
+    font-size: 1.6rem;
+  }
+  .add_language_cont {
+    font-size: 1.6rem;
+  }
+  .results {
+    width: 1300px;
+  }
+  .results h2 {
+    font-size: 2.2rem;
+  }
+  .results h3 {
+    font-size: 1.8rem;
+  }
+  .language_container p {
+    font-size: 1.5rem;
+  }
+}

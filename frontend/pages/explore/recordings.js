@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import SearchBar from "../../components/SearchBar";
 import Player from "../../components/Player";
-import styles from "../../styles/Language.module.css";
+import styles from "../../styles/Languages_All_Recordings.module.css";
 import { server } from "../../config";
 import DownloadLink from "react-download-link";
 
@@ -98,13 +98,11 @@ function Recordings({ recordings, user_state }) {
             {recordings.map((recording) => (
               <div className={styles.recording}>
                 <div className={styles.recording_wrapper}>
-                  <div className={styles.rec_details}>
+                  <div className={styles.recording_info}>
                     <h6>{recording.title}</h6>
                     <p>@{recording.speaker}</p>
                   </div>
-                  <div className={styles.rec_player}>
-                    <Player source= {recording.media} />
-                  </div>
+                  <Player source={recording.media} />
                 </div>
                 <div className={styles.recording_links}>
                   <div>
@@ -121,6 +119,7 @@ function Recordings({ recordings, user_state }) {
                     <DownloadLink
                     filename={recording.media}
                     exportFile={() => Promise.resolve(getDataFromURL(recording.media))}
+
                     />
                   </div>
                 </div>
@@ -135,14 +134,14 @@ function Recordings({ recordings, user_state }) {
 
 export async function getServerSideProps() {
   // Call an external API endpoint to get languages
-  const res = await fetch(`${server}/records`);
+  // const res = await fetch(`${server}/records`);
+  const res = await fetch("http://lorelad-backend.herokuapp.com/records");
   const recordings = await res.json();
   // Pass languages to the page via props
   return {
     props: {
       recordings: recordings,
     },
-    revalidate: 1,
   }
 }
 /*

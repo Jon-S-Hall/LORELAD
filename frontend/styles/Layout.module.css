@@ -40,8 +40,9 @@
 
 .h1 {
   display: inline;
-  max-width: 30%;
+  max-width: 25%;
   text-align: center;
+  margin: 1.5rem 0;
 }
 
 .logo {
@@ -49,16 +50,8 @@
   height: auto;
 }
 
-.h1 a {
-  color: #606c38;
-  font-family: MuseoModerno;
-  font-weight: 900;
-  font-size: 3rem;
-
-}
-
-.h1 a:hover {
-  color: #283618;
+.h1 img:hover {
+  cursor: pointer;
 }
 
 .footer {
@@ -155,10 +148,6 @@
   display: block;
 }
 
-/* .dropdown:hover .profile {
-  background-color: #8ea934;
-} */
-
 .li div {
   align-content: center;
 }
@@ -193,20 +182,23 @@
   height: 100%;
 }
 
+.sm_md {
+  display: none;
+}
+
 @media (min-width: 1800px) {
+  .h1 {
+    margin: 3rem 0;
+  }
   .nav {
     max-width: 1450px;
   }
   .nav a {
-    font-size: 1.6rem;
-  }
-  .h1 a {
-    font-size: 3.6rem;
+    font-size: 2rem;
   }
   .footer {
     padding: 3rem 5rem;
   }
-
   .info {
     font-size: 1.5rem;
   }
@@ -222,15 +214,26 @@
   .info {
     flex-direction: column;
   }
-  .info div {
-    justify-content: space-around;
-  }
   .info > p {
     align-self: center;
     margin-top: 3rem;
   }
   .footer {
     padding: 3rem 2.5rem 1.75rem;
+  }
+  .lg {
+    display: none;
+  }
+  .sm_md {
+    display: initial;
+    margin-bottom: 1rem;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
+  .email {
+    margin-bottom: 1rem;
   }
 }
 
@@ -240,29 +243,26 @@
     padding: 1.5rem 0;
   }
   .h1 {
-    padding: 0;
+    max-width: 30%;
+    margin: 0.5rem 0;
   }
   .menu {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    width: 50px;
+    width: 30px;
   }
-
   .mobile_none {
     display: none;
   }
-
   .nav_links {
     flex-direction: column;
     height: 0;
     overflow: hidden;
   }
-
   .menu li {
     padding: 1rem 0 0;
   }
-
   .profile_container {
     position: initial;
   }
@@ -271,6 +271,9 @@
   }
 }
 @media (max-width: 645px) {
+  .h1 {
+    max-width: 32%;
+  }
   .email {
     padding-right: 0;
   }
@@ -285,18 +288,26 @@
     padding-bottom: 1rem;
     padding-left: 0;
   }
-  .info > p {
-    margin-top: 1.5rem;
+  .nav button {
+    font-size: 1.75rem;
   }
 }
-
+@media (max-width: 425px) {
+  .h1 {
+    max-width: 40%;
+  }
+  .nav button {
+    margin: 0.35rem 0 0;
+  }
+}
 @media (max-width: 375px) {
-  .info > div {
-    flex-direction: column;
-    /* align-items: center; */
+  .h1 {
+    max-width: 50%;
+  }
+  .nav button {
+    font-size: 1.6rem;
   }
   .links {
     flex-direction: column;
-    margin-top: 1.5rem;
   }
 }
