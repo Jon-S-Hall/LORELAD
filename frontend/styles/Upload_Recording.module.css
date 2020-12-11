@@ -3,10 +3,6 @@
   font-family: Montserrat, sans-serif;
   background-color: #fefae0;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .main h1 {
@@ -17,37 +13,21 @@
   color: #283618;
 }
 
-.top_message {
-  width: 50%;
-  background-color: #e5eac0;
-  padding: 1rem 2rem;
-  border-radius: 20px;
-  line-height: 1.8rem;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 2rem;
-}
-
 .main form {
   display: flex;
   flex-direction: column;
   width: 50%;
+  margin: 0 auto;
 }
 
 .main label {
   align-self: flex-start;
-  font-weight: 700;
-  font-size: 1.2rem;
-}
-
-.main label ~ p {
-  margin-top: 0.75rem;
 }
 
 .main input {
   padding: 0.5rem 1rem;
-  margin: 0.75rem 0 1.5rem;
-  border-radius: 10px;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 20px;
   border: 1px solid #8dbf42;
   width: 100%;
 }
@@ -63,23 +43,10 @@
   width: 100%;
 }
 
-.main textarea {
-  padding: 0.75rem 1rem;
-  margin: 0.75rem 0 1.5rem;
-  border-radius: 20px;
-  border: 1px solid #8dbf42;
-  width: 100%;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.main textarea:focus {
-  outline: none;
-}
-
 .main select {
   padding: 0.5rem 1rem;
-  margin: 0.5rem 0 0.5rem;
-  border-radius: 10px;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 20px;
   border: 1px solid #8dbf42;
   width: 100%;
   background-color: white;
@@ -100,79 +67,44 @@
   align-self: center;
   border: none;
 }
-.check {
-  display: flex;
-  margin: 1.5rem 0;
-  width: 100%;
-}
-.check label {
-  font-size: 0.9rem;
-  font-weight: normal;
-}
-
-.check input {
-  width: 5%;
-  margin: 0 1rem 0 0;
-}
 
 @media (min-width: 1800px) {
   .main h1 {
     font-size: 2.5rem;
     padding-bottom: 3rem;
   }
-  .main label ~ p {
-    font-size: 1.6rem;
-  }
-  .main label {
+  .main input,
+  .main label,
+  .main button,
+  .main select {
     font-size: 2rem;
   }
   .main input,
-  .main button,
-  .main select,
-  .main textarea {
-    font-size: 1.7rem;
-  }
-  .main input,
-  .main textarea {
+  .main select {
     margin: 1rem 0 2.5rem;
     padding: 1rem 2rem;
   }
   .main input[type="file"] {
     padding: 0;
   }
-  .check {
-    justify-self: flex-start;
-    align-items: center;
-  }
-  .check label {
-    font-size: 1.5rem;
-  }
 }
 @media (min-width: 1441px) {
   .main form {
     width: 40%;
   }
-  .top_message {
-    width: 40%;
-    font-size: 1.6rem;
-    line-height: 2.5rem;
-  }
 }
 @media (max-width: 1024px) {
-  .main form,
-  .top_message {
+  .main form {
     width: 500px;
   }
 }
 @media (max-width: 600px) {
-  .main form,
-  .top_message {
+  .main form {
     width: 400px;
   }
 }
 @media (max-width: 500px) {
-  .main form,
-  .top_message {
+  .main form {
     width: 350px;
   }
 }
@@ -182,8 +114,7 @@
     line-height: 2.8rem;
     margin: 0 auto;
   }
-  .main form,
-  .top_message {
+  .main form {
     width: 280px;
   }
 }

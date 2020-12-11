@@ -161,7 +161,7 @@ const About = (props) => (
             <h1>Our Team</h1>
             <div className={`${about_styles.row} ${about_styles.md_sm} `}>
               <img
-                src="team/Jonathon.png"
+                src="team/Jonathan.png"
                 alt=""
                 className={about_styles.avatar}
               />
