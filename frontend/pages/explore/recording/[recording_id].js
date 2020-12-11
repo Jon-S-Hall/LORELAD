@@ -66,7 +66,7 @@ const Recording = ({ recording, user_state }) => {
           <section className={styles.about_container}>
             <div className={styles.buttons_container}>
               <div>
-                <button>taishanese</button>
+                <button>{recording.tag}</button>
                 <button>cooking</button>
                 <button>recipe</button>
               </div>
@@ -106,15 +106,11 @@ const Recording = ({ recording, user_state }) => {
             <div className={styles.description}>
               {/* <p>{recording.description}</p> */}
               <p>
-                This is a description with filler text. The user may upload
-                backstory, context or information about their recording to this
-                section. Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit. Amet volutpat nisi, eget amet tempus, ut aenean nunc sit.
-                Nec, enim, enim nulla mauris magna mauris lorem in.
+                {recording.subject}
               </p>
             </div>
             <div className={styles.player}>
-              <Player source="/sample2.mp3" />
+              <Player source={recording.media} />
             </div>
           </section>
           <section className={styles.translations_container}>
@@ -166,7 +162,7 @@ export async function getStaticProps({ params }) {
   // If the route is like /posts/1, then params.id is 1
   // const res = await fetch(`${server}/records/${params.recording_id}`);
   const res = await fetch(
-    `http://lorelad-backend.herokuapp.com/records/${params.recording_id}`
+      `${server}/records/${params.recording_id}`
   );
   const recording = await res.json();
   const logged_in = false;

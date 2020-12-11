@@ -87,7 +87,7 @@ function Recordings({ recordings, user_state }) {
                 />
               </svg>
             </Link>
-            <h1>{language} - All Recordings</h1>
+            <h1>All Recordings</h1>
           </div>
           <section className={styles.search_container}>
             <form action="index.html" method="post">

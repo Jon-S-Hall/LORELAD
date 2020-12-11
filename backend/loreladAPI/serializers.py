@@ -19,7 +19,7 @@ class LanguageSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'num_speakers', 'num_recordings', 'continent', 'summary', 'cov_image']
 
 class RecordSerializer(TaggitSerializer, serializers.ModelSerializer):
-    tags = TagListSerializerField() # tag type: list of str
+    #tags = TagListSerializerField() # tag type: list of str
     class Meta:
         model = Record
         fields = ['id', 'title', 'subject', 'media', 'language', 'speaker', 'date_created', 'date_recorded', 'tag']

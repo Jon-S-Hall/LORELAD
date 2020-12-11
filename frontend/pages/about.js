@@ -180,7 +180,7 @@ const About = (props) => (
               </div>
               <div className={`${about_styles.member} ${about_styles.middle}`}>
                 <img
-                  src="team/Jonathon.png"
+                  src="team/Jonathan.png"
                   alt=""
                   className={about_styles.avatar}
                 />

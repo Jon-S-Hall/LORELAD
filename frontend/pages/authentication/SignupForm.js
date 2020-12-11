@@ -5,7 +5,7 @@ import Footer from "../../components/Footer";
 import Layout from "../../components/Layout"; //import common layout styles. notice that we're importing a JS class
 import styles from "../../styles/authentication.module.css";
 import Link from "next/link";
-import { server } from "../../config";
+
 
 class SignupForm extends React.Component {
   state = {
