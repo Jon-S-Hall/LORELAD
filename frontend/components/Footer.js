@@ -54,7 +54,7 @@ const Layout = (props) => {
         <div className={styles.info}>
           <div>
             <div className={styles.right}>
-              <p className={styles.email}>lorelad@gmail.com</p>
+              <p className={styles.email}>lorelad.team@gmail.com</p>
               <p className={styles.sm_md}>
                 ©<span>LORELAD</span> 2020
               </p>
