@@ -60,11 +60,12 @@ class Record(models.Model):
     source = models.CharField(max_length=200, null=True)
     language = models.ForeignKey(Language, null=True, on_delete=models.SET_NULL)
     speakerID = models.ForeignKey(Speaker, null=True, on_delete=models.SET_NULL)
+    speaker = models.CharField(max_length=50, null=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
     quality = models.IntegerField(null=True) #how can we find the quality of a recording?
     date_recorded = models.DateTimeField(null=True)
     video = S3DirectField(dest='primary_destination', blank=True)
-    tags = TaggableManager(blank=True)
+    tag = models.CharField(max_length=200, null=True)
     class Meta:
         ordering = ['date_recorded']
 

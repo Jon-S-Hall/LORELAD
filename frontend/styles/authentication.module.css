@@ -73,13 +73,41 @@
      cursor:pointer;
      opacity:70%
  }
- .bcontainer {
+ .container {
     text-align: center;
+     display: flex;
     }
+
+
+ .form_item {
+     width: 60%;
+     justify-content: center;
+     min-width: 50%;
+ }
+
+ .graphic_item {
+     padding-top: 40px;
+     position: center;
+     width:20%;
+ }
+
+.text_item {
+    padding-left: 3%;
+    padding-top: 40px;
+    width:20%;
+}
+
+.text_item p{
+    font-weight: bold;
+}
+.graphic {
+
+    width: 80%;
+    height: auto;
+}
+
 .ls {
-    
     text-align:center;
- 
 }
 .ls ul {
     list-style: none;
@@ -92,3 +120,7 @@
     display: inline-block; 
     width: 1em;
     }
+
+.main input[type=checkbox]{
+    width:6%;
+}

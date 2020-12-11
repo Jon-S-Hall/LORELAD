@@ -186,7 +186,7 @@ export async function getServerSideProps(context) {
   const res = await fetch(`${server}/languages`);
   //const res = await fetch("http://127.0.0.1:8000/languages");
   const languages = await res.json();
-  return { props: { languages, revalidate: 5 } }; //revalidate allows the page to update (as new languages come ine) incrementally. Thus it updates at most, once every 5 seconds.
+  return { props: { languages,},  revalidate: 5,  }; //revalidate allows the page to update (as new languages come ine) incrementally. Thus it updates at most, once every 5 seconds.
 }
 
 export default Languages;

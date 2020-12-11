@@ -6,12 +6,36 @@ import SearchBar from "../../components/SearchBar";
 import Player from "../../components/Player";
 import styles from "../../styles/Language.module.css";
 import { server } from "../../config";
+import DownloadLink from "react-download-link";
 
 // All Recordings Page template - incomplete while API is getting finished
+const  getDataFromURL = (url) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+          resolve(data)
+        });
+  });
+}, 2000);
+
+function download(url){
+  setTimeout(() => {
+    const response = {
+      file: "https://loreladbucket1.s3.us-east-2.amazonaws.com/recordings/Ainu/Ainu01_Oh6ybRt.mp3",
+    };
+
+    window.open(response.file);
+  }, 100);
+}
+
 
 function Recordings({ recordings, user_state }) {
   const router = useRouter();
   const { language } = router.query;
+
+
+
 
   return (
     <Layout user_state={user_state}>
@@ -76,50 +100,29 @@ function Recordings({ recordings, user_state }) {
                 <div className={styles.recording_wrapper}>
                   <div className={styles.rec_details}>
                     <h6>{recording.title}</h6>
-                    <p>@{recording.source}</p>
+                    <p>@{recording.speaker}</p>
                   </div>
                   <div className={styles.rec_player}>
                     <Player source= {recording.media} />
                   </div>
                 </div>
                 <div className={styles.recording_links}>
-                  <Link
-                    href={{
-                      pathname: "/explore/recording/[recording_id]",
-                      query: { recording_id: recording.id },
-                    }}
-                  >
-                    <a className={styles.recording_link}>more info</a>
-                  </Link>
-                  <svg
-                    width="30"
-                    height="33"
-                    viewBox="0 0 30 33"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M26.25 20.625V26.125C26.25 26.8543 25.9866 27.5538 25.5178 28.0695C25.0489 28.5853 24.413 28.875 23.75 28.875H6.25C5.58696 28.875 4.95107 28.5853 4.48223 28.0695C4.01339 27.5538 3.75 26.8543 3.75 26.125V20.625"
-                      stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                  <div>
+                    <Link
+                      href={{
+                        pathname: "/explore/recording/[recording_id]",
+                        query: { recording_id: recording.id },
+                      }}
+                    >
+                      <a className={styles.recording_link}>more info</a>
+                    </Link>
+                  </div>
+                  <div>
+                    <DownloadLink
+                    filename={recording.media}
+                    exportFile={() => Promise.resolve(getDataFromURL(recording.media))}
                     />
-                    <path
-                      d="M8.75 13.75L15 20.625L21.25 13.75"
-                      stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                    <path
-                      d="M15 20.625V4.125"
-                      stroke="black"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
+                  </div>
                 </div>
               </div>
             ))}
@@ -138,9 +141,9 @@ export async function getServerSideProps() {
   return {
     props: {
       recordings: recordings,
-      revalidate: 5,
     },
-  };
+    revalidate: 1,
+  }
 }
 /*
 export async function getStaticPaths() {

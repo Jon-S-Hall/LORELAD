@@ -73,36 +73,40 @@ class LoginForm extends React.Component {
                 <main className={styles.main}>
                     <h1>Login</h1>
                     <p> Don't have an account? <Link href="/authentication/SignupForm" > Create One </Link></p>
-                    <div className={styles.ls}>
-                        <p> Login for a LORELAD account to:</p>
-                        <ul>
-                        <li>Upload Recordings</li>
-                        <li>Translate</li>
-                        <li>Download Recordings</li>
-                        </ul>
-                </div>
                     <div className={styles.container}>
-                        <form onSubmit={ this.handle_submit}>
-                            <h4> Username </h4>
-                            <input
-                                type="text"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.handle_change}
-                            />
-                            <h4>Password </h4>
-                            <input
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.handle_change}
-                            />
-                            <h4 id = "status"> </h4>
-                            <div className={styles.bcontainer}>
-                                <button type="submit">Login</button>
-                            </div>
-                            
-                        </form>
+                        <div className={styles.text_item}>
+                            <p> Login for a LORELAD account to:</p>
+                            <ul>
+                                <li>Upload Recordings</li>
+                                <li>Translate</li>
+                                <li>Download Recordings</li>
+                            </ul>
+                        </div>
+                        <div className={styles.form_item}>
+                            <form onSubmit={ this.handle_submit}>
+                                <h4> Username </h4>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.handle_change}
+                                />
+                                <h4>Password </h4>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handle_change}
+                                />
+                                <h4 id = "status"> </h4>
+                                <div className={styles.bcontainer}>
+                                    <button type="submit">Login</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className={styles.graphic_item}>
+                            <img src= "../Tech Life Communication.png" className={styles.graphic}/>
+                        </div>
                     </div>
                 </main>
             </Layout>

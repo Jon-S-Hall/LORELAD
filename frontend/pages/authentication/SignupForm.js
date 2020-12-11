@@ -81,43 +81,57 @@ class SignupForm extends React.Component {
                 <main className={styles.main}>
                     <h1>Sign Up</h1>
                     <p> Already have an account? <Link href="/authentication/LoginForm" > Sign In </Link></p>
-                    <div className={styles.ls}>
-                        <p> Sign up for a LORELAD account to:</p>
-                        <ul>
-                        <li>Upload Recordings</li>
-                        <li>Translate</li>
-                        <li>Download Recordings</li>
-                        </ul>
-                </div>
-                    <div className={styles.container}>
-                        <form onSubmit={ this.handle_submit}>
-                            <h4> Username </h4>
-                            <input
-                                type="text"
-                                name="username"
-                                value={this.state.username}
-                                onChange={this.handle_change}
-                            />
-                            <h4>Password </h4>
-                            <input
-                                type="password"
-                                name="password"
-                                value={this.state.password}
-                                onChange={this.handle_change}
-                            />
 
-                            <h4>Confirm Password </h4>
-                            <input
-                                type="confirm_password"
-                                name="confirm_password"
-                                value={this.state.confirm_password}
-                                onChange={this.handle_change}
-                            />
-                            <h4 id = "status"> </h4>
-                            <div className={styles.bcontainer}>
-                                <button type="submit">Sign Up</button>
-                            </div>
-                        </form>
+                    <div className={styles.container}>
+                        <div className={styles.text_item}>
+                            <p> Sign up for a LORELAD account to:</p>
+                            <ul>
+                                <li>Upload Recordings</li>
+                                <li>Translate</li>
+                                <li>Download Recordings</li>
+                            </ul>
+                        </div>
+                        <div className={styles.form_item}>
+                            <form onSubmit={ this.handle_submit}>
+                                <h4> Username </h4>
+                                <input
+                                    type="text"
+                                    name="username"
+                                    value={this.state.username}
+                                    onChange={this.handle_change}
+                                />
+                                <h4>Password </h4>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    value={this.state.password}
+                                    onChange={this.handle_change}
+                                />
+
+                                <h4>Confirm Password </h4>
+                                <input
+                                    type="confirm_password"
+                                    name="confirm_password"
+                                    value={this.state.confirm_password}
+                                    onChange={this.handle_change}
+                                />
+
+                                <div>
+                                    <label>
+                                        <input type="checkbox" required/>
+                                        I agree to the terms and privacy policy.
+                                    </label>
+                                </div>
+
+                                <h4 id = "status"> </h4>
+                                <div className={styles.bcontainer}>
+                                    <button type="submit">Sign Up</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className={styles.graphic_item}>
+                            <img src= "../Tech Life Communication.png" className={styles.graphic}/>
+                        </div>
                     </div>
                 </main>
             </Layout>
