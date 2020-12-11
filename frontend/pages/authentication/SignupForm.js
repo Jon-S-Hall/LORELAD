@@ -155,7 +155,10 @@ class SignupForm extends React.Component {
                   value={this.state.terms}
                 />
                 <label for="terms">
-                  I agree to the LORELAD Terms of Service & Privacy Policy
+                  I agree to the LORELAD
+                  <a href="../legal/terms_and_conditions" target="_blank"> Terms of Service </a>
+                  &
+                  <a href="../legal/privacy_policy" target="_blank"> Privacy Policy </a>
                 </label>
               </div>
               <h4 id="status"> </h4>

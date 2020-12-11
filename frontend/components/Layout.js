@@ -126,7 +126,7 @@ const Layout = (props) => {
               </p>
             </div>
             <div className={styles.links}>
-              <Link href="/">
+              <Link href="/legal/terms_and_conditions">
                 <a>Terms of Service</a>
               </Link>
               <Link href="/legal/privacy_policy">
