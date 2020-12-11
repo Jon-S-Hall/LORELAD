@@ -15,12 +15,11 @@
 
 .container {
   display: flex;
-  width: 85%;
-  margin: 0 auto;
+  justify-content: center;
 }
 
 .container section {
-  width: 50%;
+  width: 620px;
 }
 
 .container section:first-child {
@@ -122,6 +121,7 @@
 .upload a {
   text-decoration: none;
   font-size: 1.3rem;
+  font-weight: 400;
   align-self: center;
   color: white;
   background-color: #606c38;
@@ -129,5 +129,70 @@
 }
 
 .upload a:hover {
-  color: #283618;
+  /* color: #283618; */
+  opacity: 70%;
+}
+
+@media (min-width: 1800px) {
+  .main h1 {
+    font-size: 2.8rem;
+  }
+  .container section {
+    width: 750px;
+  }
+  .container h2 {
+    font-size: 2.3rem;
+  }
+  .container p {
+    font-size: 1.6rem;
+    line-height: 2.5rem;
+  }
+  .container a {
+    font-size: 2rem;
+    line-height: 2.7rem;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container section:first-child {
+    border-right: none;
+    /* border-bottom: 1px solid black; */
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+  }
+}
+@media (max-width: 700px) {
+  .container section {
+    width: 550px;
+  }
+}
+@media (max-width: 550px) {
+  .container section {
+    width: 400px;
+  }
+  .container div {
+    width: 100%;
+  }
+  .container h2 {
+    line-height: 2.5rem;
+  }
+  .container img {
+    margin: 0 0 1rem 0;
+  }
+  .upload {
+    width: 100%;
+  }
+}
+@media (max-width: 425px) {
+  .container section {
+    width: 350px;
+  }
+}
+@media (max-width: 325px) {
+  .container section {
+    width: 300px;
+  }
 }

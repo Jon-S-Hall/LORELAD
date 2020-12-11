@@ -1,115 +1,119 @@
 .main {
-    padding: 3rem 0 4rem;
-    font-family: Montserrat, sans-serif;
-    background-color: #fefae0;
-    min-height: 100vh;
-
+  padding: 3rem 0 4rem;
+  font-family: Montserrat, sans-serif;
+  background-color: #fefae0;
+  min-height: 100vh;
 }
 
 .main h1 {
-    text-align: center;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding-bottom: 2rem;
+  color: #283618;
+}
+
+.main form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.main label {
+  align-self: flex-start;
+}
+
+.main input {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #8dbf42;
+  width: 100%;
+}
+
+.main input:focus {
+  outline: none;
+}
+
+.main input[type="file"] {
+  padding: 0;
+  border-radius: initial;
+  border: none;
+  width: 100%;
+}
+
+.main select {
+  padding: 0.5rem 1rem;
+  margin: 0.5rem 0 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #8dbf42;
+  width: 100%;
+  background-color: white;
+}
+
+.main select:focus {
+  outline: none;
+}
+
+.main button {
+  font-family: Montserrat;
+  background-color: #283618;
+  color: white;
+  border-radius: 40px;
+  padding: 0.5rem 2rem;
+  margin-top: 1.5rem;
+  width: 40%;
+  align-self: center;
+  border: none;
+}
+@media (min-width: 1800px) {
+  .main h1 {
+    font-size: 2.5rem;
+    padding-bottom: 3rem;
+  }
+  .main input,
+  .main label,
+  .main button,
+  .main select {
     font-size: 2rem;
-    font-weight: 700;
-    padding-bottom: 2rem;
-    color: #283618;
+  }
+  .main input,
+  .main select {
+    margin: 1rem 0 2.5rem;
+    padding: 1rem 2rem;
+  }
+  .main input[type="file"] {
+    padding: 0;
+  }
 }
-
-.main p {
-    text-align: center;
-    padding-bottom: 2rem;
+@media (min-width: 1441px) {
+  .main form {
+    width: 40%;
+  }
 }
-
-
-.container {
-    text-align: center;
+@media (max-width: 1024px) {
+  .main form {
+    width: 500px;
+  }
 }
-
-.container h4{
-    text-align: center;
-    margin-bottom: 1%;
+@media (max-width: 600px) {
+  .main form {
+    width: 400px;
+  }
 }
-
-.container input {
-    font-size: 2rem;
-    margin-bottom: 2%;
+@media (max-width: 500px) {
+  .main form {
+    width: 350px;
+  }
 }
-
-.main div {
-    padding-bottom: 2%;
-    text-align: center;
-    font-size: 20px;
-}
-
-.sidebyside {
-    display:flex;
-
-
-}
-
-.sidebyside-child {
-    flex: 1;
-    align-content: center;
-}
-
-
-.main button[type=submit]{
-    font-family: Montserrat;
-    font-size: 2rem;
-}
-.main h4 {
-    font-family: Montserrat;
-    font-size: 1.6rem;
-    font-weight: bold;
-    padding-bottom: 1%;
-}
-.main h3 {
-    font-family: Montserrat;
-    font-size: 1.3rem;
-    font-weight: bold;
-    padding-bottom: 1%;
-}
-
-.main input[type=text]{
-    padding: 15px 15px;
-    margin: 2px 0;
-    box-sizing: border-box;
-    font-family: Montserrat;
-    font-size: 2rem;
-    text-align: left;
-    width : 50%;
-
-}
-.main input[type=file]{
-    padding: 15px 15px;
-    font-family: Montserrat;
-    font-size: 2rem;
-    align-content: center;
-    width : 450px;
-}
-
-.main textarea{
-    font-family: Montserrat;
-    font-size: 2rem;
-    width : 6s0%;
-}
-
-.main input[type=date]{
-    position: relative;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border: 2px solid #8DBF42;
-    font-size: 14px;
-    padding: 12px;
-    border-radius: 3px;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    -o-border-radius: 3px;
-    width: 300px;
-}
-
-
-.main select{
-    font-family: Montserrat;
-    font-size: 2rem;
-    width : 6s0%;
+@media (max-width: 400px) {
+  .main h1 {
+    width: 80%;
+    line-height: 2.8rem;
+    margin: 0 auto;
+  }
+  .main form {
+    width: 280px;
+  }
 }

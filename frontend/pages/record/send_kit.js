@@ -90,7 +90,7 @@ function Send_Kit(props) {
         <main className={styles.main}>
           <h1>Send a Kit</h1>
           <div classname={styles.container}>
-            <h3>Shipping Information</h3>
+            <h3>Ship To Information</h3>
             <form onSubmit={handleOnSubmit}>
               <label for="name">Name</label>
               <input
@@ -116,38 +116,50 @@ function Send_Kit(props) {
                 required
                 value={inputs.address_2}
               />
-              <label for="city">City</label>
-              <input
-                id="city"
-                type="text"
-                onChange={handleOnChange}
-                required
-                value={inputs.city}
-              />
-              <label for="state">State/Province</label>
-              <input
-                id="state"
-                type="text"
-                onChange={handleOnChange}
-                required
-                value={inputs.state}
-              />
-              <label for="zipcode">ZIP code</label>
-              <input
-                id="zipcode"
-                type="text"
-                onChange={handleOnChange}
-                required
-                value={inputs.zipcode}
-              />
-              <label for="country">Country of Origin</label>
-              <input
-                id="country"
-                type="text"
-                onChange={handleOnChange}
-                required
-                value={inputs.country}
-              />
+              <div className={styles.row}>
+                <div>
+                  <label for="city">City</label>
+                  <input
+                    id="city"
+                    type="text"
+                    onChange={handleOnChange}
+                    required
+                    value={inputs.city}
+                  />
+                </div>
+                <div>
+                  <label for="state">State/Province</label>
+                  <input
+                    id="state"
+                    type="text"
+                    onChange={handleOnChange}
+                    required
+                    value={inputs.state}
+                  />
+                </div>
+              </div>
+              <div className={styles.row}>
+                <div>
+                  <label for="zipcode">ZIP code</label>
+                  <input
+                    id="zipcode"
+                    type="text"
+                    onChange={handleOnChange}
+                    required
+                    value={inputs.zipcode}
+                  />
+                </div>
+                <div>
+                  <label for="country">Country of Origin</label>
+                  <input
+                    id="country"
+                    type="text"
+                    onChange={handleOnChange}
+                    required
+                    value={inputs.country}
+                  />
+                </div>
+              </div>
               <label for="note">Note</label>
               <textarea
                 id="note"
@@ -156,15 +168,25 @@ function Send_Kit(props) {
                 required
                 value={inputs.note}
               />
-              <div className={styles.bcontainer}>
-                <button type="submit" disabled={status.submitting}>
-                  {!status.submitting
-                    ? !status.submitted
-                      ? "Send Kit"
-                      : "Sent Request"
-                    : "Submitting..."}
-                </button>
+              <div className={styles.check}>
+                <input
+                  id="terms"
+                  type="checkbox"
+                  onChange={handleOnChange}
+                  required
+                  value={inputs.terms}
+                />
+                <label for="terms">
+                  I agree to the LORELAD Terms of Service & Privacy Policy
+                </label>
               </div>
+              <button type="submit" disabled={status.submitting}>
+                {!status.submitting
+                  ? !status.submitted
+                    ? "Send Kit"
+                    : "Sent Request"
+                  : "Submitting..."}
+              </button>
             </form>
           </div>
           {status.info.error && (

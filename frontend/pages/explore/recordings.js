@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import SearchBar from "../../components/SearchBar";
 import Player from "../../components/Player";
-import styles from "../../styles/Language.module.css";
+import styles from "../../styles/Languages_All_Recordings.module.css";
 import { server } from "../../config";
 
 // All Recordings Page template - incomplete while API is getting finished
@@ -74,13 +74,11 @@ function Recordings({ recordings, user_state }) {
             {recordings.map((recording) => (
               <div className={styles.recording}>
                 <div className={styles.recording_wrapper}>
-                  <div className={styles.rec_details}>
+                  <div className={styles.recording_info}>
                     <h6>{recording.title}</h6>
                     <p>@{recording.source}</p>
                   </div>
-                  <div className={styles.rec_player}>
-                    <Player source= {recording.media} />
-                  </div>
+                  <Player source={recording.media} />
                 </div>
                 <div className={styles.recording_links}>
                   <Link
@@ -92,8 +90,8 @@ function Recordings({ recordings, user_state }) {
                     <a className={styles.recording_link}>more info</a>
                   </Link>
                   <svg
-                    width="30"
-                    height="33"
+                    width="40"
+                    height="40"
                     viewBox="0 0 30 33"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -132,7 +130,8 @@ function Recordings({ recordings, user_state }) {
 
 export async function getServerSideProps() {
   // Call an external API endpoint to get languages
-  const res = await fetch(`${server}/records`);
+  // const res = await fetch(`${server}/records`);
+  const res = await fetch("http://lorelad-backend.herokuapp.com/records");
   const recordings = await res.json();
   // Pass languages to the page via props
   return {
