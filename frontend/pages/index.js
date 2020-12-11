@@ -188,7 +188,7 @@ const Home = (props) => {
               </div>
               <div className={styles.researcher}>
                 <p className={styles.md_lg}>Are you a researcher or student?</p>
-                <Link href="/explore">
+                <Link href="/language">
                   <button>
                     <svg
                       width="41"

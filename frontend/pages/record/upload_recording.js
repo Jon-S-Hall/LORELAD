@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styles from "../../styles/Add_Language.module.css";
+import styles from "../../styles/Upload_Recording.module.css";
 import Layout from "../../components/Layout"; //import common layout styles. notice that we're importing a JS class
 import axios from "axios";
 import { server } from "../../config";
